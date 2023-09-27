@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" placeholder="Name" required id="name" maxlength="5">
+        </div>
+        <br>
+        <div>
+            <label for="fnum">Fav number: </label>
+            <input type="number" placeholder="Fav number" required id="fnum" min="6" max="30">
+        </div>
+        <br>
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" placeholder="Email" required id="email">
+        </div>
+        <br>
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" placeholder="Password" required id="password">
+        </div>
+        <br>
+        <div>
+            <label for="gender">Gender: </label>
+            <input type="radio" required id="gender" name="gender" checked>
+            <label for="Male">Male</label>
+            <input type="radio" required id="gender" name="gender">
+            <label for="Female">Female</label>
+        </div>
+        <br>
+        <div>
+            <label for="count">Country: </label>
+            <select name="count" id="count" required>
+                <option value="">Country</option>
+                <option value="">USA</option>
+                <option value="">Russia</option>
+                <option value="">France</option>
+                <option value="">UK</option>
+                <option value="">China</option>
+                <option value="">Japan</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label for="text">Message: </label>
+        </div>
+        <div></div>
+        <textarea name="text" id="text" cols="40" rows="5" required placeholder="Leave a message"></textarea>
+        </div>
+        <br>
+        <div>
+            <label for="news">Subscribe to Newsletter: </label>
+            <input type="checkbox" required>
+        </div>
+        <br>
+        <div>
+            <label for="file">Upload file: </label>
+            <input type="file" multiple id="file" required>
+        </div>
+        <br>
+        <div>
+            <label for="bdate">Birthdate: </label>
+            <input type="date" name="bdate" id="bdate" required>
+        </div>
+        <br>
+        <div>
+            <label for="fcolor">Favorite color: </label>
+            <input type="color" name="fcolor" id="fcolor" required>
+        </div>
+        <br>
+        <div>
+            <label for="pweb">Personal Website: </label>
+            <input type="text" name="pweb" id="pweb" placeholder="yourwebsite.com" required>
+        </div>
+        <div>
+            <input type="submit" name="submit" id="submit">
+            <input type="reset" name="reset" id="reset">
+        </div>
+    </form>
+
+</body>
+
+</html>
