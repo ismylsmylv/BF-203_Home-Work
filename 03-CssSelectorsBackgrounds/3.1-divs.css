@@ -1,0 +1,32 @@
+.van1{
+    background-image: url(https://static.standard.co.uk/s3fs-public/thumbnails/image/2019/03/05/11/sei26139543-1-0.jpg?width=968);
+    height: 300px;
+    width: 300px;
+    background-position: top right;
+
+}
+
+.van2{
+    background-image: url(https://i.pinimg.com/736x/c8/90/27/c89027c7f55ff3f3adb4230c2e9f8ee2.jpg);
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+
+}
+
+.van3{
+    background-image: url(https://cdn.britannica.com/78/69678-050-491A5ED8/Bedroom-oil-canvas-Vincent-van-Gogh-Art-1889.jpg);
+    height: 300px;
+    width: 1500%;
+    background-size: contain;
+}
+
+.van4{
+    background-image: url(https://lh3.googleusercontent.com/ci/AA1T9HIIfUdQs1wrAQKESBeH8SkvTyXXmm1V7Q0_jI1PKXLVofaRpGTbe8xdp3zrgyJ-w_2vJ_0hlmA);
+    background-size: auto;
+    height:450px;
+    width: 100%;
+    background-repeat: no-repeat;
+    border: 1px solid gray;
+}

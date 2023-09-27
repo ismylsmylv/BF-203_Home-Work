@@ -1,0 +1,132 @@
+/* -1- body tag bütün səhifəni əhatə etdiyinə görə fon gradienti birbaşa ona verilir və səhifəni tam tutması təmin olunur */
+body {
+    background-image: linear-gradient(to bottom left, rgb(4, 28, 247), rgb(255, 255, 255));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* -2- class adı ilə body daxilindəki slice mərkəzə qoyulur, ağ fon rəngi verilir, kölgə yaradılır və sərhəd əlavə olunur */
+.slice {
+    border: 5px solid rgb(255, 255, 255);
+    border-style: solid;
+    max-width: 40%;
+    border-width: thick;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* -3- label tag və atributu ilə fərqli başlıq mətnləri eyni font verilir */
+label[for="greet1"],
+label[for="greet2"] {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* -4- button class özünəməxsus background, font rəngi, padding və marginə malik olur */
+.button {
+    cursor: pointer;
+    background-color: rgb(4, 28, 247);
+    color: white;
+    background-color: rgb(4, 28, 247);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 10px;
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+
+/* -5- ID vasitəsilə username və password fon rəngi və digər xassələrə malik olur */
+#username,
+#password {
+    background-color: #ffffff;
+    border: 1px solid #c8c8c8;
+    padding: 10px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* -6- ul daxilindəki li bütün child elementinlərə 18px font verilir, mərkəzlənir və nizamlayıcı işarələr silinir */
+ul li {
+    font-size: 18px;
+    text-align: center;
+    list-style: none;
+}
+
+/* -7- ul-a birbaşa bağlı li child elementinlərə boşluq qoyulur  */
+ul>li {
+    padding: 15px;
+}
+
+/* -8- Özündən əvvəl li elementi olan li-yə boşluq əlavə olunur */
+li+li {
+    margin-top: 10px;
+}
+
+/* -9- Eyni parent-ə malik li-lərə altdan xətt əlavə olunur */
+li~li {
+    border-bottom: 1px solid #ccc;
+}
+
+/* -10- Attribut əsaslı rəng təyin olunur*/
+[for="greet1"] {
+    color: #0099ff;
+}
+
+/* -11- Attributa daxil olan dəyərə görə əlavə olunur */
+[for*="greet1"] {
+    text-decoration: underline;
+}
+
+/* -12- Attributun müəyyən dəyərlə başlamasına görə text tipi dəyişir */
+[for^="gre"] {
+    font-weight: 700;
+}
+
+/* -13- Attributun müəyyən dəyərlə bitməsinə görə text tipi dəyişir */
+[for$="t2"] {
+    font-weight: 500;
+}
+
+/* -14 İlk child olan element bold şriftlə qeyd olunur */
+li:first-child {
+    font-weight: bold;
+}
+
+/* -15- Son child olan element qalın şriftlə qeyd olunur */
+li:last-child {
+    font-weight: 600;
+}
+
+/* -16- Hover edilərkən fon fərqli rəngə çevrilir*/
+li:hover {
+    background-color: #f7dc6f;
+}
+
+/* -17- Cüt sıralardakı li elementlərə fon rəng verilir */
+li:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* -18- li tipində ilk element olduğu üçün font ölçüsü artırılır*/
+li:first-of-type {
+    font-size: 23px;
+}
+
+/* -19- li tipində 3-cü olduğu üçün font ölçüsü artılır */
+li:nth-of-type(3){
+    font-size: 23px;
+}
+
+/* -20- Digər xüsusiyyətlər silinərsə default halda saxlanılır */
+*{
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
