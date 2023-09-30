@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Young Serif";
+    text-align: center;
+    color: white;
+}
+
+body {
+    padding: 25px;
+    background-image: url(./1696008549_Screenshot_1.png);
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+}
+
+/* includes all papers */
+.middles {
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* papers */
+.paper {
+    width: 21%;
+    padding-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+}
+
+/* paper backgrounds */
+.red {
+    background-color: #E56534;
+}
+
+.orange {
+    background-color: #F0C17D;
+}
+
+.green {
+    background-color: #16B77B;
+}
+
+.blue {
+    background-color: #14A9B7;
+}
+
+/* icons in each paper */
+.icon {
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+/* text colors  */
+.paper h3,
+.paper .icon,
+.paper p {
+    color: white;
+}
+
+/* button text colors */
+.inpaperred {
+    color: #E56534;
+}
+
+.inpaperorange {
+    color: #F0C17D;
+}
+
+.inpapergreen {
+    color: #16B77B;
+}
+
+.inpaperblue {
+    color: #16B77B;
+}
+
+/* buttons in papers */
+.buttonpaper {
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* buttons in papers while hover*/
+.buttonpaper:hover {
+    background-color: rgb(97, 97, 97);
+    color: white;
+    transition: 300ms;
+}
+
+/* margins */
+.paper h3,
+.paper i,
+.paper p,
+h1,
+.head {
+    margin: 20px;
+}
+
+/* arrows on sides that has no other use */
+.arrow {
+    border: none;
+    text-shadow: -1px -1px 2px rgba(0, 0, 0, 1);
+    margin: 10px;
+    color: #09302a;
+    font-size: 40px;
+}
+
+.paper p {
+    font-size: 14px;
+    position: relative;
+}
+
+h1 {
+    text-shadow: 1px 2px black;
+}
+
+/* sends to top */
+.up {
+    width: 50px;
+    height: 50px;
+    background-color: #242425;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding-top: 5px;
+    font-size: 30px;
+    border: none;
+}
+
+#headerforarrow {
+    position: absolute;
+    top: 0;
+}
+
+/* extra line in each paper */
+.bold {
+    position: relative;
+    height: 12px;
+    width: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.247);
+    z-index: 4;
+}
