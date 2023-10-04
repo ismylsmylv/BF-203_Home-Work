@@ -8,13 +8,13 @@
 
 .hoverUpper {
     background-color: #D92426;
-    transition: width 3s ease;
+    transition: width 100ms ease;
 }
 
 .hoverLower {
     background-color: #3400FA;
-    transition: width 3s ease;
-    transition-delay: 3s;
+    transition: width 100ms ease;
+    transition-delay: 100ms;
 }
 
 .hoverUpper:hover {
