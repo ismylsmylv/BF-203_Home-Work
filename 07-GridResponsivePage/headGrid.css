@@ -6,12 +6,26 @@
 
 body {
     padding: 20px;
-    background: rgb(245,61,105);
-background: linear-gradient(90deg, rgba(245,61,105,1) 0%, rgba(110,70,215,1) 100%);
+    background: rgb(245, 61, 105);
+    background: linear-gradient(90deg, rgba(245, 61, 105, 1) 0%, rgba(110, 70, 215, 1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn button {
+    display: none;
+    border: none;
+    background-color: #FFC600;
+    padding: 10px 15px;
+}
+
+.btn button i {
+    margin-right: 10px;
 }
 
 /* headGrid */
 .headGrid {
+    margin-top: 20px;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -23,6 +37,7 @@ background: linear-gradient(90deg, rgba(245,61,105,1) 0%, rgba(110,70,215,1) 100
     grid-template-rows: 1fr 1fr;
     box-sizing: border-box;
     gap: 20px;
+
 }
 
 .grid1 .headLeft {
@@ -46,6 +61,11 @@ background: linear-gradient(90deg, rgba(245,61,105,1) 0%, rgba(110,70,215,1) 100
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.headLeft h1,
+.headLeft p {
+    margin: 20px;
 }
 
 p {
@@ -116,6 +136,9 @@ p {
     flex-direction: column;
 }
 
+.midLong p, .midLong h1{
+    margin: 20px;
+}
 .midLong p {
     font-weight: 500;
 }
@@ -194,8 +217,9 @@ p {
 }
 
 .divider .text {
-    padding: 0 12px;
+    padding: 0 5px;
     font-weight: 700;
+    font-size: 15px;
 }
 
 /* endGrid */
@@ -205,41 +229,202 @@ p {
     grid-template-rows: 1fr 1fr;
     gap: 20px;
     width: 100%;
-    height: 80vh;
+    height: 100vh;
 }
+
 .endGrid .box {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
 }
+
 .endGrid .box1 {
     background-image: url(./img/1_TzaiFDmkiEkOxNU7eG43pw.jpg);
 }
+
 .endGrid .box2 {
     background-image: url(./img/art\ 4.jpg);
 }
+
 .endGrid .box3 {
     background-image: url(./img/art-auction-10e3hqz.jpg);
 }
+
 .endGrid .box4 {
     background-image: url(./img/Claude-Monet-1.webp);
 }
+
 .endGrid .box5 {
     background-image: url(./img/download.jpg);
 }
+
 .endGrid .box6 {
     background-image: url(./img/Expeditions_Header_Artwork_Card_.width-1200.format-webp.webp);
 }
+
 .endGrid .box7 {
     background-image: url(./img/photo-1587590227264-0ac64ce63ce8.jpg);
 }
+
 .endGrid .box8 {
     background-image: url(./img/images.jpg);
 }
+
 .endGrid .box9 {
     background-image: url(./img/Random-Pictures-of-Conceptual-and-Creative-Ideas-02.jpg);
 }
+
 .endGrid .box10 {
     background-image: url(./img/the-arts.jpg);
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .grid1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 20px;
+    }
+
+    .grid1 .headLeft {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+        display: grid;
+        align-items: center;
+        justify-content: flex-start;
+        align-content: center;
+    }
+
+    .grid1 .headLeft h1,
+    .grid1 .headLeft p {
+        margin-left: 30px;
+    }
+
+    .headUp,
+    .headDown {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        flex-direction: column;
+    }
+
+    .midShort {
+        display: none;
+    }
+
+    .midLong {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        box-sizing: border-box;
+        height: 100%;
+        gap: 20px;
+    }
+
+    .midLong .box {
+
+        height: 100%;
+        margin-bottom: 20px;
+    }
+    .widAd {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 20px;
+        height: 100%;
+        width: 100%;
+        background-color: #F5F4F2;
+    }
+
+    .widAd .left {
+        height: 250px;
+    }
+
+    .divider .color1,
+    .divider .color2 {
+        width: 35%;
+    }
+
+    .endGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .endGrid .box {
+        height: 100%;
+        width: 100%;
+    }
+
+    .btn button {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .grid1 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 20px;
+        width: 100%;
+        font-size: 10px;
+    }
+
+    .grid1 .headLeft {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        display: grid;
+        align-items: center;
+        justify-content: flex-start;
+        align-content: center;
+    }
+
+    .headUp,
+    .headDown {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        flex-direction: column;
+        align-content: center;
+    }
+
+    .grid1 .headleft h1 {
+        font-size: 14px;
+    }
+
+    .grid1 .headleft{
+        padding: 0px 90px;
+    }
+
+    .midLong{
+        display: column;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 20px;
+    }
+    .widAd .left{
+        height: 20vh;
+        width: 60vw;
+    }
+    .divider .text{
+        padding: 5px;
+    }
+    .endGrid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .endGrid .box{
+        height: 30vh;
+        width: 100%;
+    }
 }
