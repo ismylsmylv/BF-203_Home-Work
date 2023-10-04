@@ -1,0 +1,27 @@
+
+/* 2 */
+.hoverUpper,
+.hoverLower {
+    height: 100px;
+    width: 100px;
+}
+
+.hoverUpper {
+    background-color: #D92426;
+    transition: width 3s ease;
+}
+
+.hoverLower {
+    background-color: #3400FA;
+    transition: width 3s ease;
+    transition-delay: 3s;
+}
+
+.hoverUpper:hover {
+    width: 400px;
+}
+
+.hoverUpper:hover~.hoverLower {
+    width: 400px;
+}
+
