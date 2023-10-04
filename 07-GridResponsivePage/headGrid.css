@@ -136,9 +136,11 @@ p {
     flex-direction: column;
 }
 
-.midLong p, .midLong h1{
+.midLong p,
+.midLong h1 {
     margin: 20px;
 }
+
 .midLong p {
     font-weight: 500;
 }
@@ -331,6 +333,7 @@ p {
         height: 100%;
         margin-bottom: 20px;
     }
+
     .widAd {
         display: flex;
         flex-direction: column;
@@ -401,29 +404,33 @@ p {
         font-size: 14px;
     }
 
-    .grid1 .headleft{
+    .grid1 .headleft {
         padding: 0px 90px;
     }
 
-    .midLong{
+    .midLong {
         display: column;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
         gap: 20px;
     }
-    .widAd .left{
+
+    .widAd .left {
         height: 20vh;
         width: 60vw;
     }
-    .divider .text{
+
+    .divider .text {
         padding: 5px;
     }
+
     .endGrid {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .endGrid .box{
+
+    .endGrid .box {
         height: 30vh;
         width: 100%;
     }
