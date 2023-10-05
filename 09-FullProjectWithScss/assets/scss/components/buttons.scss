@@ -1,0 +1,12 @@
+@import '../utils/mixin'
+nav{
+    a{
+        text-transform: uppercase;
+        padding: 20px;
+        border: 1px solid black;
+        @include between;
+    }
+    &:hover{
+        color: $accent;
+    }
+}

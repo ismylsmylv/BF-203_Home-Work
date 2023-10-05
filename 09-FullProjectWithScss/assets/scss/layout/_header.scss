@@ -1,0 +1,12 @@
+header{
+    padding:20px;
+    height: 15vh;
+    width:100%;
+    background-color: $base-color;
+    @include around;
+    color: $filler;
+    nav{
+        color:$filler;
+        @include around;
+    }
+}
