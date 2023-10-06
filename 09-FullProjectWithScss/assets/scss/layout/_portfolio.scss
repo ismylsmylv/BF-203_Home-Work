@@ -1,0 +1,36 @@
+.portfolio {
+    @include center;
+    flex-direction: column;
+    padding: 20px;
+    padding-top: 70px;
+
+
+    .portGrid {
+        padding: 30px;
+        width: 80vw;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-rows: 1fr 1fr;
+        gap: 10px
+    }
+
+    .portImg {
+        position: relative;
+
+        i {
+            position: fixed;
+            height: 40px;
+            width: 40px;
+            color: $filler;
+            z-index: 3;
+
+        }
+    }
+
+    img {
+        width: 340px;
+        height: 250px;
+        border-radius: 10px;
+    }
+}

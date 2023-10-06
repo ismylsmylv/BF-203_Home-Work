@@ -1,12 +1,12 @@
-@import '../utils/mixin'
+@import '../utils/mixin';
+@import '../utils/variables';
 nav{
     a{
         text-transform: uppercase;
-        padding: 20px;
-        border: 1px solid black;
         @include between;
     }
     &:hover{
         color: $accent;
     }
 }
+

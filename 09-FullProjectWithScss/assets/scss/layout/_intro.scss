@@ -1,0 +1,40 @@
+@import '../utils/mixin';
+@import '../utils/variables';
+.intro{
+    padding-top: 20px;
+    height: 100vh;
+    background-color: $accent;
+    @include center;
+    flex-direction: column;
+    gap: 20px;
+    .person{
+        height: 250px;
+        width:250px;
+    }
+    .skills{
+
+        font-weight: 600;
+    }
+    .heading{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .divider{
+        @include center;
+        .line{
+            width: 100px;
+            height: 5px;
+            border-radius: 5px;
+            background-color: $filler;
+        }
+        .icon{
+            font-size: 30px;
+            color: $filler;
+            padding: 0 20px;
+        }
+    }
+    .skills{
+        font-weight:500;
+        font-size: 20px;
+    }
+}

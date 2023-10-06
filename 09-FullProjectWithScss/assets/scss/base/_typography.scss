@@ -1,6 +1,75 @@
-*{
+@use '../utils/variables' as *;
+@use '../utils/mixin' as *;
+
+* {
     font-family: "Montserrat";
 }
-h1, nav{
+
+h1,
+nav {
     text-transform: uppercase;
+}
+
+.skills,
+.header,
+.portfolio,
+h1,
+p {
+    color: $filler;
+}
+
+.inHead {
+    font-size: 3rem;
+    font-weight: bold;
+    color: $base-color;
+    @include center;
+    flex-direction: column;
+    text-transform: $up;
+}
+
+.about .inHead {
+    font-size: 3rem;
+    font-weight: bold;
+    color: $filler;
+    @include center;
+    flex-direction: column;
+    text-transform: $up;
+}
+
+.divider {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+
+    .line {
+        width: 110px;
+        height: 5px;
+        border-radius: 5px;
+        background-color: $base-color
+    }
+
+    .icon {
+        font-size: 30px;
+        color: $base-color;
+        padding: 0 20px;
+    }
+}
+
+.about .divider {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+
+    .line {
+        width: 110px;
+        height: 5px;
+        border-radius: 5px;
+        background-color: $filler;
+    }
+
+    .icon {
+        font-size: 30px;
+        color: $filler;
+        padding: 0 20px;
+    }
 }

@@ -5,51 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freelancer</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/main.css?v=2">
 </head>
 
 <body>
     <header>
         <h1>Start Bootstrap</h1>
         <nav>
-            <div><a>portfolio</a></div>
-            <div><a>about</a></div>
-            <div><a>contact</a></div>
+            <div><a href="#portfolio">portfolio</a></div>
+            <div><a href="#about">about</a></div>
+            <div><a href="#contact">contact</a></div>
         </nav>
     </header>
-    <div class="intro">
-        <div class="person"><img src="" alt=""></div>
-        <div class="heading"></div>
+    <div class="intro" id="intro">
+        <div class="person"><img src="./assets/img/avataaars.svg" alt=""></div>
+        <div class="heading">
+            <h1>Start Bootstrap</h1>
+        </div>
         <div class="divider">
             <div class="line"></div>
-            <div class="icon"></div>
+            <div class="icon"><i class="fa-solid fa-star"></i></div>
             <div class="line"></div>
         </div>
         <div class="skills">
             <p>Graphic Artist - Web Designer - Illustrator</p>
         </div>
     </div>
-    <div class="portfolio">
-        <div class="inHead">porfolio</div>
+    <div class="portfolio" id="portfolio">
+        <div class="inHead">portfolio</div>
         <div class="divider">
             <div class="line"></div>
-            <div class="icon"></div>
+            <div class="icon"><i class="fa-solid fa-star"></i></div>
             <div class="line"></div>
         </div>
         <div class="portGrid">
-            <div class="portImg"><img src="" alt=""></div>
-            <div class="portImg"><img src="" alt=""></div>
-            <div class="portImg"><img src="" alt=""></div>
-            <div class="portImg"><img src="" alt=""></div>
-            <div class="portImg"><img src="" alt=""></div>
-            <div class="portImg"><img src="" alt=""></div>
+            <div class="portImg"><i class="fa-solid fa-plus"></i><img src="./assets/img/cabin.png" alt=""></div>
+            <div class="portImg"><img src="./assets/img/cake.png" alt=""></div>
+            <div class="portImg"><img src="./assets/img/circus.png" alt=""></div>
+            <div class="portImg"><img src="./assets/img/game.png" alt=""></div>
+            <div class="portImg"><img src="./assets/img/safe.png" alt=""></div>
+            <div class="portImg"><img src="./assets/img/submarine.png" alt=""></div>
         </div>
     </div>
-    <div class="about">
+    <div class="about" id="about">
         <div class="inHead">about</div>
         <div class="divider">
             <div class="line"></div>
-            <div class="icon"></div>
+            <div class="icon"><i class="fa-solid fa-star"></i></div>
             <div class="line"></div>
         </div>
         <div class="aboutText">
@@ -64,37 +69,52 @@
             </div>
         </div>
         <div class="aboutButton">
-            <button><i></i>Free Download!</button>
+            <button><i class="fa-solid fa-download"></i>Free Download!</button>
         </div>
     </div>
-    <div class="contact">
+    <div class="contact" id="contact">
         <div class="inHead">Contact me</div>
         <div class="divider">
             <div class="line"></div>
-            <div class="icon"></div>
+            <div class="icon"><i class="fa-solid fa-star"></i></div>
             <div class="line"></div>
         </div>
         <form action="">
             <input type="text" placeholder="Full name">
             <input type="email" name="email" id="email" placeholder="Email adress">
             <input type="tel" placeholder="Phone number">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
+            <textarea name="" id="" cols="20" rows="10" placeholder="Message"></textarea>
             <button>Send</button>
         </form>
     </div>
     <div class="footer">
         <div class="upperFooter">
-            <h4>Location</h4>
-            <h4>Around the web</h4>
-            <h4>About freelancer</h4>
-            <p>2215 John Daniel Drive
-                Clark, MO 65243</p>
-            <div class="socials"></div>
-            <p>Freelance is a free to use, MIT licensed Bootstrap theme created by Start Bootstrap .</p>
+            <div class="location">
+                <h4>Location</h4>
+                <p>2215 John Daniel Drive
+                    Clark, MO 65243</p>
+            </div>
+            <div class="socIcons">
+                <h4>Around the web</h4>
+                <div class="socials">
+                    <div class="icon"><i class="fa-brands fa-facebook-f"></i></div>
+                    <div class="icon"> <i class="fa-brands fa-twitter"></i></div>
+                    <div class="icon"> <i class="fa-brands fa-instagram"></i></div>
+                    <div class="icon">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </div>
+                </div>
+
+            </div>
+            <div class="licence">
+                <h4>About freelancer</h4>
+                <p>Freelance is a free to use, MIT licensed Bootstrap theme created by <a href="#">Start
+                        Bootstrap</a>.</p>
+            </div>
         </div>
-        <div class="lowerFooter">
-            <p>Copyright © Your Website 2023</p>
-        </div>
+    </div>
+    <div class="copyRight">
+        <p>Copyright © Your Website 2023</p>
     </div>
 </body>
 

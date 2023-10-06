@@ -1,12 +1,46 @@
-header{
-    padding:20px;
+.header {
+
+    padding: 20px;
     height: 15vh;
-    width:100%;
+    width: 100%;
     background-color: $base-color;
-    @include around;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: $filler;
-    nav{
-        color:$filler;
-        @include around;
+    z-index: 10;
+
+    a {
+        color: $filler;
+    }
+}
+
+header {
+    position: fixed;
+    padding: 20px;
+    height: 15vh;
+    width: 100%;
+    background-color: $base-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $filler;
+    z-index: 9;
+
+    h1 {
+        margin: 0;
+    }
+
+    nav {
+        display: flex;
+
+        div {
+            margin-right: 20px;
+
+            a {
+                text-decoration: none;
+                color: $filler;
+            }
+        }
     }
 }

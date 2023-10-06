@@ -1,0 +1,44 @@
+.contact{
+    @include center;
+    flex-direction: column;
+    padding: 50px;
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        margin: 0 auto;
+      
+        input,
+        textarea {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 15px;
+          font-size: 20px;
+          font-weight: 500;
+          border: none;
+          border-bottom: 1px solid #ccc;
+          outline: none;
+        }
+      
+        textarea {
+          resize: vertical;
+        }
+      
+        button {
+          background-color: $accent;
+          color: $filler;
+          padding: 10px 15px;
+          border: none;
+          cursor: pointer;
+          font-size: 20px;
+          width: 20%;
+          border-radius: 10px;
+
+          &:disabled {
+            cursor: not-allowed;
+            background-color: $accentDisabled;
+          }
+        }
+      }
+      
+}
