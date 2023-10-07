@@ -1,0 +1,389 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Jost";
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.navBar {
+  height: 10vh;
+  background-color: #004274;
+  width: 100%;
+  color: #FFFFFF;
+  font-size: 18px;
+}
+.navBar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.navBar .container .navLeft {
+  display: flex;
+  align-items: center;
+}
+.navBar .container .navLeft .logo img {
+  height: auto;
+  margin-right: 35px;
+}
+.navBar .container .navLeft .navBtn {
+  margin-right: 30px;
+}
+.navBar .container .navRight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navBar .container .navRight a {
+  margin-right: 25px;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.navBar .container .navRight button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00AEFF;
+}
+
+.searchBox {
+  width: 100%;
+  height: 10vh;
+  margin-bottom: 20px;
+}
+.searchBox .container {
+  width: 70%;
+  height: 100%;
+  align-items: center;
+  padding: 20px;
+}
+.searchBox .container .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.searchBox .container .col-6,
+.searchBox .container .col-3 {
+  border-radius: 2px;
+}
+.searchBox .container .btn-outline-primary {
+  border: none;
+  color: #a5a5a5;
+}
+.searchBox .container .input-group {
+  border: 1px solid #a5a5a5;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  padding: 5px;
+}
+.searchBox .container .form-control {
+  border: none;
+}
+.searchBox .container .right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.searchBox .container .right button {
+  border: 1px solid #a5a5a5;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: #FFFFFF;
+  margin-right: 10px;
+  margin-left: 10px;
+  display: flex;
+  text-align: center;
+}
+.searchBox .container .right button i {
+  margin-right: 10px;
+  color: #a5a5a5;
+}
+.searchBox .container .right .submit button {
+  background-color: #004274;
+  font-size: 18px;
+  color: #FFFFFF;
+  border: none;
+}
+
+.hero {
+  padding-top: 20px;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-image: url(https://preview.colorlib.com/theme/konato/assets/img/hero/h1_hero1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 25vh 15vw;
+  color: #FFFFFF;
+  z-index: -1;
+}
+.hero ::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.0508578431) 0%, rgba(0, 0, 0, 0) 47%);
+  width: 100%;
+}
+.hero ::after p,
+.hero ::after h1,
+.hero ::after .lead,
+.hero ::after h3,
+.hero ::after button {
+  z-index: 5;
+  color: inherit;
+}
+.hero h1 {
+  font-size: 60px;
+}
+.hero p {
+  font-size: 18px;
+}
+.hero .lead {
+  font-size: 20px;
+  width: 50%;
+}
+.hero h3 {
+  font-size: 40px;
+  margin: 30px 0 40px 0;
+}
+.hero button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00AEFF;
+  color: #FFFFFF;
+}
+
+.offers .offerText {
+  text-align: center;
+}
+.offers .offerText .header {
+  margin-top: 60px;
+  font-size: 40px;
+  font-weight: 500;
+}
+.offers .offerText .offerP {
+  font-size: 18px;
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.offers .card .price {
+  font-size: 18px;
+  color: #00AEFF;
+}
+.offers .card .lead {
+  font-size: 15px;
+}
+.offers .card .card-title {
+  font-size: 20px;
+}
+.offers .card hr {
+  color: #a5a5a5;
+}
+.offers .card .cardFooter .row {
+  display: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.offers .card .cardFooter .row i {
+  display: inline-block;
+  margin-right: 2px;
+  color: #a5a5a5;
+}
+.offers .card .cardFooter .row p {
+  display: inline-block;
+  margin: 0;
+  font-size: 14px;
+}
+
+.services {
+  width: 100%;
+  height: 80vh;
+  background-image: url(https://preview.colorlib.com/theme/konato/assets/img/gallery/section-bg1.jpg.webp);
+  text-align: center;
+  color: #FFFFFF;
+  padding: 15vh;
+}
+.services .container {
+  width: 85%;
+}
+.services .container .heading {
+  font-size: 38px;
+  text-align: center;
+  font-weight: 500;
+}
+.services .container .cards {
+  background-color: #00AEFF;
+}
+.services .container .cards .card2, .services .container .cards .card1 {
+  box-shadow: inset -10px 0 10px rgba(0, 0, 0, 0.027);
+}
+.services .container .cards .card {
+  background-color: #00AEFF;
+  color: #FFFFFF;
+  border: none;
+  padding: 30px 20px;
+  border-radius: 0;
+}
+.services .container .cards .card a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 20px;
+  margin: 10px;
+  font-weight: 500;
+}
+.services .container .cards .card p {
+  font-size: 16px;
+  margin: 15px;
+  font-weight: 200;
+}
+.services .container .cards .card .servImg1 {
+  background-image: url(https://preview.colorlib.com/theme/konato/assets/img/icon/services1.svg);
+  height: 44px;
+  width: 44px;
+  margin: 0 auto;
+}
+.services .container .cards .card .servImg2 {
+  background-image: url(https://preview.colorlib.com/theme/konato/assets/img/icon/services2.svg);
+  height: 45px;
+  width: 55px;
+  background-size: cover;
+  margin: 0 auto;
+}
+.services .container .cards .card .servImg3 {
+  background-image: url(https://preview.colorlib.com/theme/konato/assets/img/icon/services3.svg);
+  height: 45px;
+  width: 55px;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.offers .offerText {
+  text-align: center;
+}
+.offers .offerText .headerSales {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  font-size: 40px;
+  font-weight: 500;
+}
+.offers .card .price {
+  font-size: 18px;
+  color: #00AEFF;
+}
+.offers .card .lead {
+  font-size: 15px;
+}
+.offers .card .card-title {
+  font-size: 20px;
+}
+.offers .card hr {
+  color: #a5a5a5;
+}
+.offers .card .cardFooter .row {
+  display: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.offers .card .cardFooter .row i {
+  display: inline-block;
+  margin-right: 2px;
+  color: #a5a5a5;
+}
+.offers .card .cardFooter .row p {
+  display: inline-block;
+  margin: 0;
+  font-size: 14px;
+}
+
+.explore-container {
+  width: 100%;
+  background-color: #f2f4f8;
+}
+.explore-container .explore {
+  width: 100%;
+  height: 60vh;
+  background-color: #f2f4f8;
+  padding: 10vh 10vw;
+  display: flex;
+  justify-content: space-between;
+}
+.explore-container .explore .expLeft {
+  width: 30%;
+}
+.explore-container .explore .expLeft h3 {
+  font-size: 40px;
+}
+.explore-container .explore .expLeft p {
+  font-size: 18px;
+  font-weight: 200;
+}
+.explore-container .explore .expLeft button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00AEFF;
+  color: #FFFFFF;
+}
+.explore-container .explore .expRight {
+  background-color: #FFFFFF;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 80%;
+}
+.explore-container .explore .expRight .row {
+  width: 100%;
+  justify-content: space-between;
+  margin-right: 0;
+  margin-left: 0;
+}
+.explore-container .explore .expRight .row .col-3 {
+  text-align: center;
+  width: 25%;
+}
+
+.team {
+  width: 100%;
+  text-align: center;
+}
+.team .header {
+  margin-top: 60px;
+  font-size: 40px;
+  font-weight: 500;
+}
+.team .teamP {
+  font-size: 18px;
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.team .card {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 0;
+}
+.team .card a {
+  font-size: 22px;
+  text-decoration: none;
+  color: #000000;
+}
+.team .card p {
+  font-size: 16px;
+}
+.team .card .img-fluid {
+  height: 342px;
+  width: 324px;
+}/*# sourceMappingURL=main.css.map */

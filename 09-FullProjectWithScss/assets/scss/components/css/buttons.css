@@ -1,0 +1,9 @@
+nav a {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav:hover {
+  color: #1ABC9C;
+}/*# sourceMappingURL=buttons.css.map */

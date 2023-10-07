@@ -1,0 +1,59 @@
+.hero {
+    padding-top: 20px;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-image: url(https://preview.colorlib.com/theme/konato/assets/img/hero/h1_hero1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 25vh 15vw;
+    color: $filler;
+    z-index: -1;
+
+
+    ::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.05085784313725494) 0%, rgba(0, 0, 0, 0) 47%);
+        width: 100%;
+    }
+    ::after{
+    p,
+    h1,
+    .lead,
+    h3,
+    button {
+        z-index: 5;
+        color: inherit;
+    }
+}
+h1{
+    font-size:60px;
+}
+p{
+    font-size:18px;
+}
+.lead{
+    font-size:20px;
+    width:50%;
+}
+h3{
+    font-size:40px;
+    margin: 30px 0 40px 0;
+}
+button{
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color:$accent;
+    color:$filler;
+}
+}

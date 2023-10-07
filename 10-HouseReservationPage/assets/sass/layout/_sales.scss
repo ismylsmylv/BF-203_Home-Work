@@ -1,0 +1,49 @@
+.offers {
+    .offerText{
+        text-align:center;
+    .headerSales {
+        margin-top:60px;
+        margin-bottom:60px;
+        font-size: 40px;
+        font-weight: 500;
+    }
+    }
+    .card {
+        .price {
+            font-size: 18px;
+            color: $accent;
+        }
+
+        .lead {
+            font-size: 15px;
+        }
+
+        .card-title {
+            font-size: 20px;
+        }
+
+        hr {
+            color: $bootColor;
+        }
+
+        .cardFooter {
+
+            .row {
+                display: border-box;
+                @include centerRow;
+
+                i {
+                    display: inline-block;
+                    margin-right: 2px;
+                    color: $bootColor
+                }
+
+                p {
+                    display: inline-block;
+                    margin: 0;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

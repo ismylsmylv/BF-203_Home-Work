@@ -1,0 +1,70 @@
+.services {
+    width: 100%;
+    height: 80vh;
+    background-image: url(https://preview.colorlib.com/theme/konato/assets/img/gallery/section-bg1.jpg.webp);
+    text-align: center;
+    color: $filler;
+    padding:15vh;
+
+    .container {
+        width: 85%;
+
+        .heading {
+            font-size: 38px;
+            text-align: center;
+            font-weight:500;
+        }
+
+        .cards {
+            background-color: $accent;
+            
+            .card2, .card1 {
+                box-shadow: inset -10px 0 10px rgba(0, 0, 0, 0.027);
+            }
+            
+            .card {
+                background-color: $accent;
+                color: $filler;
+                border: none;
+                padding: 30px 20px;
+                border-radius: 0;
+
+                a {
+                    text-decoration: none;
+                    color: $filler;
+                    font-size: 20px;
+                    margin: 10px;
+                    font-weight:500;
+                }
+
+                p {
+                    font-size: 16px;
+                    margin: 15px;
+                    font-weight:200;
+
+                }
+
+                .servImg1 {
+                    background-image: url(https://preview.colorlib.com/theme/konato/assets/img/icon/services1.svg);
+                    height: 44px;
+                    width: 44px;
+                    margin: 0 auto;
+                }
+                .servImg2 {
+                    background-image: url(https://preview.colorlib.com/theme/konato/assets/img/icon/services2.svg);
+                    height: 45px;
+                    width: 55px;
+                    background-size: cover;
+                    margin: 0 auto;
+                }
+                .servImg3 {
+                    background-image: url(https://preview.colorlib.com/theme/konato/assets/img/icon/services3.svg);
+                    height: 45px;
+                    width: 55px;
+                    background-size: cover;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
