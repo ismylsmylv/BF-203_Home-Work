@@ -16,22 +16,24 @@
     }
 
     .card {
-        width: 100%;
-        border: 1px solid black;
+            border:none;
+        width: 260px;
         border-radius:0;
 
         a {
             font-size: 22px;
             text-decoration: none;
-            color: $default;
+            color: $teamColor;
+            font-weight:500;
         }
 
         p {
             font-size: 16px;
+            color:$bootColor;
         }
         .img-fluid{
-        height:342px;
-        width:324px;
+        height:280px;
+        width:100%;
 
     }
 }}

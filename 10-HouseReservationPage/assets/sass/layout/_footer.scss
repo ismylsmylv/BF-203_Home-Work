@@ -1,0 +1,48 @@
+@import "../abstracts/mixins";
+.footer {
+    width:100%;
+    height:80vh;
+    color: $bootColor;
+    padding: 15vh 7vw;
+    display: flex;
+    justify-content: space-between;
+    .row{
+        width:100%;
+    }
+    .socials{
+        display: flex;
+    i{
+        margin-right: 15px;
+    }}
+    .logo{
+        margin-bottom:20px;
+    }
+    .col-md-2, 
+    .col-md-3{
+        display:flex;
+        flex-direction:column;
+        height: 100%;
+        a{
+            text-decoration: none;
+            color: $creditGray;
+            margin: 8px 0;
+            font-weight: 300;
+        }
+        .mail{
+        font-size:15px;
+        text-decoration:underline $footerBlack;
+    }
+    .tel{
+        font-size:20px;
+        color:$footerBlue;
+        text-decoration:underline;
+        font-weight:600;
+    }
+    }
+    h3{
+        font-size:20px;
+        color:$footerBlack;
+    }
+    
+    
+}

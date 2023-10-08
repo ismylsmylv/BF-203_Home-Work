@@ -1,0 +1,18 @@
+.credits{
+    width:100%;
+    height: fit-content;
+    background-color:$creditBg;
+    padding:20px;
+    text-align:center;
+    @include center;
+    p{
+        color:$creditGray;
+        font-size:14px;
+        margin:0;
+    }
+    i, a{
+        color: $accent;
+    }
+    a{
+    text-decoration:none;
+}}

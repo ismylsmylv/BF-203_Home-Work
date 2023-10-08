@@ -2,6 +2,7 @@
 @import "./base/typography";
 @import "./base/reset";
 @import "./abstracts/mixins";
+@import "./components/buttons";
 @import "./layout/navbar";
 @import "./layout/searchbar";
 @import "./layout/hero";
@@ -10,3 +11,7 @@
 @import "./layout/sales";
 @import "./layout/explore";
 @import "./layout/team";
+@import "./layout/subscribe";
+@import "./layout/footer";
+@import "./layout/credits";
+

@@ -7,6 +7,22 @@
   text-decoration: none;
 }
 
+.defButton, .subscribe .subLeft button, .explore-container .explore .expLeft button, .hero button, .navBar .container .navRight button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00AEFF;
+  color: #FFFFFF;
+}
+
+.defButton, .subscribe .subLeft button, .explore-container .explore .expLeft button, .hero button, .navBar .container .navRight button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00AEFF;
+  color: #FFFFFF;
+}
+
 .navBar {
   height: 10vh;
   background-color: #004274;
@@ -41,13 +57,6 @@
   text-decoration: none;
   color: #FFFFFF;
 }
-.navBar .container .navRight button {
-  padding: 10px 25px;
-  border: none;
-  border-radius: 5px;
-  background-color: #00AEFF;
-}
-
 .searchBox {
   width: 100%;
   height: 10vh;
@@ -107,6 +116,14 @@
   border: none;
 }
 
+.defButton, .subscribe .subLeft button, .explore-container .explore .expLeft button, .hero button, .navBar .container .navRight button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00AEFF;
+  color: #FFFFFF;
+}
+
 .hero {
   padding-top: 20px;
   height: 100vh;
@@ -155,14 +172,6 @@
   font-size: 40px;
   margin: 30px 0 40px 0;
 }
-.hero button {
-  padding: 10px 30px;
-  border: none;
-  border-radius: 5px;
-  background-color: #00AEFF;
-  color: #FFFFFF;
-}
-
 .offers .offerText {
   text-align: center;
 }
@@ -308,6 +317,14 @@
   font-size: 14px;
 }
 
+.defButton, .subscribe .subLeft button, .explore-container .explore .expLeft button, .navBar .container .navRight button, .hero button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00AEFF;
+  color: #FFFFFF;
+}
+
 .explore-container {
   width: 100%;
   background-color: #f2f4f8;
@@ -330,13 +347,6 @@
   font-size: 18px;
   font-weight: 200;
 }
-.explore-container .explore .expLeft button {
-  padding: 10px 30px;
-  border: none;
-  border-radius: 5px;
-  background-color: #00AEFF;
-  color: #FFFFFF;
-}
 .explore-container .explore .expRight {
   background-color: #FFFFFF;
   text-align: center;
@@ -353,6 +363,10 @@
 .explore-container .explore .expRight .row .col-3 {
   text-align: center;
   width: 25%;
+}
+.explore-container .explore .expRight .row .expCat {
+  margin: 10px;
+  font-weight: 500;
 }
 
 .team {
@@ -371,19 +385,139 @@
   margin-bottom: 40px;
 }
 .team .card {
-  width: 100%;
-  border: 1px solid black;
+  border: none;
+  width: 260px;
   border-radius: 0;
 }
 .team .card a {
   font-size: 22px;
   text-decoration: none;
-  color: #000000;
+  color: #33384e;
+  font-weight: 500;
 }
 .team .card p {
   font-size: 16px;
+  color: #a5a5a5;
 }
 .team .card .img-fluid {
-  height: 342px;
-  width: 324px;
+  height: 280px;
+  width: 100%;
+}
+
+.defButton, .subscribe .subLeft button, .navBar .container .navRight button, .hero button, .explore-container .explore .expLeft button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00AEFF;
+  color: #FFFFFF;
+}
+
+.subscribe {
+  width: 100%;
+  height: 60vh;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  background-color: #004274;
+}
+.subscribe .subLeft {
+  padding: 10vh 5vw;
+}
+.subscribe .subLeft h1 {
+  font-size: 38px;
+}
+.subscribe .subLeft input {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #FFFFFF;
+  color: #FFFFFF;
+  outline: none;
+  background-color: #004274;
+}
+.subscribe .subLeft input::placeholder {
+  color: #FFFFFF;
+}
+.subscribe .subLeft,
+.subscribe .subRight {
+  width: 50%;
+  height: 100%;
+}
+.subscribe .subRight img {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+}
+
+.footer {
+  width: 100%;
+  height: 80vh;
+  color: #a5a5a5;
+  padding: 15vh 7vw;
+  display: flex;
+  justify-content: space-between;
+}
+.footer .row {
+  width: 100%;
+}
+.footer .socials {
+  display: flex;
+}
+.footer .socials i {
+  margin-right: 15px;
+}
+.footer .logo {
+  margin-bottom: 20px;
+}
+.footer .col-md-2,
+.footer .col-md-3 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.footer .col-md-2 a,
+.footer .col-md-3 a {
+  text-decoration: none;
+  color: #5e5e5e;
+  margin: 8px 0;
+  font-weight: 300;
+}
+.footer .col-md-2 .mail,
+.footer .col-md-3 .mail {
+  font-size: 15px;
+  text-decoration: underline #1a1a1a;
+}
+.footer .col-md-2 .tel,
+.footer .col-md-3 .tel {
+  font-size: 20px;
+  color: #004274;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.footer h3 {
+  font-size: 20px;
+  color: #1a1a1a;
+}
+
+.credits {
+  width: 100%;
+  height: fit-content;
+  background-color: #f2f6f9;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.credits p {
+  color: #5e5e5e;
+  font-size: 14px;
+  margin: 0;
+}
+.credits i, .credits a {
+  color: #00AEFF;
+}
+.credits a {
+  text-decoration: none;
 }/*# sourceMappingURL=main.css.map */

@@ -1,3 +1,4 @@
+@import "../components/buttons";
 .explore-container {
     width: 100%;
     background-color: $bgGray;
@@ -23,11 +24,7 @@
             }
 
             button {
-                padding: 10px 30px;
-                border: none;
-                border-radius: 5px;
-                background-color: $accent;
-                color: $filler;
+                @extend .defButton;
             }
         }
 
@@ -47,6 +44,10 @@
                 .col-3 {
                     text-align: center;
                     width: 25%;
+                }
+                .expCat{
+                    margin:10px;
+                    font-weight:500;
                 }
             }
         }

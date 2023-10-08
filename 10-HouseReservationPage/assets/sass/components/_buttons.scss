@@ -1,0 +1,8 @@
+@import "../abstracts/variables";
+.defButton {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: $accent;
+    color: $filler;
+}
