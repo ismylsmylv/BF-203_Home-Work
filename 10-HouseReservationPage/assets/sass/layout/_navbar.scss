@@ -1,5 +1,9 @@
 @import "../components/buttons";
 .navBar{
+      position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
     height: 10vh;
     background-color:$base-color;
     width: 100%;
@@ -7,7 +11,8 @@
     font-size: 18px;
     .container{
         @include between;
-        padding: 10px;
+        align-items: center;
+        margin:10px;
         .navLeft {
             display: flex;
             align-items: center;

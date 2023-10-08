@@ -12,7 +12,72 @@
   border: none;
   border-radius: 5px;
   background-color: #00AEFF;
+  border: 1px solid #00AEFF;
   color: #FFFFFF;
+}
+
+.navBar .container .navRight .signBtn {
+  display: inline-block;
+}
+.navBar .container .navRight .signBtn .btn-primary {
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+.navBar .container .navRight .signBtn .btn-primary:hover {
+  background-color: #004274;
+  border-color: #00AEFF;
+}
+
+.navBar .container .navLeft {
+  position: relative;
+}
+.navBar .container .navLeft .navBtn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+.navBar .container .navLeft .navBtn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00AEFF;
+  transition: width 0.5s;
+}
+.navBar .container .navLeft .navBtn:hover {
+  color: #00AEFF;
+}
+.navBar .container .navLeft .navBtn:hover::before {
+  width: 100%;
+}
+
+.hero .container button {
+  cursor: pointer;
+  transition: background 0.5s;
+}
+.hero .container button:hover {
+  background: #004274;
+  border: 1px solid #004274;
+}
+
+.card {
+  overflow: hidden;
+}
+
+.img-fluid {
+  max-width: 100%;
+  transition: transform 0.5s ease;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.img-fluid:hover {
+  transform: scale(1.1);
+  overflow: hidden;
 }
 
 .defButton, .subscribe .subLeft button, .explore-container .explore .expLeft button, .hero button, .navBar .container .navRight button {
@@ -20,10 +85,15 @@
   border: none;
   border-radius: 5px;
   background-color: #00AEFF;
+  border: 1px solid #00AEFF;
   color: #FFFFFF;
 }
 
 .navBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
   height: 10vh;
   background-color: #004274;
   width: 100%;
@@ -34,7 +104,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  align-items: center;
+  margin: 10px;
 }
 .navBar .container .navLeft {
   display: flex;
@@ -58,24 +129,47 @@
   color: #FFFFFF;
 }
 .searchBox {
+  margin-top: 10vh;
   width: 100%;
   height: 10vh;
-  margin-bottom: 20px;
+}
+.searchBox .btn-outline-primary:hover,
+.searchBox .fa-magnifying-glass:hover {
+  background-color: white;
+  color: #a5a5a5;
 }
 .searchBox .container {
   width: 70%;
-  height: 100%;
-  align-items: center;
-  padding: 20px;
+  padding: 10px;
 }
 .searchBox .container .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.searchBox .container .col-6,
-.searchBox .container .col-3 {
+.searchBox .container .row .col-3 {
   border-radius: 2px;
+}
+.searchBox .container .row .col-3 button {
+  border: 1px solid #a5a5a5;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  align-items: center !important;
+  margin: 0 !important;
+  color: #a5a5a5;
+}
+.searchBox .container .row .col-3 button i {
+  margin-right: 10px;
+  color: #a5a5a5;
+}
+.searchBox .container .row .col-3 button i .categ {
+  color: #000000;
+  margin-bottom: 0 !important;
 }
 .searchBox .container .btn-outline-primary {
   border: none;
@@ -95,20 +189,6 @@
   flex-direction: column;
   align-items: center;
 }
-.searchBox .container .right button {
-  border: 1px solid #a5a5a5;
-  border-radius: 5px;
-  padding: 10px 20px;
-  background-color: #FFFFFF;
-  margin-right: 10px;
-  margin-left: 10px;
-  display: flex;
-  text-align: center;
-}
-.searchBox .container .right button i {
-  margin-right: 10px;
-  color: #a5a5a5;
-}
 .searchBox .container .right .submit button {
   background-color: #004274;
   font-size: 18px;
@@ -121,6 +201,7 @@
   border: none;
   border-radius: 5px;
   background-color: #00AEFF;
+  border: 1px solid #00AEFF;
   color: #FFFFFF;
 }
 
@@ -136,27 +217,9 @@
   background-repeat: no-repeat;
   padding: 25vh 15vw;
   color: #FFFFFF;
-  z-index: -1;
 }
-.hero ::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.0508578431) 0%, rgba(0, 0, 0, 0) 47%);
-  width: 100%;
-}
-.hero ::after p,
-.hero ::after h1,
-.hero ::after .lead,
-.hero ::after h3,
-.hero ::after button {
-  z-index: 5;
-  color: inherit;
+.hero .container p, .hero .container h1, .hero .container h3, .hero .container .lead, .hero .container button {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .hero h1 {
   font-size: 60px;
@@ -172,6 +235,10 @@
   font-size: 40px;
   margin: 30px 0 40px 0;
 }
+.hero button {
+  border-radius: 5px;
+}
+
 .offers .offerText {
   text-align: center;
 }
@@ -322,6 +389,7 @@
   border: none;
   border-radius: 5px;
   background-color: #00AEFF;
+  border: 1px solid #00AEFF;
   color: #FFFFFF;
 }
 
@@ -409,6 +477,7 @@
   border: none;
   border-radius: 5px;
   background-color: #00AEFF;
+  border: 1px solid #00AEFF;
   color: #FFFFFF;
 }
 

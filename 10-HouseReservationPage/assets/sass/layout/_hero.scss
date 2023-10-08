@@ -11,29 +11,9 @@
     background-repeat: no-repeat;
     padding: 25vh 15vw;
     color: $filler;
-    z-index: -1;
-
-
-    ::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background: rgb(0, 0, 0);
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0.05085784313725494) 0%, rgba(0, 0, 0, 0) 47%);
-        width: 100%;
-    }
-    ::after{
-    p,
-    h1,
-    .lead,
-    h3,
-    button {
-        z-index: 5;
-        color: inherit;
+    .container{
+        p, h1, h3, .lead, button {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 }
 h1{
@@ -52,5 +32,6 @@ h3{
 }
 button{
     @extend .defButton;
+    border-radius: 5px;
 }
 }
