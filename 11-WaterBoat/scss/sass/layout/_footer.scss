@@ -1,0 +1,55 @@
+.footer{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    padding: 5vh;
+    background-color: $bgMain;
+    .footerContainer{
+        width: 60%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap:20px;
+        .link{
+            display: flex;
+            flex-direction: column;
+            .learnMore{
+                text-decoration: none;
+                color: $defBlue;
+                p{
+                    font-size: 15px;
+                    font-weight: 300;
+                    font-family: $secTypo;
+                    color: $defBlue;
+                    line-height: 25px;
+                }
+            }
+            p{
+                margin: 20px 0;
+                font-size: 15px;
+                font-weight: 300;
+                font-family: $secTypo;
+                color: $secondary;
+                line-height: 25px;
+            }
+            h4{
+                font-size: 16px;
+                color: $default;
+                font-family: $mainTypo;
+                font-weight: 400;
+                text-decoration: underline;
+                text-decoration-color: $defBlue;
+                text-decoration-thickness: 2px;
+            }
+            a{
+                margin: 10px 0;
+                color: $defBlue;
+                text-decoration: none;
+                font-family: $secTypo;
+                font-weight: 300;
+            }
+        }
+    }
+}

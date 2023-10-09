@@ -1,0 +1,540 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400&family=Dancing+Script:wght@400;500;600;700&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contactHeader {
+  width: 100%;
+  height: 15vh;
+  background-color: #f8f9fa;
+  padding: 2vh;
+}
+.contactHeader .contactsContainer {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+}
+.contactHeader .contactsContainer .contacts {
+  display: flex;
+  justify-content: row;
+  align-items: center;
+}
+.contactHeader .contactsContainer .contacts .leftCont {
+  color: #ffffff;
+  background-color: #1089ff;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.contactHeader .contactsContainer .contacts .rightCont h1 {
+  font-family: "Oswald";
+  font-size: 19px;
+  font-weight: 400;
+}
+.contactHeader .contactsContainer .contacts .rightCont h2 {
+  color: #808080;
+  font-family: "Blinker";
+  font-size: 19px;
+  font-weight: 200;
+}
+
+body {
+  position: relative;
+}
+body .header {
+  position: sticky;
+  top: 0;
+  height: 8vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1089ff;
+}
+body .header .container {
+  margin: 0 auto;
+  width: 35%;
+  display: flex;
+  justify-content: space-around;
+}
+body .header .container a {
+  text-decoration: none;
+  color: #000000;
+  font-family: "Oswald";
+  font-weight: 900;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.hero {
+  width: 100%;
+  height: 85vh;
+  background-image: linear-gradient(0deg, rgba(19, 19, 19, 0.3), rgba(54, 54, 54, 0.3)), url(https://preview.colorlib.com/theme/waterboat/images/hero_2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+.hero .container {
+  width: 40%;
+}
+.hero .container h1 {
+  font-size: 48px;
+  color: #ffffff;
+  font-family: "Oswald";
+  text-transform: capitalize;
+  font-weight: 300;
+}
+.hero .container p {
+  font-family: "Blinker";
+  color: #ffffff;
+  font-size: 18px;
+  margin: 20px;
+  font-weight: 200;
+}
+.hero .container .heroBtn {
+  color: #ffffff;
+  font-family: "Oswald";
+  text-transform: uppercase;
+  background-color: #1089ff;
+  padding: 16px 48px;
+  border: 5px solid #1089ff;
+  border-radius: 5px;
+}
+.hero .container .heroBtn a {
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.2rem;
+}
+.hero .arrow {
+  height: 70px;
+  width: 70px;
+  color: #000000;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 23px;
+}
+
+.about {
+  width: 100%;
+  height: 40vh;
+  margin-top: 90px;
+}
+.about .aboutContainer {
+  margin: 0 auto;
+  width: 60%;
+  height: 40vh;
+  display: flex;
+}
+.about .aboutContainer .aboutLeft {
+  width: 50%;
+  height: 100%;
+}
+.about .aboutContainer .aboutLeft img {
+  width: 100%;
+  height: 100%;
+}
+.about .aboutContainer .aboutRight {
+  width: 50%;
+  height: 100%;
+  padding: 0 25px;
+}
+.about .aboutContainer .aboutRight .preText {
+  font-family: "Dancing Script";
+  color: #1089ff;
+  font-size: 17px;
+}
+.about .aboutContainer .aboutRight h1 {
+  font-size: 28px;
+  font-family: "Oswald";
+  font-weight: 500;
+  padding-bottom: 20px;
+}
+.about .aboutContainer .aboutRight .line {
+  width: 50px;
+  height: 2px;
+  background-color: #1089ff;
+}
+.about .aboutContainer .aboutRight p {
+  padding-top: 20px;
+  font-family: "Blinker";
+  color: #808080;
+  font-weight: 300;
+  padding-bottom: 15px;
+}
+.about .aboutContainer .aboutRight button {
+  color: #ffffff;
+  font-family: "Oswald";
+  text-transform: uppercase;
+  background-color: #1089ff;
+  padding: 16px 48px;
+  border: 5px solid #1089ff;
+  border-radius: 5px;
+  padding: 14px 24px;
+}
+.about .aboutContainer .aboutRight button a {
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.2rem;
+}
+
+.specs {
+  padding-top: 80px;
+  width: 100%;
+  height: 30vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.specs .cardContainer {
+  height: 100%;
+  width: 60%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.specs .cardContainer .card {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  padding: 20px;
+  height: 100%;
+}
+.specs .cardContainer .card h1 {
+  font-family: "Oswald";
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.specs .cardContainer .card p {
+  font-family: "Blinker";
+  font-size: 20px;
+  font-weight: 300;
+  color: #808080;
+  margin-bottom: 8px;
+}
+.specs .cardContainer .card .icon {
+  margin-bottom: 8px;
+  width: 70px;
+  height: 70px;
+}
+.specs .cardContainer .card .icon i {
+  color: #1089ff;
+  font-size: 60px;
+}
+
+.stats {
+  width: 100%;
+  height: 30vh;
+  background-color: #1089ff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 10vh;
+  padding: 10vh;
+}
+.stats .statsContainer {
+  margin: 0 auto;
+  width: 60%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+}
+.stats .statsContainer .stat h1 {
+  font-size: 50px;
+  font-family: "Oswald";
+  font-weight: 400;
+  color: #ffffff;
+}
+.stats .statsContainer .stat .text {
+  font-size: 18px;
+  font-family: "Blinker";
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.destination {
+  width: 100%;
+  height: 110vh;
+  padding: 10vh;
+  margin: 0 auto;
+  text-align: center;
+}
+.destination .preText {
+  font-family: "Dancing Script";
+  color: #1089ff;
+  font-size: 17px;
+}
+.destination h1 {
+  font-family: "Oswald";
+  color: #000000;
+  font-size: 28px;
+  font-weight: 400;
+}
+.destination .divider {
+  width: 50px;
+  height: 2px;
+  background-color: #1089ff;
+  margin: 0 auto;
+}
+.destination .cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 40px;
+  gap: 25px;
+}
+.destination .cards .card {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.destination .cards .card .cardHeader {
+  width: 100%;
+  height: 70%;
+}
+.destination .cards .card .cardHeader img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.destination .cards .card .cardFooter {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+.destination .cards .card .cardFooter .footerUp, .destination .cards .card .cardFooter .footerDown, .destination .cards .card .cardFooter .dates {
+  display: flex;
+  align-items: center;
+}
+.destination .cards .card .cardFooter a {
+  font-size: 12px;
+  font-family: "Oswald";
+  text-decoration: none;
+}
+.destination .cards .card .cardFooter i {
+  width: 20px;
+  height: 20px;
+}
+.destination .cards .card .cardFooter .footerUp i {
+  color: #1089ff;
+  margin: 10px;
+}
+.destination .cards .card .cardFooter .footerUp h1 {
+  font-size: 18px;
+}
+.destination .cards .card .cardFooter .footerDown {
+  display: flex;
+  justify-content: space-between;
+}
+.destination .cards .card .cardFooter .footerDown i {
+  font-size: 18px;
+  color: #808080;
+  margin: 10px;
+}
+.destination .cards .card .cardFooter .footerDown h1 {
+  font-size: 18px;
+  color: #808080;
+  font-weight: 300;
+}
+.destination .cards .card .cardFooter .footerDown .price {
+  font-weight: 300;
+  background-color: #1089ff;
+  padding: 5px 10px;
+  color: #ffffff;
+  border-radius: 5px;
+  font-family: "Blinker";
+  font-size: 18px;
+}
+
+.team {
+  width: 100%;
+  height: 90vh;
+  padding: 20vh 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.team .preText {
+  font-family: "Dancing Script";
+  color: #1089ff;
+  font-size: 17px;
+}
+.team h1 {
+  font-family: "Oswald";
+  color: #000000;
+  font-size: 28px;
+  font-weight: 400;
+}
+.team .divider {
+  width: 50px;
+  height: 2px;
+  background-color: #1089ff;
+  margin: 0 auto;
+  margin-top: 3vh;
+}
+.team .teamContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 20px;
+  height: 100%;
+  width: 80%;
+}
+.team .teamContainer .card {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.team .teamContainer .card .cardUp {
+  height: 100%;
+  width: 100%;
+}
+.team .teamContainer .card .cardUp img {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.team .teamContainer .card .cardUp img .socials {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.team .teamContainer .card .cardDown {
+  padding: 20px;
+}
+.team .teamContainer .card .cardDown h1 {
+  font-size: 28px;
+}
+.team .teamContainer .card .cardDown h2 {
+  font-size: 18px;
+  color: #1089ff;
+  font-family: "Blinker";
+  font-weight: 200;
+}
+
+.contact {
+  width: 100%;
+  height: 30vh;
+  background-color: #1089ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.contact h1 {
+  font-size: 32px;
+  color: #ffffff;
+  font-family: "Oswald";
+  font-weight: 400;
+}
+.contact p {
+  font-size: 20px;
+  color: #ffffff;
+  font-family: "Blinker";
+  font-weight: 300;
+  margin-top: 10px;
+}
+.contact button {
+  color: #ffffff;
+  font-family: "Oswald";
+  text-transform: uppercase;
+  background-color: #1089ff;
+  padding: 16px 48px;
+  border: 5px solid #1089ff;
+  border-radius: 5px;
+  background-color: #ffa139;
+  border: 1px solid #ffa139;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.contact button a {
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.2rem;
+}
+.contact button h5 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.footer {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  padding: 5vh;
+  background-color: #f8f9fa;
+}
+.footer .footerContainer {
+  width: 60%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 20px;
+}
+.footer .footerContainer .link {
+  display: flex;
+  flex-direction: column;
+}
+.footer .footerContainer .link .learnMore {
+  text-decoration: none;
+  color: #1089ff;
+}
+.footer .footerContainer .link .learnMore p {
+  font-size: 15px;
+  font-weight: 300;
+  font-family: "Blinker";
+  color: #1089ff;
+  line-height: 25px;
+}
+.footer .footerContainer .link p {
+  margin: 20px 0;
+  font-size: 15px;
+  font-weight: 300;
+  font-family: "Blinker";
+  color: #808080;
+  line-height: 25px;
+}
+.footer .footerContainer .link h4 {
+  font-size: 16px;
+  color: #000000;
+  font-family: "Oswald";
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-color: #1089ff;
+  text-decoration-thickness: 2px;
+}
+.footer .footerContainer .link a {
+  margin: 10px 0;
+  color: #1089ff;
+  text-decoration: none;
+  font-family: "Blinker";
+  font-weight: 300;
+}/*# sourceMappingURL=main.css.map */

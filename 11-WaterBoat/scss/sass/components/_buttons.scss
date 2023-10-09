@@ -1,0 +1,16 @@
+@mixin button {
+    color: $filler;
+    font-family: $mainTypo;
+    text-transform: uppercase;
+    background-color: $defBlue;
+    padding: 16px 48px;
+    border: 5px solid $defBlue;
+    border-radius: 5px;
+
+
+    a {
+        color: $filler;
+        text-decoration: none;
+        letter-spacing: .2rem;
+    }
+}

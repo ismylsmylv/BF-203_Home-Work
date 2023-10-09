@@ -1,0 +1,30 @@
+body{
+    position: relative;
+.header {
+    position: sticky;
+    top: 0;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $defBlue;
+
+    .container {
+        margin: 0 auto;
+        width: 35%;
+        display: flex;
+        justify-content: space-around;
+
+        a {
+            text-decoration: none;
+            color: $default;
+            font-family: $mainTypo;
+            font-weight: 900;
+            font-size: 16px;
+            color: $filler;
+
+        }
+    }
+}
+}

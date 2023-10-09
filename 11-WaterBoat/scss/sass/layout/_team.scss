@@ -1,0 +1,77 @@
+.team {
+    width: 100%;
+    height: 90vh;
+    padding: 20vh 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .preText {
+        font-family: "Dancing Script";
+        color: $defBlue;
+        font-size: 17px;
+    }
+
+    h1 {
+        font-family: $mainTypo;
+        color: $default;
+        font-size: 28px;
+        font-weight: 400;
+    }
+
+    .divider {
+        width: 50px;
+        height: 2px;
+        background-color: $defBlue;
+        margin: 0 auto;
+        margin-top: 3vh;
+    }
+
+    .teamContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 20px;
+        height: 100%;
+        width: 80%;
+
+        .card {
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+
+            .cardUp {
+                height: 100%;
+                width: 100%;
+
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    position: relative;
+
+
+                    .socials {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: 5;
+                    }
+                }
+            }
+            .cardDown{
+                padding: 20px;
+            h1{
+                font-size: 28px;
+            }
+            h2{
+                font-size: 18px;
+                color: $defBlue;
+                font-family: $secTypo;
+                font-weight: 200;
+            }
+        }
+    }
+}}

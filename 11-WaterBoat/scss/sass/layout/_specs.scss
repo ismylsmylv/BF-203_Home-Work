@@ -1,0 +1,54 @@
+.specs {
+    padding-top: 80px;
+    width: 100%;
+    height: 30vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+
+    .cardContainer {
+        height: 100%;
+        width: 60%;
+
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .card {
+            display: flex;
+            justify-content: left;
+            flex-direction: column;
+            padding: 20px;
+            height: 100%;
+
+
+            h1 {
+                font-family: $mainTypo;
+                font-size: 20px;
+                font-weight: 300;
+                margin-bottom: 8px;
+                font-weight: 500;
+
+            }
+
+            p {
+                font-family: $secTypo;
+                font-size: 20px;
+                font-weight: 300;
+                color: $secondary;
+                margin-bottom: 8px;
+            }
+
+            .icon {
+                margin-bottom: 8px;
+                width: 70px;
+                height: 70px;
+
+                i{
+                    color: $defBlue;
+                    font-size: 60px;
+                }
+            }
+        }
+    }
+}
