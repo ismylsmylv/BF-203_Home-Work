@@ -58,29 +58,44 @@
 
 
 
-//hero button that didn't worked in previous versions so got replaced with simple one
-.hero {
-    .container {
-        button {
-            cursor: pointer;
-            transition: background 0.5s;
+//hero button 
+.hero,
+.explore {
 
-            &:hover {
-                background: $base-color;
-                border: 1px solid $base-color;
-            }
-        }
+    button {
+        display: block;
+        border: none !important;
+        text-shadow: none;
+
+        background: linear-gradient(to right, $base-color 50%, $accent 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all .3s ease-out;
     }
+
+
+    button:hover {
+        background-position: left bottom;
+    }
+
+    p {
+        margin: 0;
+    }
+
+
+
 }
 
-//card image grows?
+
+
+//card image grow
 .card {
     overflow: hidden;
 }
 
 .img-fluid {
     max-width: 100%;
-    transition: transform 0.5s ease;
+    transition: transform 1s ease;
     object-fit: cover;
     overflow: hidden;
 }
@@ -88,4 +103,59 @@
 .img-fluid:hover {
     transform: scale(1.1);
     overflow: hidden;
+}
+
+//explore's categories background animation
+.expRight {
+    .row {
+        .col-3 {
+
+            display: inline-block;
+            line-height: 100%;
+            position: relative;
+            -webkit-transition: border-color .35s ease, background .35s ease;
+            transition: border-color .35s ease, background .35s ease;
+        }
+
+        .col-3:before {
+            background-color: #f2f4f8;
+            content: "";
+            display: block;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+
+            -webkit-transition: all .35s ease;
+            transition: all .35s ease;
+
+        }
+
+        .col-3:hover:before {
+            top: 0;
+
+        }
+
+
+
+        .col-3:after {
+            position: absolute;
+            right: 2.34375rem;
+            top: 50%;
+            -webkit-transform: translateY(-50%) translateX(50%);
+            -ms-transform: translateY(-50%) translateX(50%);
+            transform: translateY(-50%) translateX(50%);
+            font-size: 1.75em;
+        }
+
+        .expImg,
+        .expCat {
+            z-index: 3;
+        }
+
+        
+
+    }
 }

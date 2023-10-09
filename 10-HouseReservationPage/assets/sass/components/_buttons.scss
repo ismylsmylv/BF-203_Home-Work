@@ -1,4 +1,5 @@
 @import "../abstracts/variables";
+
 .defButton {
     padding: 10px 30px;
     border: none;
@@ -6,4 +7,28 @@
     background-color: $accent;
     border: 1px solid $accent;
     color: $filler;
+}
+
+//back to top button
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: $accent;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+:target::before {
+    content: '';
+}
+
+:target .back-to-top {
+    display: block;
 }
