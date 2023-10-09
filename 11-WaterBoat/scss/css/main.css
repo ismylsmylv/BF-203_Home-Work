@@ -9,9 +9,9 @@
 
 .contactHeader {
   width: 100%;
-  height: 15vh;
+  height: 100%;
   background-color: #f8f9fa;
-  padding: 2vh;
+  padding: 20px;
 }
 .contactHeader .contactsContainer {
   justify-content: space-around;
@@ -55,7 +55,7 @@ body {
 body .header {
   position: sticky;
   top: 0;
-  height: 8vh;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -63,6 +63,7 @@ body .header {
   background-color: #1089ff;
 }
 body .header .container {
+  padding: 20px;
   margin: 0 auto;
   width: 35%;
   display: flex;
@@ -135,26 +136,29 @@ body .header .container a {
 
 .about {
   width: 100%;
-  height: 40vh;
-  margin-top: 90px;
+  height: 100%;
+  padding: 5vh;
 }
 .about .aboutContainer {
-  margin: 0 auto;
   width: 60%;
-  height: 40vh;
+  height: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
-.about .aboutContainer .aboutLeft {
+.about .aboutContainer .aboutLeft,
+.about .aboutContainer .aboutRight {
   width: 50%;
   height: 100%;
 }
 .about .aboutContainer .aboutLeft img {
   width: 100%;
-  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
 }
 .about .aboutContainer .aboutRight {
-  width: 50%;
-  height: 100%;
   padding: 0 25px;
 }
 .about .aboutContainer .aboutRight .preText {
@@ -197,16 +201,16 @@ body .header .container a {
 }
 
 .specs {
-  padding-top: 80px;
   width: 100%;
-  height: 30vh;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  padding: 7vh;
 }
 .specs .cardContainer {
   height: 100%;
-  width: 60%;
+  width: 70%;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr 1fr;
@@ -244,22 +248,21 @@ body .header .container a {
 
 .stats {
   width: 100%;
-  height: 30vh;
+  height: 100%;
   background-color: #1089ff;
-  padding: 20px;
+  padding: 60px;
   text-align: center;
-  margin-top: 10vh;
-  padding: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 .stats .statsContainer {
-  margin: 0 auto;
   width: 60%;
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 100px;
-  align-items: center;
-  justify-content: center;
+  gap: 20px;
 }
 .stats .statsContainer .stat h1 {
   font-size: 50px;
@@ -276,8 +279,8 @@ body .header .container a {
 
 .destination {
   width: 100%;
-  height: 110vh;
-  padding: 10vh;
+  height: 100%;
+  padding: 20px;
   margin: 0 auto;
   text-align: center;
 }
@@ -309,6 +312,8 @@ body .header .container a {
 }
 .destination .cards .card {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: column;
 }
 .destination .cards .card .cardHeader {
   width: 100%;
@@ -322,6 +327,7 @@ body .header .container a {
 .destination .cards .card .cardFooter {
   padding: 20px;
   display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: left;
 }
@@ -371,11 +377,13 @@ body .header .container a {
 
 .team {
   width: 100%;
-  height: 90vh;
-  padding: 20vh 10vw;
+  height: 100%;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 30px;
 }
 .team .preText {
   font-family: "Dancing Script";
@@ -392,8 +400,6 @@ body .header .container a {
   width: 50px;
   height: 2px;
   background-color: #1089ff;
-  margin: 0 auto;
-  margin-top: 3vh;
 }
 .team .teamContainer {
   display: grid;
@@ -401,7 +407,8 @@ body .header .container a {
   grid-template-rows: 1fr;
   gap: 20px;
   height: 100%;
-  width: 80%;
+  width: 90%;
+  padding: 30px;
 }
 .team .teamContainer .card {
   height: 100%;
@@ -409,21 +416,22 @@ body .header .container a {
   text-align: center;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .team .teamContainer .card .cardUp {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 .team .teamContainer .card .cardUp img {
   height: 100%;
   width: 100%;
-  position: relative;
+  object-fit: cover;
+  max-height: 100%;
 }
-.team .teamContainer .card .cardUp img .socials {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 5;
+.team .teamContainer .card .cardUp img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 .team .teamContainer .card .cardDown {
   padding: 20px;
@@ -440,12 +448,13 @@ body .header .container a {
 
 .contact {
   width: 100%;
-  height: 30vh;
+  height: 100%;
   background-color: #1089ff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  padding: 30px;
 }
 .contact h1 {
   font-size: 32px;
@@ -485,10 +494,10 @@ body .header .container a {
 
 .footer {
   width: 100%;
-  height: 40vh;
+  height: 100%;
   display: flex;
   justify-content: center;
-  padding: 5vh;
+  padding: 50px;
   background-color: #f8f9fa;
 }
 .footer .footerContainer {

@@ -1,62 +1,65 @@
 .about {
     width: 100%;
-    height: 40vh;
-    margin-top: 90px;
-
+    height: 100%;
+    padding:5vh;
     .aboutContainer {
-        margin: 0 auto;
-        width: 60%;
-        height: 40vh;
-        display: flex;
-
-        .aboutLeft {
-            width: 50%;
-            height: 100%;
-
-            img {
-                width: 100%;
-                height: 100%;
-            }
+      width: 60%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+  
+      .aboutLeft,
+      .aboutRight {
+        width: 50%;
+        height: 100%;
+      }
+  
+      .aboutLeft {
+        img {
+          width: 100%;
+          object-fit: cover;
+          display:block;
+          margin:0;
         }
-
-        .aboutRight {
-            width: 50%;
-            height: 100%;
-            padding: 0 25px;
-
-            .preText {
-                font-family: "Dancing Script";
-                color: $defBlue;
-                font-size: 17px;
-            }
-
-            h1 {
-                font-size: 28px;
-                font-family: "Oswald";
-                font-weight: 500;
-                padding-bottom: 20px;
-
-            }
-
-            .line {
-                width: 50px;
-                height: 2px;
-                background-color: $defBlue;
-
-            }
-
-            p {
-                padding-top: 20px;
-                font-family: $secTypo;
-                color: $secondary;
-                font-weight: 300;
-                padding-bottom: 15px;
-            }
-
-            button {
-                @include button;
-                padding: 14px 24px;
-            }
+      }
+  
+      .aboutRight {
+        padding: 0 25px;
+  
+        .preText {
+          font-family: "Dancing Script";
+          color: $defBlue;
+          font-size: 17px;
         }
+  
+        h1 {
+          font-size: 28px;
+          font-family: "Oswald";
+          font-weight: 500;
+          padding-bottom: 20px;
+        }
+  
+        .line {
+          width: 50px;
+          height: 2px;
+          background-color: $defBlue;
+        }
+  
+        p {
+          padding-top: 20px;
+          font-family: $secTypo;
+          color: $secondary;
+          font-weight: 300;
+          padding-bottom: 15px;
+        }
+  
+        button {
+          @include button;
+          padding: 14px 24px;
+        }
+      }
     }
-}
+  }
+  
