@@ -1,0 +1,21 @@
+@mixin button{
+
+    background-color: $mainOrange;
+    padding:10px 25px;
+    color:$filler;
+    font-weight: 600;
+    box-shadow: 0 10px 10px -10px rgba(255,107,0,.51);
+    border:none;
+    border-radius:25px;
+    text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    p, i{
+        background-color: $mainOrange;
+        color:$filler;
+        margin-right:5px
+
+
+    }
+}

@@ -1,0 +1,128 @@
+nav {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    margin:0 auto;
+    width: 95%;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    padding: 15px;
+    height:100%;
+}
+
+li {
+    padding: 15px;
+    font-weight: 700;
+}
+
+a {
+    color: $filler;
+    text-decoration: none;
+}
+
+.call {
+    border: 1px solid $filler;
+    border-radius: 25px;
+    padding: 8px 15px;
+    font-size: 17px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    height: 45px;
+    background-color: $secGray;
+    p {
+
+        background-color: $secGray;
+
+        color: $filler;
+        font-weight: 600;
+        font-style: normal;
+    }
+}
+
+i {
+    color: $mainOrange;
+    margin: 5px;
+    background-color: $secGray;
+
+    p {
+
+        background-color: $secGray;
+
+        color: $filler;
+        font-weight: 600;
+        font-style: normal;
+    }
+}
+
+img {
+    height: 30px;
+    width: 30px;
+}
+
+.bars {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    color: $filler !important;
+    text-align: center;
+    font-size: 16px;
+    background-color: $secGray;
+    border: none;
+
+    i {
+        color: $filler;
+        background-color: $secGray;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .container img,
+    .container .bars,
+    .container .bars i {
+        display: block;
+    }
+
+    ul {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .container img,
+    .container .bars,
+    .container .bars i {
+        display: block;
+    }
+
+    ul {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+
+    .container img,
+    .container .bars,
+    .container .bars i {
+        display: none;
+    }
+
+    ul {
+        display: flex;
+    }
+}
