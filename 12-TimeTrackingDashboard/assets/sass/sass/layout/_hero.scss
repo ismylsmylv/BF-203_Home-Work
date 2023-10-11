@@ -1,0 +1,16 @@
+.hero{
+    width:100%;
+    background-color: $mainGray;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    color:$filler;
+    padding:70px;
+    h1{
+        font-size: 3.5rem;
+    }
+    p{
+        font-size:20px;
+    }
+}
