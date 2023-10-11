@@ -41,10 +41,10 @@ a {
     flex-direction: row;
     align-items: center;
     height: 45px;
-    background-color: $secGray;
+    background-color: $bgBlack;
     p {
 
-        background-color: $secGray;
+        background-color: $bgBlack;
 
         color: $filler;
         font-weight: 600;
@@ -55,11 +55,11 @@ a {
 i {
     color: $mainOrange;
     margin: 5px;
-    background-color: $secGray;
+    background-color: $bgBlack;
 
     p {
 
-        background-color: $secGray;
+        background-color: $bgBlack;
 
         color: $filler;
         font-weight: 600;
@@ -67,12 +67,12 @@ i {
     }
 }
 
-img {
+nav img {
     height: 30px;
     width: 30px;
 }
 
-.bars {
+nav .bars {
     height: 45px;
     width: 45px;
     border-radius: 50%;
@@ -90,9 +90,9 @@ img {
 
 @media only screen and (max-width: 767px) {
 
-    .container img,
-    .container .bars,
-    .container .bars i {
+    nav .container img,
+    nav .container .bars,
+    nav .container .bars i {
         display: block;
     }
 
@@ -103,9 +103,9 @@ img {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 
-    .container img,
-    .container .bars,
-    .container .bars i {
+    nav .container img,
+    nav .container .bars,
+    nav .container .bars i {
         display: block;
     }
 
@@ -116,9 +116,9 @@ img {
 
 @media only screen and (min-width: 992px) {
 
-    .container img,
-    .container .bars,
-    .container .bars i {
+    nav .container img,
+    nav .container .bars,
+    nav .container .bars i {
         display: none;
     }
 

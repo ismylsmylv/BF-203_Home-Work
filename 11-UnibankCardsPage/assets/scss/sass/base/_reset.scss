@@ -2,9 +2,9 @@
     margin:0;
     padding:0;
     font-family: $defTypo;
-    //background-color: $bgBlack;
-    background-color: gray;
+    background-color: $bgBlack;
     box-sizing: border-box;
+    color:$filler;
 }
 ul{
     list-style: none;
