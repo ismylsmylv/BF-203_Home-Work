@@ -65,7 +65,7 @@
 
 //5. Cümlədə olan bütün sözləri ixtisar edən proqram tərtib edin. Əgər söz 4 hərfdən azdırsa o qısaldılmır. İxtisar zamanı başdakı və sondakı hərflər saxlanılır, ortada olan hərflərin sayı yazılır. Cümlədə heç bir durğu işarəsi olmayacaq. Məsələn qurban-q4n, stəkan-s4n, javascript-j8t
 function changer(sentence) {
-    return sentence.replace(/\b(\w)(\w{2,})(\w)\b/g, (match, first, middle, last) => {
+    return sentence.replace(/\b(\w)(\w{2,})(\w)\b/g, (first, middle, last) => {
         return first + (middle.length - 1) + last;
     });
 }
