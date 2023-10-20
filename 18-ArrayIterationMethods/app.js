@@ -72,5 +72,4 @@ function changer(sentence) {
 
 let sentence = "longword longerword longestword";
 let changedSentence = changer(sentence);
-
 console.log(changedSentence);
