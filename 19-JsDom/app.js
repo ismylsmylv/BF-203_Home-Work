@@ -54,7 +54,7 @@ bigBoxText.innerText = "960 x 360px";
 bigBoxText.style.color = "white";
 bigBoxText.style.fontSize = "30px";
 
-content.style.width = "70%";
+content.style.margin="0 auto"
 content.style.display = "flex";
 content.style.flexDirection = "column";
 content.style.alignItems = "center";
