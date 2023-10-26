@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.searchBar {
+    padding: 40px;
+    background-color: #4455D4;
+}
+
+.heading {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.search {
+    background-color: #313C96;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    width: 20%;
+    margin-bottom: 20px;
+    outline: none;
+    color: white;
+    font-size: 14px;
+}
+
+.info {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.resCard {
+    display: flex;
+    padding: 20px;
+    height: 100%;
+}
+
+.profileImg img {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding:20px
+}
+.results{
+    padding: 10px 30px;
+}
+.resName{
+    font-weight: 500;
+    font-size: 20px;
+}
