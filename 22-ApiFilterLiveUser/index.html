@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>ApiFilterLiveUser</title>
 </head>
+
 <body>
-    <div class="searchBar">
-        <h1 class="heading">Live User Filter</h1>
-        <p class="info">Search by name or location</p>
-        <input type="text" class="search" placeholder="Search">
+        <div class="searchBar">
+            <h1 class="heading">Live User Filter</h1>
+            <p class="info">Search by name or location</p>
+            <input type="text" class="search" placeholder="Search">
+        </div>
+        <div class="results">
+            <!-- <div class="resCard">
+            <div class="imgDetails">
+                <div class="profileImg">
+                    <img src="${randImg}" alt="">
+                </div>
+                <div class="details">
+                    <div class="resName">${element.name}</div>
+                    <div class="resLocation">${element.address?.city}</div>
+                </div>
+            </div>
+            <button class="infoBtn">Learn more</button>
+        </div> -->
     </div>
-    <div class="results">
-       
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./app.js"></script>
+
 </body>
+
 </html>
