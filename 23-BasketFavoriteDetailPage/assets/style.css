@@ -169,3 +169,10 @@ p {
     width: 50px;
     object-fit: contain;
 }
+
+.cartHead, .favHead{
+    display: none;
+}
+.reveal{
+    display: block !important;
+}
