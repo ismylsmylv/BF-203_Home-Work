@@ -5,7 +5,11 @@ let url = "https://fakestoreapi.com/products/"
 let favs = document.querySelector(".favs")
 let cart = document.querySelector(".cart")
 let favBtn = document.querySelectorAll(".favBtn")
-let total = document.querySelectorAll(".total")
+let remBtn = document.querySelectorAll(".remBtn")
+let total = document.querySelector(".total")
+let favHead = document.querySelector(".favHead");
+let cartHead = document.querySelector(".cartHead");
+let sum = 0
 
 fetch(url).then(res => res.json()).then(data => {
     // console.log(data);
@@ -41,16 +45,30 @@ fetch(url).then(res => res.json()).then(data => {
     for (let btn of favBtns) {
         btn.addEventListener("click", function (e) {
             e.preventDefault()
-            console.log(data[btn.name]);
+            favHead.innerHTML = `<p>Favorites</p>`
             favs.innerHTML += `
-            <div class="favElem">
+            <div class="favElem"><img 
+            src=${data[btn.name].image}
+            alt="Card image cap">
                 <div class="info">
                     <p class="name">${data[btn.name].title}</p>
                     <p class="price">$${data[btn.name].price}</p>
                 </div>
-                <button type="button" class="btn btn-light"><i class="fa-solid fa-ban"></i></button>
+                <button type="button" class="btn btn-light remBtn"><i class="fa-solid fa-trash"></i></button>
             </div>`
+            Swal.fire({
+                icon: 'success',
+                title: `${data[btn.name].title} added to favorites`,
+            })
+            let remBtns = document.querySelectorAll(".remBtn");
+            for (let btn of remBtns) {
+                btn.addEventListener("click", function () {
+                    this.parentElement.remove()
 
+
+
+                })
+            }
         })
     }
 
@@ -59,23 +77,36 @@ fetch(url).then(res => res.json()).then(data => {
     for (let btn of addBtns) {
         btn.addEventListener("click", function (e) {
             e.preventDefault()
-            console.log(data[btn.name]);
+            cartHead.innerHTML = `<p>Cart</p>`
             cart.innerHTML += `
             <div class="cartElem">
+            <img 
+            src=${data[btn.name].image}
+            alt="Card image cap">
                 <div class="info">
                     <p class="name">${data[btn.name].title}</p>
                     <p class="price">$${data[btn.name].price}</p>
                 </div>
-                <button type="button" class="btn btn-light"><i class="fa-solid fa-ban"></i></button>
-            </div>`
-            
+                <button type="button" class="btn remBtn btn-light"><i class="fa-solid fa-trash"></i></button>
+            </div>` ;
+            // console.log(data[btn.name].price);
+            sum += data[btn.name].price
+            total.innerHTML = `<h4 class="total">Total: $${sum} </h3>`;
+            Swal.fire({
+                icon: 'success',
+                title: `${data[btn.name].title} added to cart`,
+            })
+
+            let remBtns = document.querySelectorAll(".remBtn");
+            for (let btn of remBtns) {
+                btn.addEventListener("click", function () {
+                    sum -= Number(this.parentElement.querySelector('.price').textContent.replace('$', '')).toFixed(2)
+                    total.innerHTML = `<h4 class="total">Total: $${sum} </h3>`;
+                    this.parentElement.remove()
+                })
+            }
 
         })
     }
 
-
-
-
 }).catch()
-
-//total.textContent += data[btn.name]
