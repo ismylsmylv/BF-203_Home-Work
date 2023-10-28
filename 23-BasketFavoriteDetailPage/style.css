@@ -9,7 +9,7 @@ p {
 }
 
 .content {
-    padding: 10px
+    padding: 10px;
 }
 
 .row {
@@ -17,40 +17,50 @@ p {
 }
 
 .products {
-    /* border:1px solid black; */
-    /* margin:10px; */
+    height: 100%;
 }
 
 .product {
-    padding: 0;
-    margin: 10px
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .product .details {
     font-weight: 300;
     display: flex;
     justify-content: left;
+    flex-direction: column;
+    align-items: left;
     color: gray;
+    margin-bottom:10px;
 }
 
 .details i {
     margin-left: 15px;
 }
 
-.btns button{
+.btns button {
     width: 40%;
+}
+.btns i{
+    margin-right: 5px;
 }
 
 .product .btns {
     display: flex;
     justify-content: center;
 }
-.details p{
-    margin: 15px 0;
+
+.details p {
+    margin: 5px 0;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
+
 .product .btns p {
-    margin-bottom: 0;
-    margin: 5px
+    margin: 5px 0;
 }
 
 .btns button {
@@ -68,20 +78,10 @@ p {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.favElem,
-.cartElem {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
 
-.collections .name,
-.price {
-    /* margin:10px; */
-}
 
 .collections h3 {
-    color: #E1BF3B
+    color: #E1BF3B;
 }
 
 .favs {
@@ -94,21 +94,58 @@ p {
     justify-content: space-between;
     border-radius: 5px;
     border: 1px solid rgb(240, 240, 240);
-    padding: 10px
+    padding: 10px;
+    margin-bottom:5px
+}
+.cartElem .price,
+.favElem .price {
+    font-weight: 500;
 }
 
-.btn-light{
+.btn-light {
     background-color: white;
-    border:none
-}
-.btn-light:hover{
-    background-color: red;
-    color:white;
+    border: none;
 }
 
-.navbar{
+.btn-light:hover {
+    background-color: red;
+    color: white;
+}
+
+.navbar {
     background-color: #E1BF3B !important;
-    padding:20px;
-    color:black;
+    padding: 20px;
     font-weight: 600;
+}
+
+.navbar a {
+    color: white !important;
+}
+
+.card{
+    margin-top:0
+}
+
+.card-img-top {
+    object-fit: contain;
+    height: 200px;
+}
+
+.card-image {
+    height: 100%;
+}
+
+.product {
+    padding: 15px;
+}
+
+.card-body {
+    flex-grow: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product .btns p {
+    margin: 5px 0;
 }
