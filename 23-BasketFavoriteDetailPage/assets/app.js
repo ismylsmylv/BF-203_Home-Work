@@ -18,6 +18,7 @@ let women = document.querySelector(".women");
 let elecs = document.querySelector(".elecs");
 let content = document.querySelector(".content");
 let acc = document.querySelector(".acc");
+let filters = document.querySelector("#filters");
 let lowToHighPrice = document.querySelector(".lowToHighPrice");
 let highToLowPrice = document.querySelector(".highToLowPrice");
 let lowToHighRating = document.querySelector(".lowToHighRating");
@@ -199,7 +200,7 @@ let fetcher = function (category) {
 }
 let creator = function (data) {
     data.forEach((element, i) => {
-            products.innerHTML += `<div class="card product" style="width: 18rem;">
+        products.innerHTML += `<div class="card product" style="width: 18rem;">
             <img name="${i}" class="cardImage card-img-top" src="${element.image}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">${element.title}</h5>
@@ -219,7 +220,7 @@ let creator = function (data) {
                 </div>
             </div>
         </div>`;
-        
+
     });
     // adding to favorite
     let favBtns = document.querySelectorAll(".favBtn");
@@ -388,8 +389,6 @@ let fetcherHLR = function () {
 
         }).catch()
 }
-//end of fetch functions
-
 
 //default load
 preFetch()
@@ -413,19 +412,23 @@ acc.addEventListener("click", function () {
 elecs.addEventListener("click", function () {
     fetcher(electronics)
 });
-//price low to high
-lowToHighPrice.addEventListener("click", function () {
-    fetcherLHP()
-});
-//price high to low
-highToLowPrice.addEventListener("click", function () {
-    fetcherHLP()
-});
-//rating low to high
-lowToHighRating.addEventListener("click", function () {
-    fetcherLHR()
-});
-//rating high to low
-highToLowRating.addEventListener("click", function () {
-    fetcherHLR()
+//select option
+filters.addEventListener("change", function () {
+    let selectedOption = filters.options[filters.selectedIndex].value;
+    switch (selectedOption) {
+        case "lowToHighPrice":
+            fetcherLHP()
+            break;
+        case "highToLowPrice":
+            fetcherHLP()
+            break;
+        case "lowToHighRating":
+            fetcherLHR()
+            break;
+        case "highToLowRating":
+            fetcherHLR()
+            break;
+        default:
+            break;
+    }
 });
