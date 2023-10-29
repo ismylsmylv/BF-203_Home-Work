@@ -38,19 +38,20 @@ p {
 }
 
 .details i {
-    margin-left: 15px;
+    margin-right: 5px;
 }
-
 .btns button {
     width: 40%;
 }
 .btns i{
     margin-right: 5px;
 }
-
+.product:hover{
+    box-shadow: rgb(225, 192, 59) 0px 3px 8px;
+}
 .product .btns {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .details p {
@@ -58,8 +59,13 @@ p {
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis; 
+    text-align: left;
 }
-
+.card-body{
+display: flex;
+flex-direction: column;
+justify-content: end;
+}
 .product .btns p {
     margin: 5px 0;
 }
