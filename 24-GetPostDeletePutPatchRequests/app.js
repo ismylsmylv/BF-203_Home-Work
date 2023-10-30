@@ -9,6 +9,8 @@ let postBtn = document.querySelector(".post")
 let putBtn = document.querySelector(".put")
 let patchBtn = document.querySelector(".patch")
 let deleteBtn = document.querySelector(".delete")
+let card = document.querySelector('.card');
+
 
 //functions
 function creator(data) {
@@ -24,7 +26,6 @@ function creator(data) {
 }
 
 function remover(elementId) {
-    // Remove the corresponding element from the UI
     let removedElement = document.getElementById(elementId);
     if (removedElement) {
         removedElement.remove();
@@ -65,6 +66,7 @@ postBtn.addEventListener("click", function () {
             creator(data, data.id)
         })
 })
+
 putBtn.addEventListener("click", function () {
     let details = {
         companyName: companyName.value,
@@ -82,14 +84,14 @@ putBtn.addEventListener("click", function () {
     })
         .then((res) => res.json())
         .then(data => {
+            cards.innerHTML = "";
             if (Array.isArray(data)) {
                 data.forEach(elem => {
-                    cards.innerHTML += creator(elem);
+                    creator(elem);
                 });
             }
         })
-
-})
+});
 
 deleteBtn.addEventListener("click", function () {
     fetch(url)
@@ -100,19 +102,44 @@ deleteBtn.addEventListener("click", function () {
                     elem.companyName === companyName.value ||
                     elem.contactName === contactName.value ||
                     elem.contactTitle === contactTitle.value;
-
                 if (matched) {
+                    let removedElement = document.getElementById(elem.id);
+                                removedElement.remove();
                     fetch(url + elem.id, {
-                        method: "Delete"
+                        method: "Delete" 
+                        
                     })
-                        .then(res => res.json())
+                        .then(res => res.json()
+                        )
                         .then(() => {
                             console.log(`deleted ${elem.id}`);
-                            elem.innerHTML = ""
-                            remover(elem.id);
-
+                           
+                        
                         })
                 }
             });
+        })
+});
+
+patchBtn.addEventListener("click", function () {
+    let details = {
+        companyName: companyName.value,
+        contactName: contactName.value,
+        contactTitle: contactTitle.value,
+        author: "ismylsmylv"
+    }
+
+    fetch(url, {
+        method: "Patch",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(details)
+    })
+        .then((res) => res.json())
+        .then(data => {
+            card.querySelector('.companyName').textContent = data.companyName;
+            card.querySelector('.contactName').textContent = data.contactName;
+            card.querySelector('.contactTitle').textContent = data.contactTitle;
         })
 });
