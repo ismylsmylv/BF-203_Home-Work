@@ -23,6 +23,7 @@ let lowToHighPrice = document.querySelector(".lowToHighPrice");
 let highToLowPrice = document.querySelector(".highToLowPrice");
 let lowToHighRating = document.querySelector(".lowToHighRating");
 let highToLowRating = document.querySelector(".highToLowRating");
+
 let sum = 0
 let mens = "men's clothing"
 let womens = "women's clothing"
@@ -116,15 +117,15 @@ let fetcher = function (category) {
                     }
                 })
             }
-
             // adding to cart
+            let quantity=0
             let addBtns = document.querySelectorAll(".addBtn");
             for (let btn of addBtns) {
                 btn.addEventListener("click", function (e) {
                     e.preventDefault();
                     let selectedItem = data[btn.name];
-
-                    // Save the selected item to local storage
+                    quantity++
+                    //save to local
                     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
                     cartItems.push(selectedItem);
                     localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -273,7 +274,7 @@ alt="Card image cap">
             e.preventDefault();
             let selectedItem = data[btn.name];
 
-            // Save the selected item to local storage
+            // local 
             let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
             cartItems.push(selectedItem);
             localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -420,3 +421,5 @@ filters.addEventListener("change", function () {
             break;
     }
 });
+
+

@@ -67,7 +67,7 @@ img {
 .increase,
 .decrease {
     border: none;
-    border-radius: 360px;
+    border-radius: 50%;
     background-color: #DAD8DB;
     padding: 10px;
     display: flex;
@@ -80,6 +80,7 @@ img {
 .decrease p {
     font-weight: 800;
     font-size: 20px;
+    margin:0
 }
 
 .counter {
@@ -120,4 +121,13 @@ img {
     border-radius: 60px;
     padding: 10px 0;
     width: 30%;
+}
+
+button {
+    cursor: pointer;
+
+}
+
+.count{
+    display:none
 }
