@@ -99,22 +99,22 @@ products.addEventListener("click", function (event) {
 
 
 //checkout
-check.addEventListener("click", function () {
-    // productCount.textContent = "0";
-    // totalPrice.textContent = "$0";
-    products.innerHTML = "";
-    details.innerHTML = `<div class="detailsLeft">
-    <h3>
-        Sub-Total
-    </h3>
-    <div class="productCount">0 items</div>
-    </div>
-    <div class="detailsRight">
-    <h1 class="totalPrice">$0</h1>
-    </div>`
-    let favItems = [];
-    localStorage.setItem("favItems", JSON.stringify(favItems));
-});
+// check.addEventListener("click", function () {
+//     // productCount.textContent = "0";
+//     // totalPrice.textContent = "$0";
+//     products.innerHTML = "";
+//     details.innerHTML = `<div class="detailsLeft">
+//     <h3>
+//         Sub-Total
+//     </h3>
+//     <div class="productCount">0 items</div>
+//     </div>
+//     <div class="detailsRight">
+//     <h1 class="totalPrice">$0</h1>
+//     </div>`
+//     let favItems = [];
+//     localStorage.setItem("favItems", JSON.stringify(favItems));
+// });
 // remove all
 removeAll.addEventListener("click", function () {
     // productCount.textContent = "0";
@@ -132,6 +132,7 @@ removeAll.addEventListener("click", function () {
     let favItems = [];
     localStorage.setItem("favItems", JSON.stringify(favItems));
 });
-// remove.addEventListener("click", function () {
-//     console.log(this);
-// })
+remove.addEventListener("click", function () {
+    this.parentElement.parentElement.innerHTML='';
+    
+})
