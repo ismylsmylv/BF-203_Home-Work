@@ -15,7 +15,7 @@ fetch(url)
             <a href="details.html?id=${elem.id}" class="btn btn-outline-primary details">Details</a>
             <button href="#" name="${elem.id}" class="btn btn-outline-danger delete"><i class="fa-solid fa-trash"></i></button>
             <button href="#" name="${elem.id}" class="btn btn-outline-danger favorite"><i class="fa-regular fa-heart"></i></button>
-            <button href="#" name="${elem.id}" class="btn btn-outline-warning cart"><i class="fa-solid fa-cart-shopping"></i></i></button>
+            
           </div>
         </div>`;
     });
@@ -37,7 +37,11 @@ fetch(url)
       favItemsArr = [...favItems];
     }
     let favorites = document.querySelectorAll(".favorite")
+
     favorites.forEach((btn) => {
+      let isFavorite = favItemsArr.some((fav) => fav.id === elem.id);
+      btn.classList = isFavorite ? "fa-regular" : "fa-solid";
+
       btn.addEventListener("click", function (e) {
         e.preventDefault()
         console.log(btn.name);
@@ -65,60 +69,66 @@ fetch(url)
 
 
     //cart
-    let cart = document.querySelectorAll(".cart")
-    let cartItemsArr = []
-    let cartItems = JSON.parse(localStorage.getItem("cart"))
+  //   let cart = document.querySelectorAll(".cart")
+  //   let cartItemsArr = []
+  //   let cartItems = JSON.parse(localStorage.getItem("cart"))
 
-    //  localStorage.setItem("cart", JSON.stringify(cartItemsArr))
-    console.log(cartItems);
-    if (cartItems) {
-      cartItemsArr = [...cartItems]
-    }
-    for (let btn of cart) {
-      btn.addEventListener("click", function (e) {
-        console.log(this.name);
-        // icon = this.querySelector("i")
+  //   //  localStorage.setItem("cart", JSON.stringify(cartItemsArr))
+  //   console.log(cartItems);
+  //   if (cartItems) {
+  //     cartItemsArr = [...cartItems]
+  //   }
+  //   for (let btn of cart) {
+  //     btn.addEventListener("click", function (e) {
+  //       console.log(this.name);
+  //       // icon = this.querySelector("i")
 
-        if (cartItemsArr.find((elem) => elem.id == this.name)
-        ) {
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Added to cart',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          cartItemsArr.find((elem) => elem.id == this.name).count++
-
-
+  //       if (cartItemsArr.find((elem) => elem.id == this.name)
+  //       ) {
+  //         Swal.fire({
+  //           position: 'center',
+  //           icon: 'success',
+  //           title: 'Added to cart',
+  //           showConfirmButton: false,
+  //           timer: 1500
+  //         })
+  //         cartItemsArr.find((elem) => elem.id == this.name).count++
 
 
-          // cartItemsArr = cartItemsArr.filter(elem => elem.id != this.getAttribute("name"))
-          localStorage.setItem("cart", JSON.stringify(cartItemsArr))
-          console.log(cartItemsArr);
-        }
-        else {
-          console.log(this.classList);
-          cartItemsArr.push(data.find(elem => elem.id == this.name));
-          localStorage.setItem("cart", JSON.stringify(cartItemsArr))
-          console.log(cartItemsArr);
-          Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Removed from cart',
-            showConfirmButton: false,
-            timer: 1500
-          })
-        }
-      })
-    }
 
 
-// let sup = document.querySelector("sup")
-// let cartCount=[]
-// cartCount = JSON.parse(localStorage.getItem("cart"))
-// // sup.textContent=cartCount.length()
-// console.log(cartCount.length());
-  });
+  //         // cartItemsArr = cartItemsArr.filter(elem => elem.id != this.getAttribute("name"))
+  //         localStorage.setItem("cart", JSON.stringify(cartItemsArr))
+  //         console.log(cartItemsArr);
+  //       }
+  //       else {
+  //         console.log(this.classList);
+  //         cartItemsArr.push(data.find(elem => elem.id == this.name));
+  //         localStorage.setItem("cart", JSON.stringify(cartItemsArr))
+  //         console.log(cartItemsArr);
+  //         Swal.fire({
+  //           position: 'center',
+  //           icon: 'error',
+  //           title: 'Removed from cart',
+  //           showConfirmButton: false,
+  //           timer: 1500
+  //         })
+  //       }
+  //     })
+  //   }
 
 
+  //   // let sup = document.querySelector("sup")
+  //   // let cartCount=[]
+  //   // cartCount = JSON.parse(localStorage.getItem("cart"))
+  //   // // sup.textContent=cartCount.length()
+  //   // console.log(cartCount.length());
+  // });
+})
+let sup = document.querySelector("sup")
+if (JSON.parse(localStorage.getItem('cart'))) {
+  sup.textContent = (JSON.parse(localStorage.getItem('cart'))).length;
+}
+
+
+//<button href="#" name="${elem.id}" class="btn btn-outline-warning cart"><i class="fa-solid fa-cart-shopping"></i></i></button>
