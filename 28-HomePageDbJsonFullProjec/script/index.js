@@ -127,7 +127,7 @@ fetch(url)
 })
 let sup = document.querySelector("sup")
 if (JSON.parse(localStorage.getItem('cart'))) {
-  sup.textContent = (JSON.parse(localStorage.getItem('cart'))).length;
+  sup.textContent = (JSON.parse(localStorage.getItem('cartMeals'))).length;
 }
 
 

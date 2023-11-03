@@ -79,12 +79,16 @@ for (let index = 0; index < localCart.length; index++) {
                 let itemTotal = parseFloat(totalAll.textContent.replace("$", ""));
                 count--;
                 cartItemCount.textContent = `${count} items`;
-                sup.textContent = count;
                 total -= itemTotal;
                 totalPriceInCheckOut.textContent = `$${total.toFixed(2)}`;
                 this.parentElement.parentElement.parentElement.remove();
                 localCart.splice(index, 1);
                 localStorage.setItem("cartMeals", JSON.stringify(localCart));
+                let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+                let sup = document.querySelector("sup")
+                
+                    sup.textContent = cartMeals.length;
+                
             });
         }
         //remove all
@@ -93,9 +97,14 @@ for (let index = 0; index < localCart.length; index++) {
             e.preventDefault()
             cartList.innerHTML = ''
             localStorage.removeItem("cartMeals")
-            total=0
+            total = 0
             cartItemCount.textContent = "0 Items"
-            totalPriceInCheckOut.textContent="$0"
+            totalPriceInCheckOut.textContent = "$0"
+            let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+            let sup = document.querySelector("sup")
+            
+                sup.textContent = "0";
+            
         })
     }
 
