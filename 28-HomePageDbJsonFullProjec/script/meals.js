@@ -79,6 +79,7 @@ fetch(url)
             })
         })
 
+        
         //cart
         let cart = document.querySelectorAll(".cart")
         let cartItemsMealArr = []

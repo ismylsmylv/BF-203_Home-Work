@@ -15,14 +15,16 @@ for (let elem of favCart) {
                                 alt="">
                         </div>
                         <div class="flex flex-col justify-between ml-4 flex-grow">
-                            <span class="font-bold text-sm">${elem.name} album</span>
+                            <span class="font-bold text-sm">${elem.name}</span>
                             <span class="text-red-500 text-xs">${elem.genre}</span>
                             <a class="removeCart font-semibold hover:text-red-500 text-gray-500 text-xs" style="cursor:pointer">Remove</a>
+                            
                         </div>
                     </div>
                   
                 </div>
     `
+    
     let removeCart = document.querySelectorAll(".removeCart")
     for (let btn of removeCart) {
         btn.addEventListener("click", function () {
@@ -34,4 +36,55 @@ for (let elem of favCart) {
 
         })
     }
+
+    //add to cart
+    let cart = document.querySelectorAll(".cart")
+        let cartItemsMealArr = []
+        let cartItemsMeal = JSON.parse(localStorage.getItem("cartMeals"))
+
+        //  localStorage.setItem("cart", JSON.stringify(cartItemsMealArr))
+        // console.log(cartItemsMeal);
+        if (cartItemsMeal) {
+            cartItemsMealArr = [...cartItemsMeal]
+        }
+        for (let btn of cart) {
+            btn.addEventListener("click", function (e) {
+                console.log(this.name);
+                if (cartItemsMealArr.find((elem) => elem.id == this.name)
+                ) {
+                    cartItemsMealArr.find((elem) => elem.id == this.name).count++
+                    localStorage.setItem("cartMeals", JSON.stringify(cartItemsMealArr))
+                    console.log(cartItemsMealArr);
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Added again to cart',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    let sup = document.querySelector("sup")
+                    let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+                        sup.textContent = cartMeals.length;
+                    
+                }
+                else {
+                    console.log(this.classList);
+                    cartItemsMealArr.push(data.find(elem => elem.id == this.name));
+                    localStorage.setItem("cartMeals", JSON.stringify(cartItemsMealArr))
+                    console.log(cartItemsMealArr);
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Added to cart',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    let sup = document.querySelector("sup")
+                    let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+                        sup.textContent = cartMeals.length;
+                    
+                }
+            })
+        }
+
 }
