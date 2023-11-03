@@ -1,3 +1,22 @@
+let isLogged=JSON.parse(localStorage.getItem("loginId"))
+console.log(isLogged);
+let profile=document.querySelector("#profile")
+let logOut=document.querySelector("#logOut")
+let login=document.querySelector("#login")
+let signup=document.querySelector("#signup")
+if(isLogged){
+  login.style.display="none"
+  signup.style.display="none"
+}
+else{
+  profile.style.display="none"
+  logOut.style.display="none"
+}
+logOut.addEventListener("click", function(e){
+  e.preventDefault()
+  localStorage.removeItem("loginId")
+  window.location.href='./index.html'
+})
 let cartList = document.querySelector(".cartList");
 let cartItemCount = document.querySelector(".cartItemCount");
 let sup = document.querySelector("sup");
@@ -133,7 +152,7 @@ function changeTotalPriceCheckout() {
 
 }
 
-
+let orders = []
 let checkBtn = document.querySelector(".checkBtn")
 checkBtn.addEventListener("click", function (e) {
     e.preventDefault()
@@ -154,6 +173,8 @@ checkBtn.addEventListener("click", function (e) {
                             console.log(total);
                         }
                         else {
+                            orders.push(user.name)
+                            localStorage.setItem("orders", JSON.stringify(orders))
                             console.log("sent");
                             Swal.fire({
                                 icon: 'success',
@@ -173,6 +194,15 @@ checkBtn.addEventListener("click", function (e) {
                                     "orders": localStorage.getItem("cartMeals")
                                 })
                             })
+                            cartList.innerHTML = ''
+                            localStorage.removeItem("cartMeals")
+                            total = 0
+                            cartItemCount.textContent = "0 Items"
+                            totalPriceInCheckOut.lastElementChild.textContent = "$0"
+                            let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+                            let sup = document.querySelector("sup")
+
+                            sup.textContent = "0";
 
                         }
                     }
@@ -192,3 +222,6 @@ console.log();
 let balance
 
 // let ordText=orderTotal.querySelector("span").textContent
+
+
+

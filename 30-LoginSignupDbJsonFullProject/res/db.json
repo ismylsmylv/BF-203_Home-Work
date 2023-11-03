@@ -221,8 +221,8 @@
       "username": "ismyl",
       "password": "ismyl",
       "email": "ismyl@com",
-      "balance": 14,
-      "orders": "[{\"id\":3,\"name\":\"Spaghetti Carbonara\",\"price\":16,\"ingredients\":[\"spaghetti pasta\",\"bacon\",\"eggs\",\"parmesan cheese\"],\"image\":\"https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/02/05/Baked-Feta-Pasta-4_s4x3.jpg.rend.hgtvcom.616.493.suffix/1615916524567.jpeg\",\"count\":1},{\"id\":2,\"name\":\"Cheeseburger\",\"price\":8,\"ingredients\":[\"beef patty\",\"cheddar cheese\",\"lettuce\",\"tomato\"],\"image\":\"https://www.foodandwine.com/thmb/pwFie7NRkq4SXMDJU6QKnUKlaoI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Ultimate-Veggie-Burgers-FT-Recipe-0821-5d7532c53a924a7298d2175cf1d4219f.jpg\",\"count\":6}]",
+      "balance": 82,
+      "orders": "[{\"id\":3,\"name\":\"Spaghetti Carbonara\",\"price\":16,\"ingredients\":[\"spaghetti pasta\",\"bacon\",\"eggs\",\"parmesan cheese\"],\"image\":\"https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/02/05/Baked-Feta-Pasta-4_s4x3.jpg.rend.hgtvcom.616.493.suffix/1615916524567.jpeg\",\"count\":1}]",
       "id": 16
     }
   ]
