@@ -221,8 +221,10 @@
       "username": "ismyl",
       "password": "ismyl",
       "email": "ismyl@com",
-      "balance": 82,
-      "orders": "[{\"id\":3,\"name\":\"Spaghetti Carbonara\",\"price\":16,\"ingredients\":[\"spaghetti pasta\",\"bacon\",\"eggs\",\"parmesan cheese\"],\"image\":\"https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/02/05/Baked-Feta-Pasta-4_s4x3.jpg.rend.hgtvcom.616.493.suffix/1615916524567.jpeg\",\"count\":1}]",
+      "balance": 106,
+      "orders": [
+        null
+      ],
       "id": 16
     }
   ]

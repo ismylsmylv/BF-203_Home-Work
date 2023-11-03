@@ -173,6 +173,7 @@ checkBtn.addEventListener("click", function (e) {
                             console.log(total);
                         }
                         else {
+                            orders=[]
                             orders.push(user.name)
                             localStorage.setItem("orders", JSON.stringify(orders))
                             console.log("sent");
@@ -191,7 +192,7 @@ checkBtn.addEventListener("click", function (e) {
                                     "password": user.password,
                                     "email": user.email,
                                     "balance": user.balance - totalForCheck,
-                                    "orders": localStorage.getItem("cartMeals")
+                                    "orders": orders
                                 })
                             })
                             cartList.innerHTML = ''

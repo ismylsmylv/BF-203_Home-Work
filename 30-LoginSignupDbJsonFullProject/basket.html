@@ -15,19 +15,21 @@
 
 <body>
     <nav style="background-color: #06C167">
-        <a href="./meals.html" class="logo"><img
-                src="https://play-lh.googleusercontent.com/kDzXydb6ZT4LUj0RiU-GyptnVgCzzk9snN1FVxj2YfqFb4PpRdQRBKzdz4jzUOxAS9-d"
-                style="height:100px; object-fit:contain" alt="logo"></a>
-        <div class="navigation">
+        <div class="container" style="display: flex; align-items:center; justify-content: space-between;">
+            <a href="./meals.html" class="logo"><img
+                    src="https://play-lh.googleusercontent.com/kDzXydb6ZT4LUj0RiU-GyptnVgCzzk9snN1FVxj2YfqFb4PpRdQRBKzdz4jzUOxAS9-d"
+                    style="height:100px; object-fit:contain" alt="logo"></a>
             <div class="navigation">
-                <a href="./index.html">Singers</a>
-                <a href="./meals.html">Meals</a>
-                <a href="./basket.html">Basket<sup>0</sup></a>
-                <a href="./wishlist.html">Wishlist<sup class="favSup">0</sup></a>
-                <a href="./profile.html" id="profile">Profile</a>
-                <a href="" id="logOut"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-                <a href="./login.html" id="login" class="btn btn-light">Login</a>
-                <a href="./signup.html" id="signup" class="btn btn-dark">Register</a>
+                <div class="navigation">
+                    <a href="./index.html">Singers</a>
+                    <a href="./meals.html">Meals</a>
+                    <a href="./basket.html">Basket<sup>0</sup></a>
+                    <a href="./wishlist.html">Wishlist<sup class="favSup">0</sup></a>
+                    <a href="./profile.html" id="profile">Profile</a>
+                    <a href="" id="logOut"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                    <a href="./login.html" id="login" class="btn btn-light">Login</a>
+                    <a href="./signup.html" id="signup" class="btn btn-dark">Register</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -72,11 +74,12 @@
                 <div class="border-t mt-8" style="border-top: 0px">
                     <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                         <span>Total cost</span>
-                        <span class="totalPriceInCheckOut" id="totalForCheck"><p>$</p><span class="totalprice"> 0</span></span>
+                        <span class="totalPriceInCheckOut" id="totalForCheck">
+                            <p>$</p><span class="totalprice"> 0</span>
+                        </span>
                     </div>
                     <button href="./login.html"
-                        class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full checkBtn"><a
-                           >Checkout</a></button>
+                        class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full checkBtn"><a>Checkout</a></button>
                 </div>
             </div>
 
