@@ -11,7 +11,7 @@ class=" bg-[#ffffff] flex font-medium items-center justify-center mt-6">
     <div class="flex items-center justify-between">
     </div>
     <div class="mt-6 w-fit mx-auto">
-        <img src="https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe" class="rounded-full w-28 "
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpCKq1XnPYYDaUIlwlsvmLPZ-9-rdK28RToA&usqp=CAU" class="rounded-full w-28 "
             alt="profile picture" srcset="">
     </div>
     <div class="mt-8 ">
@@ -25,10 +25,6 @@ class=" bg-[#ffffff] flex font-medium items-center justify-center mt-6">
         <span class="text-gray-400 font-semibold">Balance:</span>
         <span>${elem.balance}</span>
     </div>
-    <div class="mt-3 text-white text-sm balance">
-    <span class="text-gray-400 font-semibold">Orders:</span>
-    <span>${elem.orders}</span>
-</div>
 </section>
 </section>`
         }
