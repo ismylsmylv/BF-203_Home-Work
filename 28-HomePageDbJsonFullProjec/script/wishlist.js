@@ -26,15 +26,19 @@ for (let elem of favCart) {
     `
     
     let removeCart = document.querySelectorAll(".removeCart")
+
     for (let btn of removeCart) {
         btn.addEventListener("click", function () {
-            console.log(this.parentElement.parentElement.parentElement.remove());
-            --favCount
-            sup.textContent = favCount
-            total = total - elem.price
-            totalPriceInCheckOut.textContent = `$${total}`
+            let indexToRemove = Array.from(this.closest('.wishList').children).indexOf(this.parentElement.parentElement.parentElement);
+            favCart.splice(indexToRemove, 1);
+            localStorage.setItem("favorites", JSON.stringify(favCart));
+            this.parentElement.parentElement.parentElement.remove();
+            --favCount;
+            favSup.textContent = favCount;
+            total = total - elem.price;
+            totalPriceInCheckOut.textContent = `$${total}`;
+        });
 
-        })
     }
 
     //add to cart
