@@ -5,6 +5,7 @@ let localCart = JSON.parse(localStorage.getItem("cartMeals"));
 let totalPriceInCheckOut = document.querySelector(".totalPriceInCheckOut");
 let count = 0;
 let total = 0;
+let totalPriceInCheckOutSum
 // sup.textContent=JSON.parse(localStorage.getItem("cartMeals")).length()
 for (let index = 0; index < localCart.length; index++) {
     let elem = localCart[index];
@@ -62,7 +63,7 @@ for (let index = 0; index < localCart.length; index++) {
             if (number > 1) {
                 number--;
                 innerCount.value = number;
-                changeTotalAll(onePrice, number, totalAll, index);
+                changeTotalAll + -(onePrice, number, totalAll, index);
             }
         });
 
@@ -86,9 +87,9 @@ for (let index = 0; index < localCart.length; index++) {
                 localStorage.setItem("cartMeals", JSON.stringify(localCart));
                 let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
                 let sup = document.querySelector("sup")
-                
-                    sup.textContent = cartMeals.length;
-                
+
+                sup.textContent = cartMeals.length;
+
             });
         }
         //remove all
@@ -99,12 +100,12 @@ for (let index = 0; index < localCart.length; index++) {
             localStorage.removeItem("cartMeals")
             total = 0
             cartItemCount.textContent = "0 Items"
-            totalPriceInCheckOut.textContent = "$0"
+            totalPriceInCheckOut.lastElementChild.textContent = "$0"
             let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
             let sup = document.querySelector("sup")
-            
-                sup.textContent = "0";
-            
+
+            sup.textContent = "0";
+
         })
     }
 
@@ -128,8 +129,66 @@ function changeTotalPriceCheckout() {
     });
 
     totalPriceInCheckOut.textContent = `$${totalPriceInCheckOutSum.toFixed(2)}`;
+    // console.log(totalPriceInCheckOutSum);
+
 }
 
 
+let checkBtn = document.querySelector(".checkBtn")
+checkBtn.addEventListener("click", function (e) {
+    e.preventDefault()
+    let totalForCheckRaw = document.querySelector("#totalForCheck")
+    let totalForCheck = parseFloat(totalForCheckRaw.textContent.replace("$", ""))
+    if (JSON.parse(localStorage.getItem("loginId"))) {
+        if (JSON.parse(localStorage.getItem("loginId"))) {
+            fetch("http://localhost:3000/users/").then(res => res.json()).then(data => {
+                for (let user of data) {
+                    if (user.id == (JSON.parse(localStorage.getItem("loginId")))) {
+                        // console.log(user);
+                        if (totalForCheck > user.balance) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Insufficent funds',
+                                text: '',
+                            })
+                            console.log(total);
+                        }
+                        else {
+                            console.log("sent");
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Order completed',
+                                text: '',
+                            })
+                            fetch("http://localhost:3000/users/" + user.id, {
+                                method: "Put",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify({
+                                    "username": user.username,
+                                    "password": user.password,
+                                    "email": user.email,
+                                    "balance": user.balance - totalForCheck,
+                                    "orders": localStorage.getItem("cartMeals")
+                                })
+                            })
+
+                        }
+                    }
+                }
+            })
+        }
+    }
+    else {
+        window.location.href = './login.html'
+        console.log("chek");
+    }
+
+})
 
 
+console.log();
+let balance
+
+// let ordText=orderTotal.querySelector("span").textContent
