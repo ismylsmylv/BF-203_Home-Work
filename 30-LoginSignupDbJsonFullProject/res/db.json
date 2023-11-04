@@ -221,11 +221,27 @@
       "username": "ismyl",
       "password": "ismyl",
       "email": "ismyl@com",
-      "balance": 106,
+      "balance": 86,
       "orders": [
         null
       ],
       "id": 16
+    },
+    {
+      "username": "64jec3kn",
+      "password": "dassdsA",
+      "email": "ismayilovsmyl2020@gmail.com",
+      "balance": "12",
+      "orders": "test",
+      "id": 17
+    },
+    {
+      "username": "fipakakik",
+      "password": "Pa$$w0rd!",
+      "email": "qubyfa@mailinator.com",
+      "balance": "858",
+      "orders": "test",
+      "id": 18
     }
   ]
 }

@@ -1,9 +1,9 @@
 let content = document.querySelector(".content")
 let url = "http://localhost:3000/users/"
 let userId = JSON.parse(localStorage.getItem("loginId"))
-let orders=localStorage.getItem("orders")
-if(!orders){
-  orders="No order history"  
+let orders = localStorage.getItem("orders")
+if (!orders) {
+    orders = "No order history"
 }
 console.log(userId);
 fetch(url).then(res => res.json()).then(data => {
@@ -42,22 +42,22 @@ class=" bg-[#ffffff] flex font-medium items-center justify-center mt-6">
 
 
 
-let isLogged=JSON.parse(localStorage.getItem("loginId"))
+let isLogged = JSON.parse(localStorage.getItem("loginId"))
 console.log(isLogged);
-let profile=document.querySelector("#profile")
-let logOut=document.querySelector("#logOut")
-let login=document.querySelector("#login")
-let signup=document.querySelector("#signup")
-if(isLogged){
-  login.style.display="none"
-  signup.style.display="none"
+let profile = document.querySelector("#profile")
+let logOut = document.querySelector("#logOut")
+let login = document.querySelector("#login")
+let signup = document.querySelector("#signup")
+if (isLogged) {
+    login.style.display = "none"
+    signup.style.display = "none"
 }
-else{
-  profile.style.display="none"
-  logOut.style.display="none"
+else {
+    profile.style.display = "none"
+    logOut.style.display = "none"
 }
-logOut.addEventListener("click", function(e){
-  e.preventDefault()
-  localStorage.removeItem("loginId")
-  window.location.href='./index.html'
+logOut.addEventListener("click", function (e) {
+    e.preventDefault()
+    localStorage.removeItem("loginId")
+    window.location.href = './index.html'
 })
