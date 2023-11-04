@@ -9,7 +9,7 @@ let url = "http://localhost:3000/users";
 signBtn.addEventListener("click", function (e) {
     e.preventDefault();
 
-    // Empty fields check
+    // empty
     if (!signName.value || !signPassword.value || !signEmail.value || signBalance.value < 0) {
         Swal.fire({
             icon: 'error',
@@ -17,7 +17,7 @@ signBtn.addEventListener("click", function (e) {
             text: 'Please fill all required fields',
         });
     } 
-    // Name length check
+    // length
     else if (signName.value.length < 3) {
         Swal.fire({
             icon: 'error',
@@ -25,7 +25,7 @@ signBtn.addEventListener("click", function (e) {
             text: 'Username must be at least 3 characters long',
         });
     } 
-    // Balance check
+    // balance
     else if (signBalance.value < 0) {
         Swal.fire({
             icon: 'error',
@@ -33,7 +33,7 @@ signBtn.addEventListener("click", function (e) {
             text: 'Balance cannot be less than 0',
         });
     } 
-    // Uppercase check
+    // uppercase
     else if (!/[A-Z]/.test(signPassword.value)) {
         Swal.fire({
             icon: 'error',
@@ -41,20 +41,18 @@ signBtn.addEventListener("click", function (e) {
             text: 'Password must contain at least one uppercase letter',
         });
     } 
-    // All correct
+    //  username 
     else {
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 if (data.some(user => user.username === signName.value)) {
-                    // Username is already taken
                     Swal.fire({
                         icon: 'error',
                         title: 'Username taken',
                         text: 'Please choose another username',
                     });
                 } else {
-                    // Username is available, proceed with registration
                     return fetch(url, {
                         method: "POST",
                         body: JSON.stringify({
@@ -62,7 +60,7 @@ signBtn.addEventListener("click", function (e) {
                             "password": signPassword.value,
                             "email": signEmail.value,
                             "balance": signBalance.value,
-                            "orders": [] // Initialize orders as an empty array
+                            "orders": [] 
                         }),
                         headers: {
                             "Content-type": "application/json; charset=UTF-8"
@@ -70,26 +68,8 @@ signBtn.addEventListener("click", function (e) {
                     });
                 }
             })
-            .then(response => {
-                if (response.ok) {
-                    // Registration successful, redirect to login page
-                    window.location.href = './login.html';
-                } else {
-                    // handle registration failure
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Registration failed',
-                        text: 'Please try again later',
-                    });
-                }
-            })
-            .catch(error => {
-                console.error('Error during registration:', error);
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Registration error',
-                    text: 'Please try again later',
-                });
+            .then()
+            .catch();
             });
     }
 });
