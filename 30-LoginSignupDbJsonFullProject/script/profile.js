@@ -1,10 +1,12 @@
 let content = document.querySelector(".content")
 let url = "http://localhost:3000/users/"
 let userId = JSON.parse(localStorage.getItem("loginId"))
-let orders = localStorage.getItem("orders")
+let orders = (JSON.parse(localStorage.getItem("finOrders")))
+
 if (!orders) {
     orders = "No order history"
 }
+
 console.log(userId);
 fetch(url).then(res => res.json()).then(data => {
     for (let elem of data) {

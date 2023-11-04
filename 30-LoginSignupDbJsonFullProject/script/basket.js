@@ -1,21 +1,25 @@
-let isLogged=JSON.parse(localStorage.getItem("loginId"))
+let isLogged = JSON.parse(localStorage.getItem("loginId"))
 console.log(isLogged);
-let profile=document.querySelector("#profile")
-let logOut=document.querySelector("#logOut")
-let login=document.querySelector("#login")
-let signup=document.querySelector("#signup")
-if(isLogged){
-  login.style.display="none"
-  signup.style.display="none"
+let profile = document.querySelector("#profile")
+let logOut = document.querySelector("#logOut")
+let login = document.querySelector("#login")
+let signup = document.querySelector("#signup")
+let finOrders = []
+if((JSON.parse(localStorage.getItem("finOrders")))){
+    finOrders=[...finOrders]
 }
-else{
-  profile.style.display="none"
-  logOut.style.display="none"
+if (isLogged) {
+    login.style.display = "none"
+    signup.style.display = "none"
 }
-logOut.addEventListener("click", function(e){
-  e.preventDefault()
-  localStorage.removeItem("loginId")
-  window.location.href='./index.html'
+else {
+    profile.style.display = "none"
+    logOut.style.display = "none"
+}
+logOut.addEventListener("click", function (e) {
+    e.preventDefault()
+    localStorage.removeItem("loginId")
+    window.location.href = './index.html'
 })
 let cartList = document.querySelector(".cartList");
 let cartItemCount = document.querySelector(".cartItemCount");
@@ -51,7 +55,7 @@ for (let index = 0; index < localCart.length; index++) {
                 d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
         </svg>
 
-        <input class="mx-2 border innerCount text-center w-8" type="text" value="1">
+        <input class="mx-2 border innerCount text-center w-8" type="text" value="${elem.count}">
 
         <svg class="fill-current increase text-gray-600 w-3" viewBox="0 0 448 512">
             <path
@@ -173,9 +177,15 @@ checkBtn.addEventListener("click", function (e) {
                             console.log(total);
                         }
                         else {
-                            orders=[]
-                            orders.push(user.name)
-                            localStorage.setItem("orders", JSON.stringify(orders))
+                            let orders = (JSON.parse(localStorage.getItem("cartMeals")))
+
+
+                            for (let order of orders) {
+                                finOrders.push(order.name)
+                                localStorage.setItem("finOrders", JSON.stringify(finOrders))
+
+                            }
+                            console.log((JSON.parse(localStorage.getItem("cartMeals"))));
                             console.log("sent");
                             Swal.fire({
                                 icon: 'success',

@@ -221,9 +221,33 @@
       "username": "ismyl",
       "password": "ismyl",
       "email": "ismyl@com",
-      "balance": 86,
+      "balance": 26,
       "orders": [
-        null
+        {
+          "id": 2,
+          "name": "Cheeseburger",
+          "price": 8,
+          "ingredients": [
+            "beef patty",
+            "cheddar cheese",
+            "lettuce",
+            "tomato"
+          ],
+          "image": "https://www.foodandwine.com/thmb/pwFie7NRkq4SXMDJU6QKnUKlaoI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Ultimate-Veggie-Burgers-FT-Recipe-0821-5d7532c53a924a7298d2175cf1d4219f.jpg",
+          "count": 1
+        },
+        {
+          "id": 1,
+          "name": "Margherita",
+          "price": 12,
+          "ingredients": [
+            "tomato sauce",
+            "mozzarella cheese",
+            "basil"
+          ],
+          "image": "https://www.allrecipes.com/thmb/fFW1o307WSqFFYQ3-QXYVpnFj6E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/48727-Mikes-homemade-pizza-DDMFS-beauty-4x3-BG-2974-a7a9842c14e34ca699f3b7d7143256cf.jpg",
+          "count": 1
+        }
       ],
       "id": 16
     },
