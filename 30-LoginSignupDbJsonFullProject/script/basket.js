@@ -4,7 +4,7 @@ let profile = document.querySelector("#profile")
 let logOut = document.querySelector("#logOut")
 let login = document.querySelector("#login")
 let signup = document.querySelector("#signup")
-let finOrders = []
+let finOrders = JSON.parse(localStorage.getItem("finOrders")) || [];
 if((JSON.parse(localStorage.getItem("finOrders")))){
     finOrders=[...finOrders]
 }
@@ -177,14 +177,13 @@ checkBtn.addEventListener("click", function (e) {
                             console.log(total);
                         }
                         else {
-                            let orders = (JSON.parse(localStorage.getItem("cartMeals")))
+                            let orders = JSON.parse(localStorage.getItem("cartMeals")) || [];
 
 
                             for (let order of orders) {
-                                finOrders.push(order.name)
-                                localStorage.setItem("finOrders", JSON.stringify(finOrders))
-
+                                finOrders.push(order.name);
                             }
+                            localStorage.setItem("finOrders", JSON.stringify(finOrders));
                             console.log((JSON.parse(localStorage.getItem("cartMeals"))));
                             console.log("sent");
                             Swal.fire({
@@ -202,7 +201,7 @@ checkBtn.addEventListener("click", function (e) {
                                     "password": user.password,
                                     "email": user.email,
                                     "balance": user.balance - totalForCheck,
-                                    "orders": orders
+                                    "orders": finOrders 
                                 })
                             })
                             cartList.innerHTML = ''

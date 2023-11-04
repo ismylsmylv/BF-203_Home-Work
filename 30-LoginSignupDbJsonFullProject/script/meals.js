@@ -17,7 +17,7 @@ fetch(url)
 
             results.innerHTML += `
         <div class="card" style="width: 18rem;">
-          <img name="${elem.id}" src="${elem.image}" class="card-img-top" alt="singer">
+        <div class="cardImg"><img name="${elem.id}" src="${elem.image}" class="card-img-top" alt="singer"></div> 
           <div class="card-body">
             <h5 class="card-title">${elem.name}</h5>
             <p class="card-text">${elem.ingredients}</p>

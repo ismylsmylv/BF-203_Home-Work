@@ -13,7 +13,7 @@ fetch(url).then(res => res.json()).then(data => {
         if (elem.id == userId) {
             content.innerHTML = `<section style="font-family: Montserrat"
 class=" bg-[#ffffff] flex font-medium items-center justify-center mt-6">
-<section class="w-64 mx-auto bg-[#374151] rounded-2xl px-8 py-6 shadow-lg">
+<section class="w-64 mx-auto bg-[#374151] rounded-2xl p-6 shadow-lg">
     <div class="flex items-center justify-between">
     </div>
     <div class="mt-6 w-fit mx-auto">
@@ -33,7 +33,7 @@ class=" bg-[#ffffff] flex font-medium items-center justify-center mt-6">
     </div>
     <div class="mt-3 text-white text-sm balance">
         <span class="text-gray-400 font-semibold">Orders:</span>
-        <span>${orders}</span>
+        <span style="width=100%; word-wrap: break-word">${orders}</span>
     </div>
 </section>
 </section>`
