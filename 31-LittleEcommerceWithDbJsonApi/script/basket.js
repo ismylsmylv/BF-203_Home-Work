@@ -5,8 +5,8 @@ let logOut = document.querySelector("#logOut")
 let login = document.querySelector("#login")
 let signup = document.querySelector("#signup")
 let finOrders = JSON.parse(localStorage.getItem("finOrders")) || [];
-if((JSON.parse(localStorage.getItem("finOrders")))){
-    finOrders=[...finOrders]
+if ((JSON.parse(localStorage.getItem("finOrders")))) {
+    finOrders = [...finOrders]
 }
 if (isLogged) {
     login.style.display = "none"
@@ -80,6 +80,13 @@ for (let index = 0; index < localCart.length; index++) {
         let increaseBtn = btn.querySelector(".increase");
         let totalAll = btn.nextElementSibling.nextElementSibling;
 
+        //innercount changes
+        innerCount.addEventListener("input", function () {
+            let number = parseInt(innerCount.value);
+            changeTotalAll(onePrice, number, totalAll, index);
+            localStorage.setItem("cartMeals", JSON.stringify(localCart));
+        });
+
         decreaseBtn.addEventListener("click", function () {
             let number = parseInt(innerCount.value);
             console.log(onePrice);
@@ -100,6 +107,7 @@ for (let index = 0; index < localCart.length; index++) {
         let removeCart = document.querySelectorAll(".removeCart");
         for (let btn of removeCart) {
             btn.addEventListener("click", function () {
+                window.location.reload()
                 let itemTotal = parseFloat(totalAll.textContent.replace("$", ""));
                 count--;
                 cartItemCount.textContent = `${count} items`;
@@ -110,7 +118,6 @@ for (let index = 0; index < localCart.length; index++) {
                 localStorage.setItem("cartMeals", JSON.stringify(localCart));
                 let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
                 let sup = document.querySelector("sup")
-
                 sup.textContent = cartMeals.length;
 
             });
@@ -201,7 +208,7 @@ checkBtn.addEventListener("click", function (e) {
                                     "password": user.password,
                                     "email": user.email,
                                     "balance": user.balance - totalForCheck,
-                                    "orders": finOrders 
+                                    "orders": finOrders
                                 })
                             })
                             cartList.innerHTML = ''
