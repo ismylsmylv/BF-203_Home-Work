@@ -13,7 +13,7 @@ fetch(url)
             <h5 class="card-title">${elem.name}</h5>
             <p class="card-text">${elem.name} is <b>${elem.nation}</b></p>
             <button href="" name="${elem.id}" class="btn btn-outline-primary details">Details</button>
-            <button href="#" name="${elem.id}" class="btn btn-outline-danger delete"><i class="fa-solid fa-trash"></i></button>
+            <button href="#" name="${elem.id}" class="btn btn-outline-danger delete deleteBtn"><i class="fa-solid fa-trash"></i></button>
             <button href="#" name="${elem.id}" class="btn btn-outline-danger favorite"><i class="fa-regular fa-heart"></i></button>
           </div>
         </div>`;
@@ -111,10 +111,24 @@ fetch(url)
       });
     }
 
+    //wishlist count
     let sup = document.querySelector("sup");
     if (JSON.parse(localStorage.getItem('cartMeals'))) {
       sup.textContent = (JSON.parse(localStorage.getItem('cartMeals'))).length;
     }
+
+    //remove
+    let deleteBtns=document.querySelectorAll(".deleteBtn")
+    for(let btn of deleteBtns){
+      btn.addEventListener("click", function(e){
+        e.preventDefault()
+        this.parentElement.parentElement.remove()
+      })
+    }
+
+
+
+
   });
 
 let isLogged = JSON.parse(localStorage.getItem("loginId"))

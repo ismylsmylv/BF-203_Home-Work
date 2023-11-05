@@ -30,12 +30,12 @@ fetch(url)
        
         //favorites
         let favItemsArr = [];
-        let favItems = JSON.parse(localStorage.getItem("favorites"));
+        let favItems = JSON.parse(localStorage.getItem("favMeals"));
     
         if (favItems) {
           favItemsArr = [...favItems];
           let sup = document.querySelector(".favSup")
-          let favoritesLocal = JSON.parse(localStorage.getItem("favorites"));
+          let favoritesLocal = JSON.parse(localStorage.getItem("favMeals"));
           sup.textContent = favoritesLocal.length;
         }
     
@@ -63,9 +63,9 @@ fetch(url)
     
             }
     
-            localStorage.setItem("favorites", JSON.stringify(favItemsArr));
+            localStorage.setItem("favMeals", JSON.stringify(favItemsArr));
             let sup = document.querySelector(".favSup")
-            let favoritesLocal = JSON.parse(localStorage.getItem("favorites"));
+            let favoritesLocal = JSON.parse(localStorage.getItem("favMeals"));
             sup.textContent = favoritesLocal.length;
           });
         });
