@@ -169,3 +169,41 @@ logOut.addEventListener("click", function (e) {
     localStorage.removeItem("loginId")
     window.location.href = './index.html'
 })
+
+
+//search
+let search = document.querySelector(".searchInp");
+let searchBtn = document.querySelector(".searchBtn");
+
+search.addEventListener("input", async function (e) {
+  e.preventDefault();
+  let res = await fetch(url);
+  let data = await res.json();
+  let matchedHTML = "";
+
+  let matched = data.filter(element => {
+    return element.name.trim().toLowerCase().includes(search.value.trim().toLowerCase());
+  });
+
+
+
+  if (matched.length > 0) {
+    matched.forEach(elem => {
+      matchedHTML += `
+      <div class="card" style="width: 18rem;">
+      <div class="cardImg"><img name="${elem.id}" src="${elem.image}" class="card-img-top" alt="singer"></div> 
+        <div class="card-body">
+          <h5 class="card-title">${elem.name}</h5>
+          <p class="card-text">${elem.ingredients}</p>
+          
+          <button href="#" name="${elem.id}" class="btn btn-outline-danger delete"><i class="fa-solid fa-trash"></i></button>
+          <button href="#" name="${elem.id}" class="btn btn-outline-danger favorite"><i class="fa-regular fa-heart"></i></button>
+          <button href="#" name="${elem.id}" class="btn btn-outline-warning cart"><i class="fa-solid fa-cart-shopping"></i></i></button>
+        </div>
+      </div>`;
+    });
+    results.innerHTML = matchedHTML;
+  } else {
+    results.innerHTML = "";
+  }
+});

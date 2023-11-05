@@ -67,7 +67,7 @@
   "meals": [
     {
       "id": 1,
-      "name": "Margherita",
+      "name": "Pizza Margherita",
       "price": 12,
       "ingredients": [
         "tomato sauce",
@@ -99,6 +99,43 @@
         "parmesan cheese"
       ],
       "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/02/05/Baked-Feta-Pasta-4_s4x3.jpg.rend.hgtvcom.616.493.suffix/1615916524567.jpeg"
+    },
+    {
+      "id": 4,
+      "name": "Chicken Alfredo",
+      "price": 18,
+      "ingredients": [
+        "fettuccine pasta",
+        "grilled chicken",
+        "alfredo sauce",
+        "parmesan cheese"
+      ],
+      "image": "https://thenovicechefblog.com/wp-content/uploads/2023/03/Cajun-Chicken-Alfredo-1.jpeg"
+    },
+    {
+      "id": 5,
+      "name": "Vegetarian Pizza",
+      "price": 14,
+      "ingredients": [
+        "tomato sauce",
+        "mozzarella cheese",
+        "bell peppers",
+        "red onions",
+        "olives"
+      ],
+      "image": "https://cdn.loveandlemons.com/wp-content/uploads/2023/02/vegetarian-pizza.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Caesar Salad",
+      "price": 10,
+      "ingredients": [
+        "romaine lettuce",
+        "croutons",
+        "parmesan cheese",
+        "Caesar dressing"
+      ],
+      "image": "https://itsavegworldafterall.com/wp-content/uploads/2023/04/Avocado-Caesar-Salad-FI.jpg"
     }
   ],
   "users": [
