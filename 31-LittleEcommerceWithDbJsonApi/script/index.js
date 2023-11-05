@@ -13,7 +13,7 @@ fetch(url)
             <h5 class="card-title">${elem.name}</h5>
             <p class="card-text">${elem.name} is <b>${elem.nation}</b></p>
             <button href="" name="${elem.id}" class="btn btn-outline-primary details">Details</button>
-            <button href="#" name="${elem.id}" class="btn btn-outline-danger delete deleteBtn"><i class="fa-solid fa-trash"></i></button>
+            <button href="#" name="${elem.id}" class="btn btn-outline-danger delete delete"><i class="fa-solid fa-trash"></i></button>
             <button href="#" name="${elem.id}" class="btn btn-outline-danger favorite"><i class="fa-regular fa-heart"></i></button>
           </div>
         </div>`;
@@ -118,11 +118,15 @@ fetch(url)
     }
 
     //remove
-    let deleteBtns=document.querySelectorAll(".deleteBtn")
-    for(let btn of deleteBtns){
+    let deletes=document.querySelectorAll(".delete")
+    for(let btn of deletes){
       btn.addEventListener("click", function(e){
         e.preventDefault()
         this.parentElement.parentElement.remove()
+        console.log(this.name);
+        fetch(url+this.name, {
+          method:"Delete"
+        })
       })
     }
 

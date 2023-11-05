@@ -27,53 +27,66 @@ fetch(url)
           </div>
         </div>`;
         });
-       
+
         //favorites
         let favItemsArr = [];
         let favItems = JSON.parse(localStorage.getItem("favMeals"));
-    
+
         if (favItems) {
-          favItemsArr = [...favItems];
-          let sup = document.querySelector(".favSup")
-          let favoritesLocal = JSON.parse(localStorage.getItem("favMeals"));
-          sup.textContent = favoritesLocal.length;
-        }
-    
-        let favorites = document.querySelectorAll(".favorite");
-    
-        favorites.forEach((btn) => {
-          let isFavorite = favItemsArr.some((fav) => fav.id == btn.getAttribute("name"));
-    
-          if (isFavorite) {
-            btn.querySelector("i").classList.add("fa-solid", "fa-regular");
-          }
-    
-          btn.addEventListener("click", function (e) {
-            e.preventDefault();
-            let icon = this.querySelector("i");
-    
-            if (icon.classList.contains("fa-solid")) {
-              icon.classList.remove("fa-solid")
-              icon.classList.add("fa-regular");
-              favItemsArr = favItemsArr.filter((elem) => elem.id != this.getAttribute("name"));
-    
-            } else {
-              icon.classList.add("fa-solid", "fa-regular");
-              favItemsArr.push(data.find((elem) => elem.id == this.getAttribute("name")));
-    
-            }
-    
-            localStorage.setItem("favMeals", JSON.stringify(favItemsArr));
+            favItemsArr = [...favItems];
             let sup = document.querySelector(".favSup")
             let favoritesLocal = JSON.parse(localStorage.getItem("favMeals"));
             sup.textContent = favoritesLocal.length;
-          });
+        }
+
+        let favorites = document.querySelectorAll(".favorite");
+
+        favorites.forEach((btn) => {
+            let isFavorite = favItemsArr.some((fav) => fav.id == btn.getAttribute("name"));
+
+            if (isFavorite) {
+                btn.querySelector("i").classList.add("fa-solid", "fa-regular");
+            }
+
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                let icon = this.querySelector("i");
+
+                if (icon.classList.contains("fa-solid")) {
+                    icon.classList.remove("fa-solid")
+                    icon.classList.add("fa-regular");
+                    favItemsArr = favItemsArr.filter((elem) => elem.id != this.getAttribute("name"));
+
+                } else {
+                    icon.classList.add("fa-solid", "fa-regular");
+                    favItemsArr.push(data.find((elem) => elem.id == this.getAttribute("name")));
+
+                }
+
+                localStorage.setItem("favMeals", JSON.stringify(favItemsArr));
+                let sup = document.querySelector(".favSup")
+                let favoritesLocal = JSON.parse(localStorage.getItem("favMeals"));
+                sup.textContent = favoritesLocal.length;
+            });
         });
-        
+
         //cart
         let cart = document.querySelectorAll(".cart")
         let cartItemsMealArr = []
         let cartItemsMeal = JSON.parse(localStorage.getItem("cartMeals"))
+
+        //remove
+        let deletes = document.querySelectorAll(".delete")
+        for (let btn of deletes) {
+            btn.addEventListener("click", function (e) {
+                e.preventDefault()
+                this.parentElement.parentElement.remove()
+                console.log(this.name);
+                fetch(url + this.name, {
+                    method: "Delete"
+                })
+            })
+        }
 
         //  localStorage.setItem("cart", JSON.stringify(cartItemsMealArr))
         // console.log(cartItemsMeal);
@@ -156,20 +169,20 @@ let search = document.querySelector(".searchInp");
 let searchBtn = document.querySelector(".searchBtn");
 
 search.addEventListener("input", async function (e) {
-  e.preventDefault();
-  let res = await fetch(url);
-  let data = await res.json();
-  let matchedHTML = "";
+    e.preventDefault();
+    let res = await fetch(url);
+    let data = await res.json();
+    let matchedHTML = "";
 
-  let matched = data.filter(element => {
-    return element.name.trim().toLowerCase().includes(search.value.trim().toLowerCase());
-  });
+    let matched = data.filter(element => {
+        return element.name.trim().toLowerCase().includes(search.value.trim().toLowerCase());
+    });
 
 
 
-  if (matched.length > 0) {
-    matched.forEach(elem => {
-      matchedHTML += `
+    if (matched.length > 0) {
+        matched.forEach(elem => {
+            matchedHTML += `
       <div class="card" style="width: 18rem;">
       <div class="cardImg"><img name="${elem.id}" src="${elem.image}" class="card-img-top" alt="singer"></div> 
         <div class="card-body">
@@ -181,9 +194,9 @@ search.addEventListener("input", async function (e) {
           <button href="#" name="${elem.id}" class="btn btn-outline-warning cart"><i class="fa-solid fa-cart-shopping"></i></i></button>
         </div>
       </div>`;
-    });
-    results.innerHTML = matchedHTML;
-  } else {
-    results.innerHTML = "";
-  }
+        });
+        results.innerHTML = matchedHTML;
+    } else {
+        results.innerHTML = "";
+    }
 });
