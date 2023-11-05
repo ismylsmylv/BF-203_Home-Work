@@ -15,17 +15,27 @@ fetch(url)
             }
 
             results.innerHTML += `
-        <div class="card" style="width: 18rem;">
-        <div class="cardImg"><img name="${elem.id}" src="${elem.image}" class="card-img-top" alt="singer"></div> 
-          <div class="card-body">
+            <div class="card" style="width: 18rem;">
+            <div class="cardImg"><img name="${elem.id}" src="${elem.image}"     class="card-img-top" alt="singer"></div> 
+            <div class="card-body">
             <h5 class="card-title">${elem.name}</h5>
             <p class="card-text">${elem.ingredients}</p>
-            
+            <button href="" name="${elem.id}" class="btn btn-outline-primary details">Details</button>
             <button href="#" name="${elem.id}" class="btn btn-outline-danger delete"><i class="fa-solid fa-trash"></i></button>
             <button href="#" name="${elem.id}" class="btn btn-outline-danger favorite"><i class="fa-regular fa-heart"></i></button>
             <button href="#" name="${elem.id}" class="btn btn-outline-warning cart"><i class="fa-solid fa-cart-shopping"></i></i></button>
-          </div>
-        </div>`;
+              </div>
+            </div>`;
+        });
+
+        let detailBtn = document.querySelectorAll(".details");
+        detailBtn.forEach((btn) => {
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                console.log(btn.getAttribute("name"));
+                let elemId = btn.getAttribute("name");
+                window.location.href = `detailMeal.html?id=${elemId}`;
+            });
         });
 
         //favorites

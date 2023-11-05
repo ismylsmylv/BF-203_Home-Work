@@ -264,6 +264,16 @@
         "Cheeseburger"
       ],
       "id": 31
+    },
+    {
+      "username": "lily",
+      "password": "Lily",
+      "email": "lily@gmail.com",
+      "balance": 584,
+      "orders": [
+        "Vegetarian Pizza"
+      ],
+      "id": 32
     }
   ]
 }

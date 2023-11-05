@@ -31,7 +31,48 @@ fetch(`${url}${id}`)
           <p class="age">Age: ${data.age}</p>
           <p class="genre">Genre: ${data.genre}</p>
           <a href="./index.html" class="btn btn-outline-primary">Home</a>
+          <button href="#" name="${data.id}" class="btn btn-outline-danger favorite"><i class="fa-regular fa-heart"></i></button>
       </div>`;
+    let favItemsArr = [];
+    let favItems = JSON.parse(localStorage.getItem("favorites"));
+
+    if (favItems) {
+      favItemsArr = [...favItems];
+      let sup = document.querySelector(".favSup")
+      let favoritesLocal = JSON.parse(localStorage.getItem("favorites"));
+      sup.textContent = favoritesLocal.length;
+    }
+
+    let favorites = document.querySelectorAll(".favorite");
+
+    favorites.forEach((btn) => {
+      let isFavorite = favItemsArr.some((fav) => fav.id == btn.getAttribute("name"));
+
+      if (isFavorite) {
+        btn.querySelector("i").classList.add("fa-solid", "fa-regular");
+      }
+
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        let icon = this.querySelector("i");
+
+        if (icon.classList.contains("fa-solid")) {
+          icon.classList.remove("fa-solid")
+          icon.classList.add("fa-regular");
+          favItemsArr = favItemsArr.filter((elem) => elem.id != this.getAttribute("name"));
+
+        } else {
+          icon.classList.add("fa-solid", "fa-regular");
+          favItemsArr.push(data.find((elem) => elem.id == this.getAttribute("name")));
+
+        }
+
+        localStorage.setItem("favorites", JSON.stringify(favItemsArr));
+        let sup = document.querySelector(".favSup")
+        let favoritesLocal = JSON.parse(localStorage.getItem("favorites"));
+        sup.textContent = favoritesLocal.length;
+      });
+    });
   });
 
 let isLogged = JSON.parse(localStorage.getItem("loginId"))

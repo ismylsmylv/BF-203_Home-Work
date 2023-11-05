@@ -10,3 +10,5 @@
 10. trash removes item both api and html        +
 11. orders with date and id
 12. use url/id instead of searching one     +
+13. meals detail page 
+14. Add to wishlist and cart on details page    

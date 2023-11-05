@@ -26,12 +26,18 @@ logOut.addEventListener("click", function (e) {
 let cartList = document.querySelector(".cartList");
 let cartItemCount = document.querySelector(".cartItemCount");
 let sup = document.querySelector("sup");
-let localCart = JSON.parse(localStorage.getItem("cartMeals"));
 let totalPriceInCheckOut = document.querySelector(".totalPriceInCheckOut");
 let count = 0;
 let total = 0;
 let totalPriceInCheckOutSum;
 
+let localCart
+if (JSON.parse(localStorage.getItem("cartMeals"))) {
+    localCart = JSON.parse(localStorage.getItem("cartMeals"));
+}
+else {
+    localCart = []
+}
 for (let index = 0; index < localCart.length; index++) {
     let elem = localCart[index];
     count++;

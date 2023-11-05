@@ -164,17 +164,17 @@ search.addEventListener("input", async function (e) {
     let res = await fetch(url);
     let data = await res.json();
     let matchedHTML = "";
-    
+
     let matched = data.filter(element => {
       return element.name.trim().toLowerCase().includes(search.value.trim().toLowerCase());
     });
-    
+
     let matchedNation = data.filter(element => {
       return element.nation.trim().toLowerCase().includes(search.value.trim().toLowerCase());
     });
 
     let mergedResults = matched.concat(matchedNation);
-    
+
     if (matched.length > 0 || matchedNation.length > 0) {
       mergedResults.forEach(elem => {
         results.innerHTML = "";
@@ -188,34 +188,39 @@ search.addEventListener("input", async function (e) {
             <button href="#" name="${elem.id}" class="btn btn-outline-danger delete"><i class="fa-solid fa-trash"></i></button>
             <button href="#" name="${elem.id}" class="btn btn-outline-danger favorite"><i class="fa-regular fa-heart"></i></button>
           </div>
-          </div>`;
-          results.innerHTML = matchedHTML;
+        </div>`;
       });
 
     } else {
       results.innerHTML = "";
     }
+    results.innerHTML = matchedHTML;
   };
 
-  searchBtn.addEventListener("click", async function (e) {
-    e.preventDefault();
-    let res = await fetch(url);
-    let data = await res.json();
-    let matchedHTML = "";
 
-    let matched = data.filter(element => {
-      return element.name.trim().toLowerCase().includes(search.value.trim().toLowerCase());
-    });
+});
 
-    let matchedNation = data.filter(element => {
-      return element.nation.trim().toLowerCase().includes(search.value.trim().toLowerCase());
-    });
 
-    let mergedResults = matched.concat(matchedNation);
+searchBtn.addEventListener("click", async function (e) {
+  e.preventDefault();
+  let res = await fetch(url);
+  let data = await res.json();
+  let matchedHTML = "";
 
-    if (matched.length > 0 || matchedNation.length > 0) {
-      mergedResults.forEach(elem => {
-        matchedHTML += `
+  let matched = data.filter(element => {
+    return element.name.trim().toLowerCase().includes(search.value.trim().toLowerCase());
+  });
+
+  let matchedNation = data.filter(element => {
+    return element.nation.trim().toLowerCase().includes(search.value.trim().toLowerCase());
+  });
+
+  let mergedResults = matched.concat(matchedNation);
+
+  if (matched.length > 0 || matchedNation.length > 0) {
+    results.innerHTML = "";
+    mergedResults.forEach(elem => {
+      matchedHTML += `
         <div class="card" style="width: 18rem;">
           <div class="cardImg"><img name="${elem.id}" src="${elem.image}" class="card-img-top" alt="singer"></div> 
           <div class="card-body">
@@ -226,19 +231,18 @@ search.addEventListener("input", async function (e) {
             <button href="#" name="${elem.id}" class="btn btn-outline-danger favorite"><i class="fa-regular fa-heart"></i></button>
           </div>
         </div>`;
+    });
+    results.innerHTML = matchedHTML;
+    let detailBtn = document.querySelectorAll(".details");
+    detailBtn.forEach((btn) => {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        console.log(btn.getAttribute("name"));
+        let elemId = btn.getAttribute("name");
+        window.location.href = `details.html?id=${elemId}`;
       });
-      results.innerHTML = matchedHTML;
-      let detailBtn = document.querySelectorAll(".details");
-      detailBtn.forEach((btn) => {
-        btn.addEventListener("click", function (e) {
-          e.preventDefault();
-          console.log(btn.getAttribute("name"));
-          let elemId = btn.getAttribute("name");
-          window.location.href = `details.html?id=${elemId}`;
-        });
-      });
-    } else {
-      results.innerHTML = "";
-    }
-  })
-});
+    });
+  } else {
+    results.innerHTML = "";
+  }
+})
