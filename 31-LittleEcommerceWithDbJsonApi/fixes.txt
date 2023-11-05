@@ -5,7 +5,7 @@
 5. remove should refresh without refreshing tab in cart     
 6. removeall changes total content to $0    	+
 7. details should load when item in wishlist	+
-8. change all to scss from inline css
+8. change all to scss from inline css           +
 9. green favicon 	+
 10. trash removes item both api and html        +
 11. orders with date and id
