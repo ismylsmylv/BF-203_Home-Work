@@ -182,29 +182,13 @@
       "username": "ismyl",
       "password": "ismyl",
       "email": "ismyl@com",
-      "balance": 22790,
+      "balance": 22750,
       "orders": [
-        "Margherita",
+        "Pizza Margherita",
         "Cheeseburger",
-        "Margherita",
+        "Pizza Margherita",
         "Cheeseburger",
-        "Margherita",
-        "Cheeseburger",
-        "Margherita",
-        "Cheeseburger",
-        "Cheeseburger",
-        "Margherita",
-        "Cheeseburger",
-        "Spaghetti Carbonara",
-        "Cheeseburger",
-        "Margherita",
-        "Cheeseburger",
-        "Margherita",
-        "Spaghetti Carbonara",
-        "Cheeseburger",
-        "Spaghetti Carbonara",
-        "Margherita",
-        "Spaghetti Carbonara",
+        "Pizza Margherita",
         "Cheeseburger"
       ],
       "id": 16
@@ -264,6 +248,16 @@
         "Cheeseburger"
       ],
       "id": 31
+    },
+    {
+      "username": "lily",
+      "password": "Lily",
+      "email": "lily@gmail.com",
+      "balance": 584,
+      "orders": [
+        "Vegetarian Pizza"
+      ],
+      "id": 32
     }
   ]
 }
