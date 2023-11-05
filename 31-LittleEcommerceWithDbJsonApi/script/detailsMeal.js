@@ -28,12 +28,12 @@ fetch(`http://localhost:3000/meals/${id}`)
             <h1 class="title">${data.name}</h1>
             <p class="nation">${data.ingredients}</p>
             <a href="./meals.html" class="btn btn-outline-primary">Meals</a>
-            <button href="#" name="${data.id}" class="btn btn-outline-warning cart"><i
-                    class="fa-solid fa-cart-shopping"></i></i></button>
+            
         </div>`;
         let favItemsArr = [];
         let favItems = JSON.parse(localStorage.getItem("favorites"));
-
+        {/* <button href="#" name="${data.id}" class="btn btn-outline-warning cart"><i
+                    class="fa-solid fa-cart-shopping"></i></i></button> */}
         if (favItems) {
             favItemsArr = [...favItems];
             let sup = document.querySelector(".favSup")
@@ -58,16 +58,14 @@ fetch(`http://localhost:3000/meals/${id}`)
                     icon.classList.remove("fa-solid")
                     icon.classList.add("fa-regular");
                     favItemsArr = favItemsArr.filter((elem) => elem.id != this.getAttribute("name"));
-
                 } else {
                     icon.classList.add("fa-solid", "fa-regular");
-                    favItemsArr.push(data.find((elem) => elem.id == this.getAttribute("name")));
-
+                    favItemsArr.push({ id: this.getAttribute("name") });
                 }
 
                 localStorage.setItem("favorites", JSON.stringify(favItemsArr));
                 let sup = document.querySelector(".favSup")
-                let favoritesLocal = JSON.parse(localStorage.getItem("favorites")) || []
+                let favoritesLocal = JSON.parse(localStorage.getItem("favorites")) || [];
                 sup.textContent = favoritesLocal.length;
             });
         });
