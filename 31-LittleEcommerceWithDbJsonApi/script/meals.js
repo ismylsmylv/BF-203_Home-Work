@@ -27,68 +27,48 @@ fetch(url)
           </div>
         </div>`;
         });
-        //<a href="details.html?id=${elem.id}" class="btn btn-outline-primary details">Details</a>
-        let detailBtn = document.querySelectorAll(".details");
-        detailBtn.forEach((btn) => {
-            btn.addEventListener("click", function (e) {
-                e.preventDefault();
-                console.log(e.target);
-                let elemId = e.target.getAttribute("name");
-                window.open(`details.html?id=${elemId}`, "_blank");
-            });
-        });
-
+       
         //favorites
-        let favItemsArrMeal = []
-        let favItemsMeal = JSON.parse(localStorage.getItem("favMeals"))
-        if (favItemsMeal) {
-            favItemsArrMeal = [...favItemsMeal];
-        }
-        let favoriteMeals = document.querySelectorAll(".favorite")
-        favoriteMeals.forEach((btn) => {
-            btn.addEventListener("click", function (e) {
-                e.preventDefault()
-                console.log(btn.name);
-                icon = this.querySelector("i")
-                if (icon.classList.contains("fa-solid")) {
-                    icon.classList.add("fa-regular")
-                    icon.classList.remove("fa-solid")
-                    favItemsArrMeal = favItemsArrMeal.filter(elem => elem.id != this.getAttribute("name"))
-                    localStorage.setItem("favMeals", JSON.stringify(favItemsArrMeal))
-                    console.log(favItemsArrMeal);
-                    let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
-                    let sup = document.querySelector("sup")
-                    if (data) {
-                        sup.textContent = cartMeals.length;
-                    }
-                }
-                else {
-                    // console.log(this.classList);
-                    icon.classList.add("fa-solid")
-                    icon.classList.remove("fa-regular")
-                    favItemsArrMeal.push(data[+this.getAttribute("name") - 1]);
-                    localStorage.setItem("favMeals", JSON.stringify(favItemsArrMeal))
-                    console.log(favItemsArrMeal);
-                    let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
-                    let sup = document.querySelector("sup")
-                    if (data) {
-                        sup.textContent = cartMeals.length;
-                    }
-                }
-            })
-        })
         let favItemsArr = [];
-        let favItems = []
+        let favItems = JSON.parse(localStorage.getItem("favorites"));
+    
         if (favItems) {
-            favItemsArr = [...favItems];
-            let sup = document.querySelector(".favSup");
-            let favoritesLocal = JSON.parse(localStorage.getItem("favorites"))||[]
-            sup.textContent = favoritesLocal.length;
+          favItemsArr = [...favItems];
+          let sup = document.querySelector(".favSup")
+          let favoritesLocal = JSON.parse(localStorage.getItem("favorites"));
+          sup.textContent = favoritesLocal.length;
         }
-        else {
+    
+        let favorites = document.querySelectorAll(".favorite");
+    
+        favorites.forEach((btn) => {
+          let isFavorite = favItemsArr.some((fav) => fav.id == btn.getAttribute("name"));
+    
+          if (isFavorite) {
+            btn.querySelector("i").classList.add("fa-solid", "fa-regular");
+          }
+    
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            let icon = this.querySelector("i");
+    
+            if (icon.classList.contains("fa-solid")) {
+              icon.classList.remove("fa-solid")
+              icon.classList.add("fa-regular");
+              favItemsArr = favItemsArr.filter((elem) => elem.id != this.getAttribute("name"));
+    
+            } else {
+              icon.classList.add("fa-solid", "fa-regular");
+              favItemsArr.push(data.find((elem) => elem.id == this.getAttribute("name")));
+    
+            }
+    
+            localStorage.setItem("favorites", JSON.stringify(favItemsArr));
+            let sup = document.querySelector(".favSup")
             let favoritesLocal = JSON.parse(localStorage.getItem("favorites"));
             sup.textContent = favoritesLocal.length;
-        }
+          });
+        });
         
         //cart
         let cart = document.querySelectorAll(".cart")

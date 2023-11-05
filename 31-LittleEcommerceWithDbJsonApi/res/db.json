@@ -133,7 +133,8 @@
         "romaine lettuce",
         "croutons",
         "parmesan cheese",
-        "Caesar dressing"
+        "Caesar dressing",
+        "olive oil"
       ],
       "image": "https://itsavegworldafterall.com/wp-content/uploads/2023/04/Avocado-Caesar-Salad-FI.jpg"
     }
@@ -178,83 +179,6 @@
       ]
     },
     {
-      "username": "mypyhysan",
-      "password": "Pa$$w0rd!",
-      "email": "pudizagyku@mailinator.com",
-      "balance": "280",
-      "id": 4
-    },
-    {
-      "username": "fafamudyv",
-      "password": "Pa$$w0rd!",
-      "email": "fajiqumus@mailinator.com",
-      "balance": "462",
-      "id": 5
-    },
-    {
-      "username": "pixaqop",
-      "password": "Pa$$w0rd!",
-      "email": "renulydyle@mailinator.com",
-      "balance": "803",
-      "id": 6
-    },
-    {
-      "username": "nupaweg",
-      "password": "Pa$$w0rd!",
-      "email": "levimanog@mailinator.com",
-      "balance": "858",
-      "id": 7
-    },
-    {
-      "username": "vyzedac",
-      "password": "Pa$$w0rd!",
-      "email": "xexytyliz@mailinator.com",
-      "balance": "103",
-      "id": 8
-    },
-    {
-      "username": "hucavo",
-      "password": "Pa$$w0rd!",
-      "email": "lehavemyr@mailinator.com",
-      "balance": "735",
-      "id": 10
-    },
-    {
-      "username": "bytipo",
-      "password": "Pa$$w0rd!",
-      "email": "tixan@mailinator.com",
-      "balance": "209",
-      "id": 11
-    },
-    {
-      "username": "qokely",
-      "password": "Pa$$w0rd!",
-      "email": "move@mailinator.com",
-      "balance": "370",
-      "id": 12
-    },
-    {
-      "username": "wasofyv",
-      "password": "Pa$$w0rd!",
-      "email": "jowigyb@mailinator.com",
-      "balance": "402",
-      "id": 13
-    },
-    {
-      "username": "gymocuji",
-      "password": "Pa$$w0rd!",
-      "email": "karux@mailinator.com",
-      "balance": "165",
-      "id": 14
-    },
-    {
-      "username": "cesiriziq",
-      "password": "Pa$$w0rd!",
-      "email": "kinasalaju@mailinator.com",
-      "balance": "361",
-      "id": 15
-    },
-    {
       "username": "ismyl",
       "password": "ismyl",
       "email": "ismyl@com",
@@ -286,34 +210,6 @@
       "id": 16
     },
     {
-      "username": "64jec3kn",
-      "password": "dassdsA",
-      "email": "ismayilovsmyl2020@gmail.com",
-      "balance": "12",
-      "orders": "test",
-      "id": 17
-    },
-    {
-      "username": "fipakakik",
-      "password": "Pa$$w0rd!",
-      "email": "qubyfa@mailinator.com",
-      "balance": "858",
-      "orders": "test",
-      "id": 18
-    },
-    {
-      "username": "necibyri",
-      "password": "Pa$$w0rd!",
-      "email": "pyvoq@mailinator.com",
-      "balance": 3,
-      "orders": [
-        "Cheeseburger",
-        "Margherita",
-        "Spaghetti Carbonara"
-      ],
-      "id": 19
-    },
-    {
       "username": "tom",
       "password": "Tom123",
       "email": "tom@gmai.com",
@@ -324,42 +220,6 @@
         "Margherita"
       ],
       "id": 20
-    },
-    {
-      "username": "tajuqeh",
-      "password": "Pa$$w0rd!",
-      "email": "symuv@mailinator.com",
-      "balance": "963",
-      "orders": [],
-      "id": 21
-    },
-    {
-      "username": "deqehelo",
-      "password": "Pa$$w0rd!",
-      "email": "bowep@mailinator.com",
-      "balance": "787",
-      "orders": [],
-      "id": 22
-    },
-    {
-      "username": "azxc",
-      "password": "Azxc",
-      "email": "azxc@gmail.com",
-      "balance": 12315,
-      "orders": [
-        "Cheeseburger",
-        "Spaghetti Carbonara",
-        "Margherita"
-      ],
-      "id": 23
-    },
-    {
-      "username": "asa",
-      "password": "asdA",
-      "email": "ismayilovsmyl2020@gmail.com",
-      "balance": "1",
-      "orders": [],
-      "id": 24
     },
     {
       "username": "asadsadsf",
@@ -384,22 +244,6 @@
       "balance": "361",
       "orders": [],
       "id": 27
-    },
-    {
-      "username": "gusysug",
-      "password": "Pa$$w0rd!",
-      "email": "midixolaq@mailinator.com",
-      "balance": "825",
-      "orders": [],
-      "id": 28
-    },
-    {
-      "username": "jiqohuci",
-      "password": "Pa$$w0rd!",
-      "email": "diry@mailinator.com",
-      "balance": "754",
-      "orders": [],
-      "id": 29
     },
     {
       "username": "said",

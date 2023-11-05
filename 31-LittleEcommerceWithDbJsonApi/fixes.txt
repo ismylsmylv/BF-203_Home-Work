@@ -1,4 +1,4 @@
-1. search singer
+1. search singer        +
 2. wish count on meals and basket 	+
 3. increase and decrease should change also local storage       +
 4. remove whitespace between basket item name and remove button		+
