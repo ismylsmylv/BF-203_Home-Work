@@ -182,8 +182,12 @@
       "username": "ismyl",
       "password": "ismyl",
       "email": "ismyl@com",
-      "balance": 22770,
+      "balance": 22750,
       "orders": [
+        "Pizza Margherita",
+        "Cheeseburger",
+        "Pizza Margherita",
+        "Cheeseburger",
         "Pizza Margherita",
         "Cheeseburger"
       ],
