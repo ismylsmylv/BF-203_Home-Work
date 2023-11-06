@@ -16,7 +16,7 @@ signBtn.addEventListener("click", function (e) {
             title: 'Provide details',
             text: 'Please fill all required fields',
         });
-    } 
+    }
     // length
     else if (signName.value.length < 3) {
         Swal.fire({
@@ -24,7 +24,7 @@ signBtn.addEventListener("click", function (e) {
             title: 'Invalid Username',
             text: 'Username must be at least 3 characters long',
         });
-    } 
+    }
     // balance
     else if (signBalance.value < 0) {
         Swal.fire({
@@ -32,7 +32,7 @@ signBtn.addEventListener("click", function (e) {
             title: 'Invalid Balance',
             text: 'Balance cannot be less than 0',
         });
-    } 
+    }
     // uppercase
     else if (!/[A-Z]/.test(signPassword.value)) {
         Swal.fire({
@@ -40,7 +40,7 @@ signBtn.addEventListener("click", function (e) {
             title: 'Invalid Password',
             text: 'Password must contain at least one uppercase letter',
         });
-    } 
+    }
     //  username 
     else {
         fetch(url)
@@ -60,7 +60,7 @@ signBtn.addEventListener("click", function (e) {
                             "password": signPassword.value,
                             "email": signEmail.value,
                             "balance": signBalance.value,
-                            "orders": [] 
+                            "orders": []
                         }),
                         headers: {
                             "Content-type": "application/json; charset=UTF-8"
@@ -69,10 +69,8 @@ signBtn.addEventListener("click", function (e) {
                 }
             }).then(response => {
                 if (response.ok) {
-                    // Registration successful, redirect to login page
                     window.location.href = './login.html';
                 } else {
-                    // handle registration failure
                     Swal.fire({
                         icon: 'error',
                         title: 'Registration failed',
@@ -86,7 +84,8 @@ signBtn.addEventListener("click", function (e) {
                     icon: 'error',
                     title: 'Registration error',
                     text: 'Please try again later',
-                })});
-            ;
+                })
+            });
+        ;
     }
 });
