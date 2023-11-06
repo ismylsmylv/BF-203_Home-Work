@@ -51,7 +51,6 @@ for (let elem of favCart) {
 
     //add to cart
     let cart = document.querySelectorAll(".cart")
-    let cartItemsMealArr = []
     let cartItemsMeal = JSON.parse(localStorage.getItem("cartMeals"))
 
     //  localStorage.setItem("cart", JSON.stringify(cartItemsMealArr))
@@ -138,7 +137,7 @@ for (let elem of favMeals) {
         btn.addEventListener("click", function () {
             let indexToRemove = Array.from(this.closest('.wishList').children).indexOf(this.parentElement.parentElement.parentElement);
             favMeals.splice(indexToRemove, 1);
-            localStorage.setItem("favorites", JSON.stringify(favMeals));
+            localStorage.setItem("favMeals", JSON.stringify(favMeals));
             this.parentElement.parentElement.parentElement.remove();
             --favCount;
             favSup.textContent = favCount;

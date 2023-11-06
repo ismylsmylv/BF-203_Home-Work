@@ -104,23 +104,32 @@ for (let index = 0; index < localCart.length; index++) {
             changeTotalAll(onePrice, number, totalAll, index);
         });
 
-        let removeCart = document.querySelectorAll(".removeCart");
-        for (let btn of removeCart) {
+        let removeCartButtons = document.querySelectorAll(".removeCart");
+        for (let btn of removeCartButtons) {
             btn.addEventListener("click", function () {
-                window.location.reload();
-                let itemTotal = parseFloat(totalAll.textContent.replace("$", ""));
+                let itemTotal = parseFloat(this.parentElement.nextElementSibling.nextElementSibling.textContent.replace("$", ""));
                 count--;
                 cartItemCount.textContent = `${count} items`;
                 total -= itemTotal;
                 totalPriceInCheckOut.textContent = `$${total.toFixed(2)}`;
-                this.parentElement.parentElement.parentElement.remove();
-                localCart.splice(index, 1);
-                localStorage.setItem("cartMeals", JSON.stringify(localCart));
-                let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
-                let sup = document.querySelector("sup");
-                sup.textContent = cartMeals.length;
-                updateAfter();
+                this.parentElement.parentElement.remove();
+                let indexToRemove = parseInt(this.parentElement.getAttribute("data-index"));
+                let localStorageName = this.parentElement.getAttribute("data-localstorage");
 
+
+                if (localStorageName == "favMeals") {
+                    localCart.splice(indexToRemove, 1);
+                    localStorage.setItem("favMeals", JSON.stringify(localCart));
+                } else if (localStorageName == "favorites") {
+                    finOrders.splice(indexToRemove, 1);
+                    localStorage.setItem("favorites", JSON.stringify(finOrders));
+                }
+
+                let cartMeals = JSON.parse(localStorage.getItem("favMeals"));
+                let favorites = JSON.parse(localStorage.getItem("favorites"));
+                let sup = document.querySelector("sup");
+                sup.textContent = cartMeals.length + favorites.length;
+                updateAfter();
             });
         }
 
