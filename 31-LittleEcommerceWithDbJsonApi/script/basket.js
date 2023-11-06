@@ -180,7 +180,11 @@ checkBtn.addEventListener("click", function (e) {
                             let orders = JSON.parse(localStorage.getItem("cartMeals")) || [];
 
                             for (let order of orders) {
-                                finOrders.push(order.name);
+                                let currentDate = new Date();
+                                let date = currentDate.toLocaleDateString();
+                                let time = currentDate.toLocaleTimeString();
+
+                                finOrders.push([`${order.name} at ${date} on  ${time}`]);
                             }
                             localStorage.setItem("finOrders", JSON.stringify(finOrders));
                             console.log((JSON.parse(localStorage.getItem("cartMeals"))));

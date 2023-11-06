@@ -182,14 +182,31 @@
       "username": "ismyl",
       "password": "ismyl",
       "email": "ismyl@com",
-      "balance": 22750,
+      "balance": 22688,
       "orders": [
-        "Pizza Margherita",
         "Cheeseburger",
         "Pizza Margherita",
-        "Cheeseburger",
-        "Pizza Margherita",
-        "Cheeseburger"
+        "Caesar Salad",
+        "Vegetarian Pizza",
+        [
+          "Pizza Margherita",
+          "11/6/2023",
+          "10:30:22 AM"
+        ],
+        [
+          "Cheeseburger",
+          "11/6/2023",
+          "10:30:22 AM"
+        ],
+        [
+          "Pizza Margherita at 11/6/2023 on  10:31:47 AM"
+        ],
+        [
+          "Pizza Margherita at 11/6/2023 on  10:32:43 AM"
+        ],
+        [
+          "Chicken Alfredo at 11/6/2023 on  10:32:43 AM"
+        ]
       ],
       "id": 16
     },
