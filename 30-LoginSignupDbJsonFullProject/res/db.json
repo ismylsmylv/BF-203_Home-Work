@@ -310,6 +310,57 @@
       "balance": "234",
       "orders": [],
       "id": 25
+    },
+    {
+      "username": "saidsaid",
+      "password": "Said123",
+      "email": "said@gmail.com",
+      "balance": "12239",
+      "orders": [],
+      "id": 26
+    },
+    {
+      "username": "lylufy",
+      "password": "Pa$$w0rd!",
+      "email": "focy@mailinator.com",
+      "balance": "361",
+      "orders": [],
+      "id": 27
+    },
+    {
+      "username": "gusysug",
+      "password": "Pa$$w0rd!",
+      "email": "midixolaq@mailinator.com",
+      "balance": "825",
+      "orders": [],
+      "id": 28
+    },
+    {
+      "username": "jiqohuci",
+      "password": "Pa$$w0rd!",
+      "email": "diry@mailinator.com",
+      "balance": "754",
+      "orders": [],
+      "id": 29
+    },
+    {
+      "username": "said",
+      "password": "Said123",
+      "email": "said@gmail.com",
+      "balance": "12091209",
+      "orders": [],
+      "id": 30
+    },
+    {
+      "username": "qurban",
+      "password": "Qurban",
+      "email": "janedoe@example.com",
+      "balance": 12345494,
+      "orders": [
+        "Spaghetti Carbonara",
+        "Margherita"
+      ],
+      "id": 31
     }
   ]
 }

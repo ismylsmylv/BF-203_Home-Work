@@ -67,9 +67,26 @@ signBtn.addEventListener("click", function (e) {
                         }
                     });
                 }
+            }).then(response => {
+                if (response.ok) {
+                    // Registration successful, redirect to login page
+                    window.location.href = './login.html';
+                } else {
+                    // handle registration failure
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Registration failed',
+                        text: 'Please try again later',
+                    });
+                }
             })
-            .then()
-            .catch();
-            });
+            .catch(error => {
+                console.error('Error during registration:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Registration error',
+                    text: 'Please try again later',
+                })});
+            ;
     }
 });
