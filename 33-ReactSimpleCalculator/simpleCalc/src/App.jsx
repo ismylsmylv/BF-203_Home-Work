@@ -9,22 +9,41 @@ import Divi from './components/division'
 import Result from './components/result'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  let [firstNumber, setFirst] = useState(0)
+  let [secondNumber, setSecond] = useState(0)
+  let [result, setResult] = useState(0)
+  let firstInput = (value) => {
+    setFirst(value)
+  }
+  let secondInput = (value) => {
+    setSecond(value)
+  }
+  let adder = () => {
+    setResult(firstNumber + secondNumber)
+  }
+  let suber = () => {
+    setResult(firstNumber - secondNumber)
+  }
+  let multier = () => {
+    setResult(firstNumber * secondNumber)
+  }
+  let diver = () => {
+    setResult(firstNumber / secondNumber)
+  }
   return (
     <>
       <div className="card">
-        <FirstInp className="inp1" />
-        <SecondInp className="inp2" />
+        <FirstInp className="inp1" onChange={firstInput} />
+        <SecondInp className="inp2" onChange={secondInput} />
         <div className="buttons">
-          <Add className="add button" />
-          <Sub className="sub button" />
-          <Mult className="mult button" />
-          <Divi className="divi button" />
+          <Add className="add" func={adder} />
+          <Sub className="sub" func={suber} />
+          <Mult className="mult" func={multier} />
+          <Divi className="divi" func={diver} />
         </div>
-        <div className="result">
-          <Result />
-        </div>
+        <h2 className="result">
+          <Result value={result} />
+        </h2>
       </div>
     </>
   )

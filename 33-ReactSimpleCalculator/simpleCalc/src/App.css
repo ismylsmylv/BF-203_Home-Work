@@ -30,13 +30,27 @@ button {
 }
 .buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 20px 0;
+  padding: 25px 0;
+  font-weight: bolder;
 }
 .result {
   width: 100%;
   padding: 5px 15px;
   border: 1px solid rgb(189, 189, 189);
   border-radius: 5px;
+}
+body {
+  background: rgb(135, 91, 255);
+  background: linear-gradient(
+    58deg,
+    rgba(135, 91, 255, 1) 21%,
+    rgba(0, 175, 149, 1) 88%
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  min-height: 100%;
+  background-attachment: fixed;
 }

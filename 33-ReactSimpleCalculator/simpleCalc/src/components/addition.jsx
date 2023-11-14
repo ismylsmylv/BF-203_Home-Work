@@ -1,10 +1,9 @@
 import React from 'react'
 
-function Add() {
+
+function Add({ func }) {
     return (
-        <button onClick={function () {
-            console.log("add");
-        }}>Add</button>
+        <button onClick={func}>+</button>
     )
 }
 

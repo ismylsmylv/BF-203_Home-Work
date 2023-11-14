@@ -1,9 +1,8 @@
 import React from 'react'
 
-function Divi() {
+function Divi({ func }) {
     return (
-        <button>Divi</button>
-    )
+        <button onClick={func}>/</button>)
 }
 
 export default Divi

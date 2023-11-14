@@ -1,9 +1,8 @@
 import React from 'react'
 
-function Mult() {
+function Mult({ func }) {
     return (
-        <button>Mult</button>
-    )
+        <button onClick={func}>*</button>)
 }
 
 export default Mult

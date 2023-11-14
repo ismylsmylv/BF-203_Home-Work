@@ -1,9 +1,8 @@
 import React from 'react'
 
-function Sub() {
+function Sub({ func }) {
     return (
-        <button>Sub</button>
-    )
+        <button onClick={func}>-</button>)
 }
 
 export default Sub
