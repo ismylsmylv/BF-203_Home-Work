@@ -17,6 +17,11 @@ function App() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
   const [searchRes, setSearchRes] = useState([]);
+  const [isOpen, setIsOpen] = useState(false)
+  const [addName, setaddName] = useState(false)
+  const [addPrice, setaddPrice] = useState(false)
+  const [addDis, setaddDis] = useState(false)
+  const [addStk, setaddStk] = useState(false)
 
   useEffect(() => {
     axios('https://654bcb115b38a59f28efb8ab.mockapi.io/prods').then((res) => {
@@ -49,7 +54,10 @@ function App() {
         <Td>{elem.discontinued}</Td>
         <Td>{elem.unitsInStock}</Td>
         <Td>
-          <Button colorScheme='blue'>Edit</Button>
+          <Button colorScheme='blue' onClick={(e) => {
+            e.preventDefault()
+            console.log("first")
+          }}>Edit</Button>
         </Td>
         <Td>
           <Button colorScheme='red' name={elem.id} onClick={(e) => {
@@ -67,8 +75,60 @@ function App() {
 
   return (
     <div className='wrapper'>
-      <Input placeholder='Search' onChange={addSearch} />
+      {
+        isOpen && <div className="inputs">
+          <h4>Add new element</h4>
+          <input type="text" placeholder='name' onChange={(e) => {
+            e.preventDefault()
+            setaddName(e.target.value)
+          }} />
+          <input type="text" placeholder='price' onChange={(e) => {
+            e.preventDefault()
+            setaddPrice(e.target.value)
+          }} />
+          <input type="text" placeholder='discontinued' onChange={(e) => {
+            e.preventDefault()
+            setaddDis(e.target.value)
+          }} />
+          <input type="number" placeholder='unitinstock' onChange={(e) => {
+            e.preventDefault()
+            setaddStk(e.target.value)
 
+          }} />
+          <Button colorScheme='whatsapp' onClick={(e) => {
+            e.preventDefault()
+            let obj = {
+              "name": addName,
+              "price": addPrice,
+              "discontinued": addDis,
+              "unitsInStock": addStk,
+            }
+            console.log(obj)
+            axios.post("https://654bcb115b38a59f28efb8ab.mockapi.io/prods", obj).then(res => {
+              setData([...data, obj]);
+
+            }
+            )
+          }}>Submit</Button>
+        </div>
+      }
+      <div className="buttons">
+
+        <Button colorScheme='green' onClick={
+          (e) => {
+            e.preventDefault()
+            setIsOpen(!isOpen)
+            console.log(isOpen)
+          }
+
+
+
+        }>Add</Button>
+        <Button colorScheme='cyan'>Sort by A-Z</Button>
+        <Button colorScheme='purple'>Sort by price</Button>
+        <Button colorScheme='orange'>Sort by discontinued</Button>
+      </div>
+      <Input placeholder='Search' onChange={addSearch} />
       <TableContainer>
         <Table variant='simple'>
           <Thead>
@@ -85,7 +145,7 @@ function App() {
           <Tbody>{addRow(search ? searchRes : data)}</Tbody>
         </Table>
       </TableContainer>
-    </div>
+    </div >
   );
 }
 
