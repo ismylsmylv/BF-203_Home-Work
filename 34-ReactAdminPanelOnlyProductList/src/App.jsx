@@ -82,7 +82,7 @@ function App() {
             e.preventDefault()
             setaddName(e.target.value)
           }} />
-          <input type="text" placeholder='price' onChange={(e) => {
+          <input type="number" placeholder='price' onChange={(e) => {
             e.preventDefault()
             setaddPrice(e.target.value)
           }} />
@@ -126,7 +126,37 @@ function App() {
         }>Add</Button>
         <Button colorScheme='cyan'>Sort by A-Z</Button>
         <Button colorScheme='purple'>Sort by price</Button>
-        <Button colorScheme='orange'>Sort by discontinued</Button>
+        <Button colorScheme='orange' onClick={(e) => {
+          e.preventDefault()
+          console.log("first")
+          let discounts = data.filter(elem => elem.discontinued === "true")
+
+          setData(discounts.map(elem => {
+            <Tr bg={elem.unitsInStock < 20 ? 'red' : 'white'} key={elem.id}>
+              <Td>{elem.id}</Td>
+              <Td>{elem.name}</Td>
+              <Td>{elem.price}</Td>
+              <Td>{elem.discontinued}</Td>
+              <Td>{elem.unitsInStock}</Td>
+              <Td>
+                <Button colorScheme='blue' onClick={(e) => {
+                  e.preventDefault()
+                  console.log("first")
+                }}>Edit</Button>
+              </Td>
+              <Td>
+                <Button colorScheme='red' name={elem.id} onClick={(e) => {
+                  e.preventDefault()
+                  console.log(e.target.getAttribute("name"))
+                  axios.delete("https://654bcb115b38a59f28efb8ab.mockapi.io/prods/" + e.target.getAttribute("name"))
+                  setData(data.filter((elem) => {
+                    return elem.id != e.target.getAttribute("name")
+                  }))
+                }}>Delete</Button>
+              </Td>
+            </Tr>
+          }))
+        }}>Sort by discontinued</Button>
       </div>
       <Input placeholder='Search' onChange={addSearch} />
       <TableContainer>
