@@ -21,6 +21,7 @@ function App() {
   useEffect(() => {
     axios('https://654bcb115b38a59f28efb8ab.mockapi.io/prods').then((res) => {
       setData(res.data);
+      console.log(res.data)
     });
   }, []);
 
@@ -33,6 +34,7 @@ function App() {
         elem.name.toLowerCase().includes(searchItem.toLowerCase())
       );
       setSearchRes(results);
+      console.log(results)
     } else {
       setSearchRes([]);
     }
@@ -50,7 +52,14 @@ function App() {
           <Button colorScheme='blue'>Edit</Button>
         </Td>
         <Td>
-          <Button colorScheme='red'>Delete</Button>
+          <Button colorScheme='red' name={elem.id} onClick={(e) => {
+            e.preventDefault()
+            console.log(e.target.getAttribute("name"))
+            axios.delete("https://654bcb115b38a59f28efb8ab.mockapi.io/prods/" + e.target.getAttribute("name"))
+            setData(data.filter((elem) => {
+              return elem.id != e.target.getAttribute("name")
+            }))
+          }}>Delete</Button>
         </Td>
       </Tr>
     ));
