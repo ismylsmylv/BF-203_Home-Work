@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
 import {
   Table,
   Thead,
@@ -8,41 +8,58 @@ import {
   Th,
   Td,
   TableContainer,
-  Input
-} from '@chakra-ui/react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
-import axios, { isCancel, AxiosError } from 'axios';
-
+  Input,
+} from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
+import axios from 'axios';
 
 function App() {
-  const [data, setData] = useState([])
-  const [search, setSearch] = useState("")
-  const [searchRes, setSearchRes] = useState([])
+  const [data, setData] = useState([]);
+  const [search, setSearch] = useState('');
+  const [searchRes, setSearchRes] = useState([]);
+
   useEffect(() => {
-    axios("https://654bcb115b38a59f28efb8ab.mockapi.io/prods").then(res => {
-      console.log(res.data)
-      setData(res.data)
-    })
-  }, [])
+    axios('https://654bcb115b38a59f28efb8ab.mockapi.io/prods').then((res) => {
+      setData(res.data);
+    });
+  }, []);
+
+  const addSearch = (e) => {
+    const searchItem = e.target.value;
+    setSearch(searchItem);
+
+    if (searchItem) {
+      const results = data.filter((elem) =>
+        elem.name.toLowerCase().includes(searchItem.toLowerCase())
+      );
+      setSearchRes(results);
+    } else {
+      setSearchRes([]);
+    }
+  };
+
+  const addRow = (items) => {
+    return items.map((elem) => (
+      <Tr bg={elem.unitsInStock < 20 ? 'red' : 'white'} key={elem.id}>
+        <Td>{elem.id}</Td>
+        <Td>{elem.name}</Td>
+        <Td>{elem.price}</Td>
+        <Td>{elem.discontinued}</Td>
+        <Td>{elem.unitsInStock}</Td>
+        <Td>
+          <Button colorScheme='blue'>Edit</Button>
+        </Td>
+        <Td>
+          <Button colorScheme='red'>Delete</Button>
+        </Td>
+      </Tr>
+    ));
+  };
 
   return (
     <div className='wrapper'>
-      {/* buttons */}
-      {/* <Button colorScheme='blue'>Button</Button> */}
+      <Input placeholder='Search' onChange={addSearch} />
 
-      <Input placeholder='Search' onChange={(e) => {
-        // console.log(e.target.value)
-        setSearch(e.target.value)
-        data.filter(elem => {
-          if (elem.name == search) {
-            setSearchRes(elem)
-          }
-          else {
-            console.log("isnt")
-          }
-        })
-      }} />
-      {/* table */}
       <TableContainer>
         <Table variant='simple'>
           <Thead>
@@ -56,40 +73,11 @@ function App() {
               <Th>Delete</Th>
             </Tr>
           </Thead>
-          <Tbody>
-            {
-              data.map(elem => {
-
-                if (elem.unitsInStock < 20) {
-
-                  return <Tr bg={"red"} key={elem.id} >
-                    <Td>{elem.id}</Td>
-                    <Td>{elem.name}</Td>
-                    <Td>{elem.price}</Td>
-                    <Td>{elem.discontinued}</Td>
-                    <Td>{elem.unitsInStock}</Td>
-                    <Td> <Button colorScheme='blue'>Edit</Button></Td>
-                    <Td> <Button colorScheme='red'>Delete</Button></Td>
-                  </Tr>
-                }
-                else {
-                  return <Tr bg={"white"} key={elem.id} >
-                    <Td>{elem.id}</Td>
-                    <Td>{elem.name}</Td>
-                    <Td>{elem.price}</Td>
-                    <Td>{elem.discontinued}</Td>
-                    <Td>{elem.unitsInStock}</Td>
-                    <Td> <Button colorScheme='blue'>Edit</Button></Td>
-                    <Td> <Button colorScheme='red'>Delete</Button></Td>
-                  </Tr>
-                }
-              })
-            }
-          </Tbody>
+          <Tbody>{addRow(search ? searchRes : data)}</Tbody>
         </Table>
       </TableContainer>
-    </div >
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
