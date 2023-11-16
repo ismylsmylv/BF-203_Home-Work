@@ -24,7 +24,7 @@ function TableMain() {
         })
     }, []);
     return (
-        <TableContainer>
+        <TableContainer bg={"white"}>
             <Table variant='simple'>
                 <Thead>
                     <Tr>

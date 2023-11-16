@@ -9,6 +9,7 @@ function SignForm({ setCheck }) {
 
     return (
         <div className='formLogin'>
+            <h2>Sign up</h2>
             <label htmlFor="text">Username</label>
             <input type="text" id='text' placeholder='enter username' onChange={(e) => {
                 setsignName(e.target.value)
@@ -26,7 +27,7 @@ function SignForm({ setCheck }) {
             }} />
 
 
-            <button onClick={
+            <button className='signup' onClick={
                 (e) => {
                     e.preventDefault()
                     let user = {
@@ -39,11 +40,11 @@ function SignForm({ setCheck }) {
                     )
                     setCheck(true)
                 }
-            }>sign up</button>
-            <button onClick={() => {
+            }>Sign up</button>
+            <button className='signins' onClick={() => {
                 setCheck(true)
                 console.log("first")
-            }}>log in instead</button>
+            }}>Log in instead</button>
         </div>
     )
 }

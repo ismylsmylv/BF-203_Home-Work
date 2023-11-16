@@ -9,6 +9,7 @@ function LoginForm({ setCheck, isLogged, setisLogged }) {
 
     return (
         <div className='formLogin'>
+            <h2>Log in</h2>
             <label htmlFor="text">Username</label>
             <input type="text" id='text' placeholder='enter username' onChange={(e) => {
                 setuserName(e.target.value)
@@ -20,7 +21,7 @@ function LoginForm({ setCheck, isLogged, setisLogged }) {
                 console.log(userPass)
             }} />
 
-            <button onClick={
+            <button className='signup' onClick={
                 (e) => {
                     e.preventDefault()
                     axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users").then(res => {
@@ -43,12 +44,12 @@ function LoginForm({ setCheck, isLogged, setisLogged }) {
                     })
                 }
 
-            }>log in</button>
-            <button onClick={(e) => {
+            }>Log in</button>
+            <button className='signins' onClick={(e) => {
                 e.preventDefault()
                 setCheck(false)
                 console.log("first")
-            }}>sign in instead</button>
+            }}>Sign up instead</button>
         </div>
     )
 }
