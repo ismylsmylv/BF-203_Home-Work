@@ -37,15 +37,18 @@ function Tablerow({ elem, prods, setprods, isAdmin }) {
                 <Td>
                     <Button
                         colorScheme='red'
-                        onClick={() => {
+                        onClick={(e) => {
                             // axios.delete("https://654bcb115b38a59f28efb8ab.mockapi.io/products/" + elem.id)
 
-                            for (let element of prods) {
-                                if (elem.id !== element.id) {
-                                    console.log(elem);
-                                    setprods([...prods]);
-                                }
-                            }
+                            // for (let element of prods) {
+                            //     if (elem.id !== element.id) {
+                            //         console.log(elem);
+                            //         setprods([...prods]);
+                            //     }
+                            // }
+                            let prodArr = [...prods]
+                            prodArr = prodArr.filter((prod) => prod.id !== e.target.getAttribute("data-id"));
+                            setprods(prodArr);
                         }}
                     >
                         Delete

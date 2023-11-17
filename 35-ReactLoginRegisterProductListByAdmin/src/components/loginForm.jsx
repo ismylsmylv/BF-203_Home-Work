@@ -2,11 +2,10 @@ import React from 'react'
 import { useState } from 'react'
 // import '../../src/App.css'
 import axios from 'axios'
-function LoginForm({ setCheck, isLogged, setisLogged }) {
+function LoginForm({ setCheck, isLogged, setisLogged, setisadmin, isAdmin }) {
     const [userName, setuserName] = useState("");
     const [userPass, setuserPass] = useState("");
     const [users, setusers] = useState([]);
-
     return (
         <div className='formLogin'>
             <h2>Log in</h2>
@@ -34,6 +33,10 @@ function LoginForm({ setCheck, isLogged, setisLogged }) {
                                 setCheck(false)
                                 setisLogged(true)
                                 console.log(isLogged)
+                                if (elem.isAdmin == "true") {
+                                    setisadmin(true)
+                                    console.log(isAdmin)
+                                }
                             }
                             else {
                                 console.log("not")

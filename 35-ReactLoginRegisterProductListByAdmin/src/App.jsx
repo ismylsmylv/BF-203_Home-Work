@@ -4,14 +4,15 @@ import LoginForm from './components/loginForm'
 import SignForm from './components/signForm'
 import TableMain from './components/table'
 import TableUsers from "./components/tableUsers"
-let isAdmin = true
 function App() {
+  const [isAdmin, setisadmin] = useState(false);
   const [check, setCheck] = useState(true)
   const [isLogged, setisLogged] = useState(false);
   return (
     <>
       {
-        (isLogged ? <TableMain isAdmin={isAdmin} /> : check ? <LoginForm setCheck={setCheck} isLogged={isLogged} setisLogged={setisLogged} /> : <SignForm setCheck={setCheck} />)
+
+        (isLogged ? <TableMain setisadmin={setisadmin} isAdmin={isAdmin} /> : check ? <LoginForm setCheck={setCheck} isLogged={isLogged} setisLogged={setisLogged} setisadmin={setisadmin} isAdmin={isAdmin} /> : <SignForm setCheck={setCheck} />)
       }
 
 

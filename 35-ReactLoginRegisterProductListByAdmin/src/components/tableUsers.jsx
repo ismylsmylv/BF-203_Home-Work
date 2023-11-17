@@ -47,7 +47,8 @@ function TableUsers() {
                                     <Td>
                                         <Button
                                             colorScheme='red'
-                                            onClick={() => {
+                                            data-id={elem.id}
+                                            onClick={(e) => {
                                                 axios.delete("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + elem.id)
 
                                                 // for (let element of prods) {
@@ -56,6 +57,11 @@ function TableUsers() {
                                                 //         setprods([...prods]);
                                                 //     }
                                                 // }
+                                                let userArr = [...users]
+                                                userArr = userArr.filter((user) => user.id !== e.target.getAttribute("data-id"));
+                                                setusers(userArr);
+
+
                                             }}
                                         >
                                             Delete
@@ -67,7 +73,7 @@ function TableUsers() {
                         }
                     </Tbody>
                 </Table>
-            </TableContainer>
+            </TableContainer >
         </>
     )
 }
