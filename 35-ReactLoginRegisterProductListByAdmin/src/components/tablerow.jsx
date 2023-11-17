@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
     Table,
     Thead,
@@ -9,36 +9,52 @@ import {
     Td,
     TableCaption,
     TableContainer,
-} from '@chakra-ui/react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
-import axios from 'axios'
+} from '@chakra-ui/react';
+import { Button, ButtonGroup } from '@chakra-ui/react';
+import axios from 'axios';
 
-function Tablerow({ elem, prods, setprods }) {
-    return (<>
+function Tablerow({ elem, prods, setprods, isAdmin }) {
+    return (
+        <>
+            <Td>{elem.id}</Td>
+            <Td>{elem.name}</Td>
+            <Td>{elem.price}</Td>
+            <Td>{elem.stock}</Td>
+            <Td>{elem.discountPercent}</Td>
+            {isAdmin && (
+                <Td>
+                    <Button
+                        colorScheme='cyan'
+                        onClick={() => {
+                            console.log('first');
+                        }}
+                    >
+                        Edit
+                    </Button>
+                </Td>
+            )}
+            {isAdmin && (
+                <Td>
+                    <Button
+                        colorScheme='red'
+                        onClick={() => {
+                            // axios.delete("https://654bcb115b38a59f28efb8ab.mockapi.io/products/" + elem.id)
 
-        <Td>{elem.id}</Td>
-        <Td>{elem.name}</Td>
-        <Td>{elem.price}</Td>
-        <Td>{elem.stock}</Td>
-        <Td>{elem.discountPercent}</Td>
-        <Td><Button colorScheme='cyan' onClick={() => {
-            console.log("first")
-        }}>Edit</Button></Td>
-        <Td><Button colorScheme='red' onClick={() => {
-            // axios.delete("https://654bcb115b38a59f28efb8ab.mockapi.io/products/" + elem.id)
+                            for (let element of prods) {
+                                if (elem.id !== element.id) {
+                                    console.log(elem);
+                                    setprods([...prods]);
+                                }
+                            }
+                        }}
+                    >
+                        Delete
+                    </Button>
+                </Td>
+            )}
 
-            for (let element of prods) {
-                if (elem.id != element.id) {
-                    console.log(elem)
-                    setprods([...prods])
-
-                }
-
-            }
-
-        }}>Delete</Button></Td>
-    </>
-    )
+        </>
+    );
 }
 
-export default Tablerow
+export default Tablerow;

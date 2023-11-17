@@ -55,3 +55,11 @@ label,
 .TableContainer {
   background-color: white;
 } */
+
+.main {
+  width: 80%;
+  margin: 0 auto;
+}
+.thead {
+  margin: 20px 0 5px 0;
+}
