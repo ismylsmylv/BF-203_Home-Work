@@ -15,10 +15,12 @@ import axios from 'axios'
 import Tablerow from './tablerow'
 import TableUsers from './tableUsers'
 import { v4 as uuidv4 } from 'uuid';
+import AddProd from './addprod'
 
 
 function TableMain({ isAdmin }) {
     const [prods, setprods] = useState([]);
+    const [addProd, setaddProd] = useState(false);
     useEffect(() => {
         axios("https://654bcb115b38a59f28efb8ab.mockapi.io/products").then(res => {
             setprods(res.data)
@@ -27,7 +29,15 @@ function TableMain({ isAdmin }) {
     return (
         <div className='main'>
             <h2 className='thead'>Products</h2>
-            <TableContainer bg={"white"}>
+            <Button colorScheme='purple' onClick={(e) => {
+                setaddProd(!addProd);
+                console.log(addProd)
+            }}>
+                Add product
+            </Button>
+            {addProd && <AddProd addProd={addProd} setaddProd={setaddProd} prods={prods} setprods={setprods} />}
+            {/* table */}
+            < TableContainer bg={"white"} >
                 <Table variant='simple'>
                     <Thead>
                         <Tr isAdmin={isAdmin}>
@@ -45,7 +55,7 @@ function TableMain({ isAdmin }) {
                             prods.map(elem => {
                                 if (elem.stock < 10) {
                                     // text color red
-                                    return <Tr bg={"red"} key={uuidv4()}>
+                                    return <Tr color={"red"} key={uuidv4()}>
                                         <Tablerow elem={elem} prods={prods} setprods={setprods} isAdmin={isAdmin} />
                                     </Tr>
                                 }
@@ -67,7 +77,8 @@ function TableMain({ isAdmin }) {
             {
                 isAdmin && <TableUsers />
             }
-        </div>)
+
+        </div >)
 }
 
 export default TableMain

@@ -25,6 +25,7 @@ function TableUsers() {
     return (
         <>
             <h2 className='thead'>Users</h2>
+
             <TableContainer bg={"white"}>
                 <Table variant='simple'>
                     <Thead>

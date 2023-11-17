@@ -63,3 +63,12 @@ label,
 .thead {
   margin: 20px 0 5px 0;
 }
+.addInps {
+  padding: 20px 0;
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+}
+.addInp {
+  margin-bottom: 10px;
+}
