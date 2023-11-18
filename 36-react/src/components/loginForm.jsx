@@ -3,7 +3,7 @@ import { useState } from 'react'
 // import '../../src/App.css'
 import axios from 'axios'
 import { Outlet, Link, useNavigate } from "react-router-dom"
-function LoginForm({ setCheck, isLogged, setisLogged, setisadmin, isAdmin }) {
+function LoginForm({ setCheck, isLogged, setisLogged, setisAdmin, isAdmin }) {
     const [userName, setuserName] = useState("");
     const [userPass, setuserPass] = useState("");
     const [users, setusers] = useState([]);
@@ -25,7 +25,7 @@ function LoginForm({ setCheck, isLogged, setisLogged, setisadmin, isAdmin }) {
             <button className='signup' onClick={
                 (e) => {
                     //setisLogged(true)//DELETE LATER
-                    //setisadmin(true)//DELETE LATER
+                    //setisAdmin(true)//DELETE LATER
                     e.preventDefault()
                     axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users").then(res => {
                         console.log(res.data)
@@ -40,7 +40,7 @@ function LoginForm({ setCheck, isLogged, setisLogged, setisadmin, isAdmin }) {
                                 localStorage.setItem("loginId", elem.id)
                                 // navigate("/")
                                 if (elem.isAdmin == "true") {
-                                    setisadmin(true)
+                                    setisAdmin(true)
                                     console.log(isAdmin)
                                 }
                             }

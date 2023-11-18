@@ -100,7 +100,7 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
                                     "stock": elem.stock,
                                     "sold": elem.sold,
                                     "id": elem.id
-                                } || []
+                                }
                                 console.log(elemObj)
                                 console.log(loginData.cart)
                                 loginData.cart.push(elemObj)
@@ -121,40 +121,40 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
                             Add to cart
                         </Button>
 
-                        {isAdmin && (
-                            <Button
-                                colorScheme='cyan'
-                                onClick={() => {
-                                    console.log('first');
-                                }}
-                            >
-                                Edit
-                            </Button>
-                        )}
-                        {isAdmin && (
 
-                            <Button
-                                colorScheme='red'
-                                data-id={elem.id}
-                                onClick={(e) => {
-                                    axios.delete("https://654bcb115b38a59f28efb8ab.mockapi.io/products/" + elem.id)
-
-                                    // for (let element of prods) {
-                                    //     if (elem.id !== element.id) {
-                                    //         console.log(elem);
-                                    //         setprods([...prods]);
-                                    //     }
-                                    // }
-                                    let prodArr = [...prods]
-                                    prodArr = prodArr.filter((prod) => prod.id !== e.target.getAttribute("data-id"));
-                                    setprods(prodArr);
-                                }}
-                            >
-                                Delete
-                            </Button>
-                        )}
                     </ButtonGroup>
+                    {isAdmin && (
+                        <Button
+                            colorScheme='cyan'
+                            onClick={() => {
+                                console.log('first');
+                            }}
+                        >
+                            Edit
+                        </Button>
+                    )}
+                    {isAdmin && (
 
+                        <Button
+                            colorScheme='red'
+                            data-id={elem.id}
+                            onClick={(e) => {
+                                axios.delete("https://654bcb115b38a59f28efb8ab.mockapi.io/products/" + elem.id)
+
+                                // for (let element of prods) {
+                                //     if (elem.id !== element.id) {
+                                //         console.log(elem);
+                                //         setprods([...prods]);
+                                //     }
+                                // }
+                                let prodArr = [...prods]
+                                prodArr = prodArr.filter((prod) => prod.id !== e.target.getAttribute("data-id"));
+                                setprods(prodArr);
+                            }}
+                        >
+                            Delete
+                        </Button>
+                    )}
                 </CardFooter>
             </Card>
         </>

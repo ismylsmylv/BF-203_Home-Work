@@ -30,6 +30,9 @@ ul {
   padding: 5px 15px;
   background-color: rgb(53, 53, 255);
 }
+.inputSearch::placeholder {
+  color: white;
+}
 .addBtn {
   margin-bottom: 15px !important;
 }
