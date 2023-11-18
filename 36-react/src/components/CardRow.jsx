@@ -38,35 +38,28 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
                     <Button variant='ghost' colorScheme='red'
                         data-id={elem.id}
                         onClick={(e) => {
-                            let finder = loginData.favorites
-                            finder = finder.map(element => {
-                                (loginData.favorites.includes(element) &&
-
-                                    console.log("first")
-                                )
-                            })
-                            console.log(finder)
-
-                            let elemObj = {
-                                "name": elem.name,
-                                "price": elem.id,
-                                "discountPercent": elem.discountPercent,
-                                "stock": elem.stock,
-                                "sold": elem.sold,
-                                "id": elem.id
+                            e.preventDefault();
+                            if (!loginData.favorites.some((item) => item.id === elem.id)) {
+                                let elemObj = {
+                                    "name": elem.name,
+                                    "price": elem.id,
+                                    "discountPercent": elem.discountPercent,
+                                    "stock": elem.stock,
+                                    "sold": elem.sold,
+                                    "id": elem.id
+                                }
+                                loginData.favorites.push(elemObj);
+                                axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId, {
+                                    "username": loginData.username,
+                                    "password": loginData.password,
+                                    "isAdmin": loginData.isAdmin,
+                                    "favorites": loginData.favorites,
+                                    "cart": loginData.cart,
+                                    "id": loginData.id
+                                });
+                            } else {
+                                console.log("in favorites");
                             }
-                            loginData.favorites.push(elemObj)
-                            e.preventDefault()
-                            console.log(e.target.getAttribute("data-id"))
-                            console.log(loginId)
-                            axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId, {
-                                "username": loginData.username,
-                                "password": loginData.password,
-                                "isAdmin": loginData.isAdmin,
-                                "favorites": loginData.favorites,
-                                "cart": loginData.cart,
-                                "id": loginData.id
-                            })
 
                         }}
                     >

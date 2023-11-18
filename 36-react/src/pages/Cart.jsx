@@ -18,15 +18,15 @@ function Cart() {
     }, []);
 
     const removeCart = (itemId) => {
-        const updatedCart = cartItems.filter((element) => element.id !== itemId);
-        setcartItems(updatedCart);
+        const addedCart = cartItems.filter((element) => element.id !== itemId);
+        setcartItems(addedCart);
 
         axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
             username: loginData.username,
             password: loginData.password,
             isAdmin: loginData.isAdmin,
             favorites: loginData.favorites,
-            cart: updatedCart,
+            cart: addedCart,
             id: loginData.id,
         }).then(() => console.log("removed"));
     };
