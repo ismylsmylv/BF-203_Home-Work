@@ -17,6 +17,11 @@ import TableUsers from './tableUsers'
 import { v4 as uuidv4 } from 'uuid';
 import AddProd from './addprod'
 import { Card, CardHeader, CardBody, CardFooter, SimpleGrid, Heading, Text } from '@chakra-ui/react'
+import Contact from "../pages/Contact"
+import Layout from "../pages/Layout"
+import Home from "../pages/Home"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 
 function TableMain({ isAdmin }) {
@@ -28,31 +33,47 @@ function TableMain({ isAdmin }) {
         })
     }, []);
     return (
-        <div className='main'>
-            <h2 className='thead'>Products</h2>
-            <Button colorScheme='purple' onClick={(e) => {
-                setaddProd(!addProd);
-                console.log(addProd)
-            }}>
-                Add product
-            </Button>
-            {addProd && <AddProd addProd={addProd} setaddProd={setaddProd} prods={prods} setprods={setprods} />}
-            {/* table */}
-            <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
+        <>
+            <nav>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Layout />}>
+                            <Route index element={<Home />} />
+                            {/* <Route path="blogs" element={<Blogs />} /> */}
+                            <Route path="Contact" element={<Contact />} />
+                            {/* <Route path="*" element={<NoPage />} /> */}
+                        </Route>
+                    </Routes>
+                </BrowserRouter>
+            </nav>
+
+            <div className='main'>
+                <h2 className='thead'>Products</h2>
+                <Button colorScheme='purple' onClick={(e) => {
+                    setaddProd(!addProd);
+                    console.log(addProd)
+                }}>
+                    Add product
+                </Button>
+                {addProd && <AddProd addProd={addProd} setaddProd={setaddProd} prods={prods} setprods={setprods} />}
+                {/* table */}
+                <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
+                    {
+                        prods.map(elem => {
+                            return (
+                                <CardRow key={uuidv4()} elem={elem} prods={prods} setprods={setprods} isAdmin={isAdmin} />)
+                        })
+                    }
+                </SimpleGrid>
+
+
                 {
-                    prods.map(elem => {
-                        return (
-                            <CardRow key={uuidv4()} elem={elem} prods={prods} setprods={setprods} isAdmin={isAdmin} />)
-                    })
+                    isAdmin && <TableUsers />
                 }
-            </SimpleGrid>
 
+            </div >
 
-            {
-                isAdmin && <TableUsers />
-            }
-
-        </div >
+        </>
 
     )
 }
