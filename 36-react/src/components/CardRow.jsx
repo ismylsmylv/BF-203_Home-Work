@@ -92,30 +92,28 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
                         <Button className={style.cardCartBtn} variant='solid' colorScheme='blue'
                             data-id={elem.id}
                             onClick={(e) => {
-
-                                let elemObj = {
-                                    "name": elem.name,
-                                    "price": elem.id,
-                                    "discountPercent": elem.discountPercent,
-                                    "stock": elem.stock,
-                                    "sold": elem.sold,
-                                    "id": elem.id
+                                e.preventDefault();
+                                if (!loginData.cart.some((item) => item.id === elem.id)) {
+                                    let elemObj = {
+                                        "name": elem.name,
+                                        "price": elem.id,
+                                        "discountPercent": elem.discountPercent,
+                                        "stock": elem.stock,
+                                        "sold": elem.sold,
+                                        "id": elem.id
+                                    }
+                                    loginData.cart.push(elemObj);
+                                    axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId, {
+                                        "username": loginData.username,
+                                        "password": loginData.password,
+                                        "isAdmin": loginData.isAdmin,
+                                        "favorites": loginData.favorites,
+                                        "cart": loginData.cart,
+                                        "id": loginData.id
+                                    });
+                                } else {
+                                    console.log("in cart");
                                 }
-                                console.log(elemObj)
-                                console.log(loginData.cart)
-                                loginData.cart.push(elemObj)
-                                e.preventDefault()
-                                console.log(e.target.getAttribute("data-id"))
-                                console.log(loginId)
-                                axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId, {
-                                    "username": loginData.username,
-                                    "password": loginData.password,
-                                    "isAdmin": loginData.isAdmin,
-                                    "favorites": loginData.favorites,
-                                    "cart": loginData.cart,
-                                    "id": loginData.id
-                                })
-
                             }}
                         >
                             Add to cart
