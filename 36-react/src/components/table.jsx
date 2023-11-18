@@ -19,10 +19,8 @@ import AddProd from './addprod'
 import { Card, CardHeader, CardBody, CardFooter, SimpleGrid, Heading, Text } from '@chakra-ui/react'
 import Contact from "../pages/Contact"
 import Layout from "../pages/Layout"
-import Home from "../pages/Home"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-
+import style from "../style/Layout.module.css"
 
 function TableMain({ isAdmin }) {
     const [prods, setprods] = useState([]);
@@ -34,11 +32,11 @@ function TableMain({ isAdmin }) {
     }, []);
     return (
         <>
+            <Layout />
 
-
-            <div className='main'>
+            <div className='main container'>
                 <h2 className='thead'>Products</h2>
-                <Button colorScheme='purple' onClick={(e) => {
+                <Button colorScheme='purple' className={style.addbtn} onClick={(e) => {
                     setaddProd(!addProd);
                     console.log(addProd)
                 }}>
@@ -46,7 +44,7 @@ function TableMain({ isAdmin }) {
                 </Button>
                 {addProd && <AddProd addProd={addProd} setaddProd={setaddProd} prods={prods} setprods={setprods} />}
                 {/* table */}
-                <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
+                <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))' className={style.grid}>
                     {
                         prods.map(elem => {
                             return (

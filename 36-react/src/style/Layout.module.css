@@ -1,0 +1,55 @@
+nav {
+  background-color: rgb(53, 53, 255);
+  color: white;
+  padding: 20px;
+  margin: 0 auto;
+}
+.containerNav {
+  background-color: rgb(53, 53, 255) !important;
+}
+ul {
+  margin: 0 auto;
+  /* width: 80%; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin-bottom: 0 !important;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.inputSearch {
+  outline: none;
+  border: 1px solid white !important;
+  border-radius: 2px !important;
+  color: white;
+  padding: 5px 15px;
+  background-color: rgb(53, 53, 255);
+}
+.addBtn {
+  margin-bottom: 15px !important;
+}
+
+.cardImg {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* .cardCartBtn {
+  width: 100% !important;
+} */
+.cardCart {
+  display: flex;
+  justify-content: center;
+}
+input {
+  outline: none;
+}
+.grid {
+  margin-top: 15px;
+}
