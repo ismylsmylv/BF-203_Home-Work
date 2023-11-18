@@ -7,7 +7,7 @@ function LoginForm({ setCheck, isLogged, setisLogged, setisadmin, isAdmin }) {
     const [userName, setuserName] = useState("");
     const [userPass, setuserPass] = useState("");
     const [users, setusers] = useState([]);
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     return (
         <div className='formLogin'>
             <h2>Log in</h2>
@@ -24,8 +24,8 @@ function LoginForm({ setCheck, isLogged, setisLogged, setisadmin, isAdmin }) {
 
             <button className='signup' onClick={
                 (e) => {
-                    setisLogged(true)//DELETE LATER
-                    setisadmin(true)//DELETE LATER
+                    //setisLogged(true)//DELETE LATER
+                    //setisadmin(true)//DELETE LATER
                     e.preventDefault()
                     axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users").then(res => {
                         console.log(res.data)
@@ -38,7 +38,7 @@ function LoginForm({ setCheck, isLogged, setisLogged, setisadmin, isAdmin }) {
                                 setisLogged(true)
                                 console.log(isLogged)
                                 localStorage.setItem("loginId", elem.id)
-                                navigate("/")
+                                // navigate("/")
                                 if (elem.isAdmin == "true") {
                                     setisadmin(true)
                                     console.log(isAdmin)

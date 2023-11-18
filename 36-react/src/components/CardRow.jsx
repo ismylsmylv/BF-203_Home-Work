@@ -25,9 +25,9 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
     const [loginData, setloginData] = useState([]);
     let loginId = JSON.parse(localStorage.getItem("loginId"))
     useEffect(() => {
-        // axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
-        //     setloginData(res.data)
-        // })
+        axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
+            setloginData(res.data)
+        })
     }, []);
 
 
@@ -100,7 +100,7 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
                                     "stock": elem.stock,
                                     "sold": elem.sold,
                                     "id": elem.id
-                                }
+                                } || []
                                 console.log(elemObj)
                                 console.log(loginData.cart)
                                 loginData.cart.push(elemObj)
