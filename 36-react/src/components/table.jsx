@@ -34,18 +34,7 @@ function TableMain({ isAdmin }) {
     }, []);
     return (
         <>
-            <nav>
-                <BrowserRouter>
-                    <Routes>
-                        <Route path="/" element={<Layout />}>
-                            <Route index element={<Home />} />
-                            {/* <Route path="blogs" element={<Blogs />} /> */}
-                            <Route path="Contact" element={<Contact />} />
-                            {/* <Route path="*" element={<NoPage />} /> */}
-                        </Route>
-                    </Routes>
-                </BrowserRouter>
-            </nav>
+
 
             <div className='main'>
                 <h2 className='thead'>Products</h2>

@@ -7,7 +7,7 @@ function Layout() {
             <nav>
                 <ul>
                     <li>
-                        <Link to="/">Product</Link>
+                        <Link to="/index">Product</Link>
                     </li>
                     <li>
                         <Link to="/Cart">Cart</Link>

@@ -6,76 +6,31 @@ import TableMain from './components/table';
 import Layout from './pages/Layout';
 import Cart from './pages/Cart';
 import Wishlist from './pages/Wishlist';
-
+import AppC from "./pages/App copy"
 function App() {
   const [isAdmin, setisAdmin] = useState(false);
   const [isLogged, setisLogged] = useState(false);
-  setisLogged(true)
-  // return (
-  //   <Router>
-  //     {/* <Routes>
-  //       <Route
-  //         path="*"
-  //         element={
-  //           isLogged ? (
-  //             <Layout>
-  //               <Route index element={<TableMain isAdmin={isAdmin} />} />
-  //               <Route path="Cart" element={<Cart />} />
-  //               <Route path="Wishlist" element={<Wishlist />} />
-  //             </Layout>
-  //           ) : (
-  //             <Routes>
-  //               <Route
-  //                 path="/login"
-  //                 element={<LoginForm setisLogged={setisLogged} setisAdmin={setisAdmin} />}
-  //               />
-  //               <Route
-  //                 path="/sign-up"
-  //                 element={<SignForm setisLogged={setisLogged} setisAdmin={setisAdmin} />}
-  //               />
-  //             </Routes>
-  //           )
-  //         }
-  //       />
-  //     </Routes> */}
-  //     <Routes>
-  //       <Route path="/" element={<Layout />} />
-  //       <Route path="/login" element={<LoginForm />} />
-  //       <Route path="/sign-up" element={<SignForm />} />
-  //     </Routes>
 
-  //   </Router>
-  // );
+
   return (
     <Router>
       <Routes>
+
+        <Route path="/index" element={<TableMain isAdmin={isAdmin} />} />
+        <Route index element={<Layout />} />
+        <Route path="/Wishlist" element={<Wishlist />} />
+        <Route path="/Cart" element={<Cart />} />
         <Route
-          path="*"
-          element={
-            isLogged ? (
-              <Layout>
-                <Route index element={<TableMain isAdmin={isAdmin} />} />
-                <Route path="Cart" element={<Cart />} />
-                <Route path="Wishlist" element={<Wishlist />} />
-              </Layout>
-            ) : (
-              <Routes>
-                <Route
-                  path="/login"
-                  element={<LoginForm setisLogged={setisLogged} setisAdmin={setisAdmin} />}
-                />
-                <Route
-                  path="/sign-up"
-                  element={<SignForm setisLogged={setisLogged} setisAdmin={setisAdmin} />}
-                />
-              </Routes>
-            )
-          }
+          path="/login"
+          element={<LoginForm setisLogged={setisLogged} setisAdmin={setisAdmin} />}
+        />
+        <Route
+          path="/sign-up"
+          element={<SignForm setisLogged={setisLogged} setisAdmin={setisAdmin} />}
         />
       </Routes>
     </Router>
   );
-
 }
 
 export default App;
