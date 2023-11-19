@@ -57,7 +57,7 @@ function Wishlist() {
                                 </Stack>
                             </CardBody>
                             <CardFooter>
-                                <ButtonGroup spacing='2' className={style.cardWishlist}>
+                                <ButtonGroup spacing='2' className={style.cardCart}>
                                     <Button
                                         className={style.cardCartBtn}
                                         variant='solid'
@@ -67,7 +67,7 @@ function Wishlist() {
                                             removeWishlist(elem.id);
                                         }}
                                     >
-                                        Remove from favorites
+                                        Remove favorite
                                     </Button>
                                 </ButtonGroup>
                             </CardFooter>

@@ -67,7 +67,7 @@ function Cart() {
                                             removeCart(elem.id);
                                         }}
                                     >
-                                        Remove from cart
+                                        Remove cart
                                     </Button>
                                 </ButtonGroup>
                             </CardFooter>
