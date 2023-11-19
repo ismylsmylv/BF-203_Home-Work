@@ -23,11 +23,12 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import EditProd from './editProd';
 library.add(fas, faTwitter, faFontAwesome, faHeart)
 
 
 
-function CardRow({ elem, prods, setprods, isadmin }) {
+function CardRow({ elem, prods, editId, seteditId, setprods, isadmin, editProd, seteditProd }) {
     const [loginData, setloginData] = useState([]);
     const [cartCount, setcartCount] = useState(0);
     const [isFavorite, setIsFavorite] = useState(false);
@@ -144,9 +145,12 @@ function CardRow({ elem, prods, setprods, isadmin }) {
                     </ButtonGroup>
                     {isadmin && (
                         <Button
+                            data-id={elem.id}
                             colorScheme='cyan'
-                            onClick={() => {
-                                console.log('first');
+                            onClick={(e) => {
+                                seteditId(e.target.getAttribute("data-id"))
+                                console.log('edit');
+                                seteditProd(!editProd)
                             }}
                         >
                             Edit
