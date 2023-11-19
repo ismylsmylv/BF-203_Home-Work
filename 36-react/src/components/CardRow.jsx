@@ -20,15 +20,17 @@ import { useEffect } from 'react';
 import style from "../style/Layout.module.css"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-library.add(fas, faTwitter, faFontAwesome)
+library.add(fas, faTwitter, faFontAwesome, faHeart)
 
 
 
 function CardRow({ elem, prods, setprods, isAdmin }) {
     const [loginData, setloginData] = useState([]);
     const [cartCount, setcartCount] = useState(0);
+    const [isFavorite, setIsFavorite] = useState(false);
     let cartLength
     let loginId = JSON.parse(localStorage.getItem("loginId"))
     useEffect(() => {
@@ -36,6 +38,7 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
             setloginData(res.data)
             cartLength = res.data.cart ? res.data.cart.length : 0;
             setcartCount(cartLength);
+            setIsFavorite(res.data.favorites?.some((item) => item.id === elem.id) || false);
         })
     }, []);
 
@@ -43,10 +46,10 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
     return (
         <>
             <Card maxW='sm' isAdmin={isAdmin} >
-                <CardBody>
+                <CardBody className={style.cardBody}>
                     <div className={`btnConts ${style.btnConts}`}>
                         <Button variant='ghost' colorScheme='green' className={style.favBtn} data-id={elem.id}>
-                            {elem.discountPercent ? <><FontAwesomeIcon icon="fa-solid fa-tag" />  Sale</> : null}
+                            {elem.discountPercent ? <>SALE</> : null}
                         </Button>
                         <Button variant='ghost' colorScheme='red'
                             className={style.favBtn}
@@ -71,18 +74,26 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
                                         "cart": loginData.cart,
                                         "id": loginData.id
                                     });
-
+                                    setIsFavorite(true);
                                 } else {
-                                    console.log("in favorites");
+                                    let newFavorites = loginData.favorites.filter((item) => item.id !== elem.id);
+                                    axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId, {
+                                        "username": loginData.username,
+                                        "password": loginData.password,
+                                        "isAdmin": loginData.isAdmin,
+                                        "favorites": newFavorites,
+                                        "cart": loginData.cart,
+                                        "id": loginData.id
+                                    });
+                                    setIsFavorite(false);
                                 }
-
                             }}
                         >
-                            <FontAwesomeIcon icon="fa-solid fa-heart" />
+                            {isFavorite ? <FontAwesomeIcon icon={['fas', 'heart']} /> : <FontAwesomeIcon icon={['far', 'heart']} />}
                         </Button>
                     </div>
                     <Image className={style.cardImg}
-                        src='https://images.pexels.com/photos/3844788/pexels-photo-3844788.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+                        src='https://cdn.worldvectorlogo.com/logos/ligam.svg'
                         alt='Green double couch with wooden legs'
                         borderRadius='lg'
                     />
