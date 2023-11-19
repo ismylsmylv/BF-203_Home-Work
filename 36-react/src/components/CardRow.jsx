@@ -18,6 +18,11 @@ import axios from 'axios';
 import { Card, CardHeader, CardBody, CardFooter, SimpleGrid, Heading, Text } from '@chakra-ui/react'
 import { useEffect } from 'react';
 import style from "../style/Layout.module.css"
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+library.add(fas, faTwitter, faFontAwesome)
 
 
 
@@ -39,37 +44,43 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
         <>
             <Card maxW='sm' isAdmin={isAdmin} >
                 <CardBody>
-                    <Button variant='ghost' colorScheme='red'
-                        data-id={elem.id}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            if (!loginData.favorites.some((item) => item.id === elem.id)) {
-                                let elemObj = {
-                                    "name": elem.name,
-                                    "price": elem.id,
-                                    "discountPercent": elem.discountPercent,
-                                    "stock": elem.stock,
-                                    "sold": elem.sold,
-                                    "id": elem.id
+                    <div className={`btnConts ${style.btnConts}`}>
+                        <Button variant='ghost' colorScheme='green' className={style.favBtn} data-id={elem.id}>
+                            {elem.discountPercent ? <><FontAwesomeIcon icon="fa-solid fa-tag" />  Sale</> : null}
+                        </Button>
+                        <Button variant='ghost' colorScheme='red'
+                            className={style.favBtn}
+                            data-id={elem.id}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (!loginData.favorites.some((item) => item.id === elem.id)) {
+                                    let elemObj = {
+                                        "name": elem.name,
+                                        "price": elem.id,
+                                        "discountPercent": elem.discountPercent,
+                                        "stock": elem.stock,
+                                        "sold": elem.sold,
+                                        "id": elem.id
+                                    }
+                                    loginData.favorites.push(elemObj);
+                                    axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId, {
+                                        "username": loginData.username,
+                                        "password": loginData.password,
+                                        "isAdmin": loginData.isAdmin,
+                                        "favorites": loginData.favorites,
+                                        "cart": loginData.cart,
+                                        "id": loginData.id
+                                    });
+
+                                } else {
+                                    console.log("in favorites");
                                 }
-                                loginData.favorites.push(elemObj);
-                                axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId, {
-                                    "username": loginData.username,
-                                    "password": loginData.password,
-                                    "isAdmin": loginData.isAdmin,
-                                    "favorites": loginData.favorites,
-                                    "cart": loginData.cart,
-                                    "id": loginData.id
-                                });
 
-                            } else {
-                                console.log("in favorites");
-                            }
-
-                        }}
-                    >
-                        Favorite
-                    </Button>
+                            }}
+                        >
+                            <FontAwesomeIcon icon="fa-solid fa-heart" />
+                        </Button>
+                    </div>
                     <Image className={style.cardImg}
                         src='https://images.pexels.com/photos/3844788/pexels-photo-3844788.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
                         alt='Green double couch with wooden legs'
@@ -153,7 +164,7 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
                         </Button>
                     )}
                 </CardFooter>
-            </Card>
+            </Card >
         </>
     );
 }

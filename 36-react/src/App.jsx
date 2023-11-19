@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginForm from './components/loginForm';
 import SignForm from './components/signForm';
@@ -12,7 +12,10 @@ function App() {
   const [isAdmin, setisAdmin] = useState(false);
   const [isLogged, setisLogged] = useState(false);
   const [check, setCheck] = useState(false);
-
+  useEffect(() => {
+    let loginId = localStorage.getItem("loginId")
+    setisLogged(loginId)
+  }, []);
   if (isLogged) {
     return (
       <Router>
