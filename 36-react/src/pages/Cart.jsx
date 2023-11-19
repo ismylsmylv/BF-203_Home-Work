@@ -49,7 +49,7 @@ function Cart() {
                                 <Stack mt='6' spacing='3'>
                                     <Heading size='md'>{elem.name}</Heading>
                                     <Text>
-                                        {elem.stock} in stock, {elem.discountPercent} sale
+                                        {elem.stock} in stock
                                     </Text>
                                     <Text color='blue.600' fontSize='2xl'>
                                         ${elem.price}

@@ -40,7 +40,7 @@ function EditProd({ editProd, seteditProd, prods, setprods, editId, seteditId })
             <input
                 className='addInp editInp'
                 type='number'
-                placeholder='stockCount'
+                placeholder='stock'
                 value={editStock}
                 onChange={(e) => {
                     seteditStock(e.target.value);
@@ -74,9 +74,7 @@ function EditProd({ editProd, seteditProd, prods, setprods, editId, seteditId })
 
                     seteditProd(false);
 
-                    let prodArr = [...prods];
-                    prodArr.push(obj);
-                    setprods(prodArr);
+
 
                     axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/products/${editId}`, obj)
                 }}

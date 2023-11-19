@@ -50,7 +50,7 @@ function CardRow({ elem, prods, editId, seteditId, setprods, isadmin, editProd, 
                 <CardBody className={style.cardBody}>
                     <div className={`btnConts ${style.btnConts}`}>
                         <Button variant='ghost' colorScheme='green' className={style.favBtn} data-id={elem.id}>
-                            {elem.discountPercent ? <>SALE</> : null}
+                            {elem.discountPercent != "false" ? <>SALE</> : null}
                         </Button>
                         <Button variant='ghost' colorScheme='red'
                             className={style.favBtn}
@@ -101,7 +101,7 @@ function CardRow({ elem, prods, editId, seteditId, setprods, isadmin, editProd, 
                     <Stack mt='6' spacing='3'>
                         <Heading size='md'> {elem.name}</Heading>
                         <Text>
-                            {elem.stock} in stock, {elem.discountPercent} sale
+                            {elem.stock} in stock
                         </Text>
                         <Text color='blue.600' fontSize='2xl'>
                             ${elem.price}
