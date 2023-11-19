@@ -33,7 +33,6 @@ function TableUsers() {
                             <Th>id</Th>
                             <Th>name</Th>
                             <Th>password</Th>
-                            <Th>isAdmin</Th>
                             <Th>delete</Th>
                         </Tr>
                     </Thead>
@@ -44,7 +43,6 @@ function TableUsers() {
                                     <Td>{elem.id}</Td>
                                     <Td>{elem.username}</Td>
                                     <Td>{elem.password}</Td>
-                                    <Td>{elem.isAdmin}</Td>
                                     <Td>
                                         <Button
                                             colorScheme='red'

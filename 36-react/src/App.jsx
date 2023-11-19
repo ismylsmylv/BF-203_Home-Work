@@ -7,37 +7,43 @@ import Layout from './pages/Layout';
 import Cart from './pages/Cart';
 import Wishlist from './pages/Wishlist';
 import AppC from "./pages/App copy"
+import axios from 'axios'
 
 function App() {
-  const [isAdmin, setisAdmin] = useState(false);
+  const [isadmin, setisadmin] = useState(false);//"false" gives admin to everyone
   const [isLogged, setisLogged] = useState(false);
   const [check, setCheck] = useState(false);
   useEffect(() => {
     let loginId = localStorage.getItem("loginId")
+    axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
+      if (res.data.isadmin == "true") {
+        setisadmin(true)
+      }
+    })
     setisLogged(loginId)
   }, []);
   if (isLogged) {
     return (
       <Router>
         <Routes>
-          <Route index element={<TableMain isAdmin={isAdmin} />} />
+          <Route index element={<TableMain isadmin={isadmin} />} />
           <Route element={<Layout />} />
           <Route path="/Wishlist" element={<Wishlist />} />
           <Route path="/Cart" element={<Cart />} />
           <Route
             path="/login"
-            element={<LoginForm setisLogged={setisLogged} setisAdmin={setisAdmin} />}
+            element={<LoginForm setisLogged={setisLogged} setisadmin={setisadmin} />}
           />
           <Route
             path="/sign-up"
-            element={<SignForm setisLogged={setisLogged} setisAdmin={setisAdmin} />}
+            element={<SignForm setisLogged={setisLogged} setisadmin={setisadmin} />}
           />
         </Routes>
       </Router>
     );
   } else {
     if (!check) {
-      return <LoginForm setCheck={setCheck} isLogged={isLogged} setisLogged={setisLogged} setisAdmin={setisAdmin} isAdmin={isAdmin} />;
+      return <LoginForm setCheck={setCheck} isLogged={isLogged} setisLogged={setisLogged} setisadmin={setisadmin} isadmin={isadmin} />;
     } else {
       return <SignForm setCheck={setCheck} />;
     }

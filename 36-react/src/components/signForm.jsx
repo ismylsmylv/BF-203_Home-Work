@@ -42,7 +42,7 @@ function SignForm({ setCheck }) {
                 }
             }>Sign up</button>
             <button className='signins' onClick={() => {
-                setCheck(true)
+                setCheck(false)
                 console.log("first")
             }}>Log in instead</button>
         </div>

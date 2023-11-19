@@ -24,7 +24,7 @@ function Wishlist() {
         axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
             username: loginData.username,
             password: loginData.password,
-            isAdmin: loginData.isAdmin,
+            isadmin: loginData.isadmin,
             favorites: addedWish,
             cart: loginData.favorites,
             id: loginData.id,
@@ -38,7 +38,7 @@ function Wishlist() {
             <div className='main container'>
                 <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))' className={style.grid}>
                     {WishlistItems.map((elem) => (
-                        <Card key={uuidv4()} maxW='sm' isAdmin={elem.isAdmin}>
+                        <Card key={uuidv4()} maxW='sm' isadmin={elem.isadmin}>
                             <CardBody>
                                 <Image
                                     className={style.cardImg}

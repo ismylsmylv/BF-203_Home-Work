@@ -27,7 +27,7 @@ library.add(fas, faTwitter, faFontAwesome, faHeart)
 
 
 
-function CardRow({ elem, prods, setprods, isAdmin }) {
+function CardRow({ elem, prods, setprods, isadmin }) {
     const [loginData, setloginData] = useState([]);
     const [cartCount, setcartCount] = useState(0);
     const [isFavorite, setIsFavorite] = useState(false);
@@ -45,7 +45,7 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
 
     return (
         <>
-            <Card maxW='sm' isAdmin={isAdmin} >
+            <Card maxW='sm' isadmin={isadmin} >
                 <CardBody className={style.cardBody}>
                     <div className={`btnConts ${style.btnConts}`}>
                         <Button variant='ghost' colorScheme='green' className={style.favBtn} data-id={elem.id}>
@@ -69,7 +69,7 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
                                     axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId, {
                                         "username": loginData.username,
                                         "password": loginData.password,
-                                        "isAdmin": loginData.isAdmin,
+                                        "isadmin": loginData.isadmin,
                                         "favorites": loginData.favorites,
                                         "cart": loginData.cart,
                                         "id": loginData.id
@@ -80,7 +80,7 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
                                     axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId, {
                                         "username": loginData.username,
                                         "password": loginData.password,
-                                        "isAdmin": loginData.isAdmin,
+                                        "isadmin": loginData.isadmin,
                                         "favorites": newFavorites,
                                         "cart": loginData.cart,
                                         "id": loginData.id
@@ -126,7 +126,7 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
                                     axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId, {
                                         "username": loginData.username,
                                         "password": loginData.password,
-                                        "isAdmin": loginData.isAdmin,
+                                        "isadmin": loginData.isadmin,
                                         "favorites": loginData.favorites,
                                         "cart": loginData.cart,
                                         "id": loginData.id
@@ -142,7 +142,7 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
 
 
                     </ButtonGroup>
-                    {isAdmin && (
+                    {isadmin && (
                         <Button
                             colorScheme='cyan'
                             onClick={() => {
@@ -152,7 +152,7 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
                             Edit
                         </Button>
                     )}
-                    {isAdmin && (
+                    {isadmin && (
 
                         <Button
                             colorScheme='red'

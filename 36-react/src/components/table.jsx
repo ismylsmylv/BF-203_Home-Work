@@ -17,12 +17,11 @@ import TableUsers from './tableUsers'
 import { v4 as uuidv4 } from 'uuid';
 import AddProd from './addprod'
 import { Card, CardHeader, CardBody, CardFooter, SimpleGrid, Heading, Text } from '@chakra-ui/react'
-import Contact from "../pages/Contact"
 import Layout from "../pages/Layout"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import style from "../style/Layout.module.css"
 
-function TableMain({ isAdmin }) {
+function TableMain({ isadmin }) {
     const [prods, setprods] = useState([]);
     const [addProd, setaddProd] = useState(false);
     useEffect(() => {
@@ -48,14 +47,14 @@ function TableMain({ isAdmin }) {
                     {
                         prods.map(elem => {
                             return (
-                                <CardRow key={uuidv4()} elem={elem} prods={prods} setprods={setprods} isAdmin={isAdmin} />)
+                                <CardRow key={uuidv4()} elem={elem} prods={prods} setprods={setprods} isadmin={isadmin} />)
                         })
                     }
                 </SimpleGrid>
 
 
                 {
-                    isAdmin && <TableUsers />
+                    isadmin && <TableUsers />
                 }
 
             </div >
