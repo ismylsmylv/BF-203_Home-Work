@@ -46,8 +46,30 @@ function TableMain({ isadmin }) {
                     Add product
                 </Button>
                 {addProd && <AddProd addProd={addProd} setaddProd={setaddProd} prods={prods} setprods={setprods} />}
-                {/* edit */}
+                {/* sort price */}
+                <Button
+                    colorScheme='yellow'
+                    className={style.addbtn}
+                    onClick={(e) => {
+                        const sortedProds = [...prods].sort((a, b) => a.price - b.price);
+                        setprods(sortedProds);
+                    }}
+                >
+                    Sort by price (low to high)
+                </Button>
+                <Button
+                    colorScheme='green'
+                    className={style.addbtn}
+                    onClick={(e) => {
+                        const sortedProds = [...prods].sort((a, b) => b.price - a.price);
+                        setprods(sortedProds);
+                    }}
+                >
+                    Sort by price (high to low)
+                </Button>
 
+
+                {/* edit */}
                 {editProd && <EditProd editProd={editProd} seteditProd={seteditProd} prods={prods} setprods={setprods} editId={editId} seteditId={seteditId} />}
 
 

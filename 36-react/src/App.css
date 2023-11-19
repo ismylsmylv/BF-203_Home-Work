@@ -75,3 +75,6 @@ label,
 p {
   margin-bottom: 0 !important;
 }
+Button {
+  margin-right: 5px;
+}

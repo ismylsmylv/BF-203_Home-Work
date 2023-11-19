@@ -143,8 +143,11 @@ function CardRow({ elem, prods, editId, seteditId, setprods, isadmin, editProd, 
 
 
                     </ButtonGroup>
+
+                </CardFooter>
+                <div className={style.adminBtns}>
                     {isadmin && (
-                        <Button
+                        <Button className={style.adminBtn}
                             data-id={elem.id}
                             colorScheme='cyan'
                             onClick={(e) => {
@@ -158,7 +161,7 @@ function CardRow({ elem, prods, editId, seteditId, setprods, isadmin, editProd, 
                     )}
                     {isadmin && (
 
-                        <Button
+                        <Button className={style.adminBtn}
                             colorScheme='red'
                             data-id={elem.id}
                             onClick={(e) => {
@@ -178,7 +181,7 @@ function CardRow({ elem, prods, editId, seteditId, setprods, isadmin, editProd, 
                             Delete
                         </Button>
                     )}
-                </CardFooter>
+                </div>
             </Card >
         </>
     );
