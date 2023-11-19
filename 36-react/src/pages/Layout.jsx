@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 library.add(fas, faTwitter, faFontAwesome)
 
 
-function Layout() {
+function Layout({ setprods }) {
     let loginId = localStorage.getItem("loginId")
     const [isLogged, setisLogged] = useState(false);
     useEffect(() => {
@@ -38,10 +38,10 @@ function Layout() {
             <nav className={`${style.nav} container ${style.containerNav}`}>
                 <ul className={style.ul}>
                     <li className={style.logo}>
-                        <Link to="/index">Indexer</Link>
+                        <Link to="/">Indexer</Link>
                     </li>
                     <li>
-                        <Search />
+                        <Search setprods={setprods} />
                     </li>
                     <li>
                         <Link to="/Cart"><div className={style.countContainer}><FontAwesomeIcon icon="fa-solid fa-cart-shopping" /> <div className={style.count}>{cartCount}</div></div></Link>

@@ -42,7 +42,7 @@ function Cart() {
                             <CardBody>
                                 <Image
                                     className={style.cardImg}
-                                    src='https://images.pexels.com/photos/3844788/pexels-photo-3844788.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+                                    src='https://cdn.worldvectorlogo.com/logos/ligam.svg'
                                     alt='Green double couch with wooden legs'
                                     borderRadius='lg'
                                 />

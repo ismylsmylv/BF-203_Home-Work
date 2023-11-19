@@ -20,8 +20,8 @@ function App() {
     return (
       <Router>
         <Routes>
-          <Route path="/index" element={<TableMain isAdmin={isAdmin} />} />
-          <Route index element={<Layout />} />
+          <Route index element={<TableMain isAdmin={isAdmin} />} />
+          <Route element={<Layout />} />
           <Route path="/Wishlist" element={<Wishlist />} />
           <Route path="/Cart" element={<Cart />} />
           <Route

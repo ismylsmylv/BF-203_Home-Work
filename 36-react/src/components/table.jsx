@@ -32,7 +32,7 @@ function TableMain({ isAdmin }) {
     }, []);
     return (
         <>
-            <Layout />
+            <Layout setprods={setprods} />
 
             <div className='main container'>
                 <h2 className='thead'>Products</h2>
