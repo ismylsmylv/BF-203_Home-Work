@@ -8,12 +8,15 @@ import axios from 'axios';
 function Layout() {
     let loginId = localStorage.getItem("loginId") || [];
     const [cartCount, setcartCount] = useState(0);
+    const [favCount, setfavCount] = useState(0);
 
     useEffect(() => {
         axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId)
             .then(res => {
                 const cartLength = res.data.cart ? res.data.cart.length : 0;
                 setcartCount(cartLength);
+                const favLength = res.data.cart ? res.data.favorites.length : 0;
+                setfavCount(favLength)
             });
     }, [loginId]);
 
@@ -30,10 +33,10 @@ function Layout() {
                         <Search />
                     </li>
                     <li>
-                        <Link to="/Cart">Cart {cartCount}</Link>
+                        <Link to="/Cart"><div className={style.countContainer}>Cart <div className={style.count}>{cartCount}</div></div></Link>
                     </li>
                     <li>
-                        <Link to="/Wishlist">Wishlist</Link>
+                        <Link to="/Wishlist"><div className={style.countContainer}>Wishlist <div className={style.count}>{favCount}</div></div> </Link>
                     </li>
                     <li>logout</li>
                 </ul>

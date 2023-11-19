@@ -23,10 +23,14 @@ import style from "../style/Layout.module.css"
 
 function CardRow({ elem, prods, setprods, isAdmin }) {
     const [loginData, setloginData] = useState([]);
+    const [cartCount, setcartCount] = useState(0);
+    let cartLength
     let loginId = JSON.parse(localStorage.getItem("loginId"))
     useEffect(() => {
         axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
             setloginData(res.data)
+            cartLength = res.data.cart ? res.data.cart.length : 0;
+            setcartCount(cartLength);
         })
     }, []);
 
@@ -57,6 +61,7 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
                                     "cart": loginData.cart,
                                     "id": loginData.id
                                 });
+
                             } else {
                                 console.log("in favorites");
                             }
@@ -103,7 +108,8 @@ function CardRow({ elem, prods, setprods, isAdmin }) {
                                         "favorites": loginData.favorites,
                                         "cart": loginData.cart,
                                         "id": loginData.id
-                                    });
+                                    })
+                                    setcartCount(cartCount + 1)
                                 } else {
                                     console.log("in cart");
                                 }
