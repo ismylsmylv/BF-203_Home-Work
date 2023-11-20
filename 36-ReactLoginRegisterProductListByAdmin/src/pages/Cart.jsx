@@ -1,9 +1,9 @@
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Heading, Image, SimpleGrid, Stack, Text } from '@chakra-ui/react';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import style from "../assets/style/Layout.module.css";
+import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
+import { SimpleGrid, Card, CardBody, CardFooter, Stack, Image, Heading, Text, Button, ButtonGroup } from '@chakra-ui/react';
+import axios from 'axios';
+import style from '../style/Layout.module.css';
+import { v4 as uuidv4 } from 'uuid';
 
 function Cart() {
     let loginId = localStorage.getItem('loginId');
@@ -67,7 +67,7 @@ function Cart() {
                                             removeCart(elem.id);
                                         }}
                                     >
-                                        Remove cart
+                                        Remove from cart
                                     </Button>
                                 </ButtonGroup>
                             </CardFooter>

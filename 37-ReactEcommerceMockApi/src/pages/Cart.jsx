@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Layout from './Layout';
-import { SimpleGrid, Card, CardBody, CardFooter, Stack, Image, Heading, Text, Button, ButtonGroup } from '@chakra-ui/react';
+import { Button, ButtonGroup, Card, CardBody, CardFooter, Heading, Image, SimpleGrid, Stack, Text } from '@chakra-ui/react';
 import axios from 'axios';
-import style from '../style/Layout.module.css';
+import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import style from "../assets/style/Layout.module.css";
+import Layout from './Layout';
+import { getUser, putUser } from '../../middleware/api/users';
 
 function Cart() {
     let loginId = localStorage.getItem('loginId');
@@ -11,24 +12,24 @@ function Cart() {
     const [loginData, setloginData] = useState([]);
 
     useEffect(() => {
-        axios(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`).then((res) => {
-            setcartItems(res.data.cart);
-            setloginData(res.data);
+        getUser(loginId).then((res) => {
+            setcartItems(res.cart);
+            setloginData(res);
         });
     }, []);
 
     const removeCart = (itemId) => {
         const addedCart = cartItems.filter((element) => element.id !== itemId);
         setcartItems(addedCart);
-
-        axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
+        let objPutCart = {
             username: loginData.username,
             password: loginData.password,
             isadmin: loginData.isadmin,
             favorites: loginData.favorites,
             cart: addedCart,
             id: loginData.id,
-        }).then(() => console.log("removed"));
+        }
+        putUser(loginId, objPutCart).then(() => console.log("removed"));
     };
 
     return (
@@ -67,7 +68,7 @@ function Cart() {
                                             removeCart(elem.id);
                                         }}
                                     >
-                                        Remove from cart
+                                        Remove cart
                                     </Button>
                                 </ButtonGroup>
                             </CardFooter>

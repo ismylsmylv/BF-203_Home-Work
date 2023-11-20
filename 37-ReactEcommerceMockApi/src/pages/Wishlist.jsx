@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Layout from './Layout';
-import { SimpleGrid, Card, CardBody, CardFooter, Stack, Image, Heading, Text, Button, ButtonGroup } from '@chakra-ui/react';
+import { Button, ButtonGroup, Card, CardBody, CardFooter, Heading, Image, SimpleGrid, Stack, Text } from '@chakra-ui/react';
 import axios from 'axios';
-import style from '../style/Layout.module.css';
+import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import style from "../assets/style/Layout.module.css";
+import Layout from './Layout';
+import { getUser, putUser } from '../../middleware/api/users';
 
 function Wishlist() {
     let loginId = localStorage.getItem('loginId');
@@ -11,24 +12,24 @@ function Wishlist() {
     const [loginData, setloginData] = useState([]);
 
     useEffect(() => {
-        axios(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`).then((res) => {
-            setWishlistItems(res.data.favorites);
-            setloginData(res.data);
+        getUser(loginId).then((res) => {
+            setWishlistItems(res.favorites);
+            setloginData(res);
         });
     }, []);
 
     const removeWishlist = (itemId) => {
         const addedWish = WishlistItems.filter((element) => element.id !== itemId);
         setWishlistItems(addedWish);
-
-        axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
+        let objPut = {
             username: loginData.username,
             password: loginData.password,
             isadmin: loginData.isadmin,
             favorites: addedWish,
             cart: loginData.favorites,
             id: loginData.id,
-        }).then(() => console.log("removed"));
+        }
+        putUser(loginId, objPut)
     };
 
     return (
@@ -57,7 +58,7 @@ function Wishlist() {
                                 </Stack>
                             </CardBody>
                             <CardFooter>
-                                <ButtonGroup spacing='2' className={style.cardWishlist}>
+                                <ButtonGroup spacing='2' className={style.cardCart}>
                                     <Button
                                         className={style.cardCartBtn}
                                         variant='solid'
@@ -67,7 +68,7 @@ function Wishlist() {
                                             removeWishlist(elem.id);
                                         }}
                                     >
-                                        Remove from favorites
+                                        Remove favorite
                                     </Button>
                                 </ButtonGroup>
                             </CardFooter>

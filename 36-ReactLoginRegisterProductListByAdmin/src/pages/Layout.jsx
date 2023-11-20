@@ -1,13 +1,14 @@
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faFontAwesome, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
+import style from "../style/Layout.module.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from '../components/search';
-import style from "../assets/style/Layout.module.css";
+import axios from 'axios';
+import ReactDOM from 'react-dom'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 library.add(fas, faTwitter, faFontAwesome)
 
 

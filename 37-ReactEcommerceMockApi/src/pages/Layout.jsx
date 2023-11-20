@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Outlet, Link } from 'react-router-dom';
-import style from "../style/Layout.module.css"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Search from '../components/search';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFontAwesome, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import ReactDOM from 'react-dom'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
+import Search from '../components/search';
+import { getUsers } from '../../middleware/api/users'
+import style from "../assets/style/Layout.module.css";
 library.add(fas, faTwitter, faFontAwesome)
 
 
@@ -22,16 +22,17 @@ function Layout({ setprods }) {
     const [favCount, setfavCount] = useState(0);
 
     useEffect(() => {
-        axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId)
-            .then(res => {
-                const cartLength = res.data.cart ? res.data.cart.length : 0;
-                setcartCount(cartLength);
-                const favLength = res.data.cart ? res.data.favorites.length : 0;
-                setfavCount(favLength)
-            });
-    }, [loginId]);
+        getUsers().then(res => {
+            const cartLength = res.cart ? res.cart.length : 0;
+            const favLength = res.cart ? res.favorites.length : 0;
+            setfavCount(favLength)
+            setcartCount(cartLength);
+        })
+    }, []);
 
-    console.log(cartCount);
+
+
+
 
     return (
         <div className={style.containerNav}>
