@@ -1,6 +1,6 @@
+import { Button } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Button } from '@chakra-ui/react';
 
 function EditProd({ editProd, seteditProd, prods, setprods, editId, seteditId }) {
     const [editName, seteditName] = useState('');

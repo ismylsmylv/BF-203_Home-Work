@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoginForm from './components/loginForm';
-import SignForm from './components/signForm';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import LoginForm from './components/loginform';
+import SignForm from './components/signform';
 import TableMain from './components/table';
-import Layout from './pages/Layout';
 import Cart from './pages/Cart';
+import Layout from './pages/Layout';
 import Wishlist from './pages/Wishlist';
-import AppC from "./pages/App copy"
-import axios from 'axios'
+import "./assets/style/App.css"
 
 function App() {
   const [isadmin, setisadmin] = useState(false);//"false" gives admin to everyone

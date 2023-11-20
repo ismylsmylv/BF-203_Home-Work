@@ -39,23 +39,6 @@ label,
   border-radius: 5px;
   margin-top: 10px;
 }
-/* body {
-  background: rgb(135, 91, 255) !important;
-  background: linear-gradient(
-    58deg,
-    rgba(135, 91, 255, 1) 21%,
-    rgba(0, 175, 149, 1) 88%
-  ) !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  height: 100%;
-  min-height: 100%;
-  background-attachment: fixed !important;
-}
-.TableContainer {
-  background-color: white;
-} */
-
 .main {
   width: 80%;
   margin: 0 auto;

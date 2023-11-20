@@ -1,6 +1,6 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react';
+import axios from 'axios';
+import React, { useState } from 'react';
 
 function AddProd({ addProd, setaddProd, prods, setprods }) {
     const [addName, setaddName] = useState("");

@@ -1,26 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import {
-    Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
-    TableContainer,
-} from '@chakra-ui/react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button, SimpleGrid } from '@chakra-ui/react'
 import axios from 'axios'
-import CardRow from './CardRow'
-import TableUsers from './tableUsers'
-import { v4 as uuidv4 } from 'uuid';
-import AddProd from './addprod'
-import EditProd from "./editProd"
-import { Card, CardHeader, CardBody, CardFooter, SimpleGrid, Heading, Text } from '@chakra-ui/react'
-import Layout from "../pages/Layout"
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import style from "../style/Layout.module.css"
+import React, { useEffect, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+import Layout from "../../pages/Layout"
+import style from "../../assets/style/Layout.module.css";
+import CardRow from '../cardrow'
+import AddProd from '../addprod'
+import EditProd from "../editprod"
+import TableUsers from '../usertable'
 
 function TableMain({ isadmin }) {
     const [prods, setprods] = useState([]);

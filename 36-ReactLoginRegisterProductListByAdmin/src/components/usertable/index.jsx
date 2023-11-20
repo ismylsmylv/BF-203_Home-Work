@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from 'react'
 import {
+    Button,
     Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
     TableContainer,
+    Tbody,
+    Td,
+    Th,
+    Thead,
+    Tr
 } from '@chakra-ui/react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
 import axios from 'axios'
-import Tablerow from './CardRow'
-import { v4 as uuidv4 } from 'uuid';
+import React, { useEffect, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 function TableUsers() {
     const [users, setusers] = useState([]);

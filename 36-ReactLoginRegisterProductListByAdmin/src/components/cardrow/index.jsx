@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import {
     Button, ButtonGroup,
     Card,
@@ -16,7 +15,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import { useEffect } from 'react';
-import style from "../style/Layout.module.css";
+import style from "../../assets/style/Layout.module.css";
 library.add(fas, faTwitter, faFontAwesome, faHeart)
 
 

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import style from '../style/Layout.module.css';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useEffect, useState } from 'react';
+import style from "../../assets/style/Layout.module.css";
 function Search({ setprods }) {
     const [datas, setdatas] = useState([]);
     const [results, setresults] = useState([]);

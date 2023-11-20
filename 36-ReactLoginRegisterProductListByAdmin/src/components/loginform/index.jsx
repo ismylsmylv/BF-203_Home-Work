@@ -1,13 +1,9 @@
-import React from 'react'
-import { useState } from 'react'
-// import '../../src/App.css'
-import axios from 'axios'
-import { Outlet, Link, useNavigate } from "react-router-dom"
+import React, { useState } from 'react';
+import axios from 'axios';
 function LoginForm({ setCheck, isLogged, setisLogged, setisadmin, isadmin }) {
     const [userName, setuserName] = useState("");
     const [userPass, setuserPass] = useState("");
     const [users, setusers] = useState([]);
-    //const navigate = useNavigate()
     return (
         <div className='formLogin'>
             <h2>Log in</h2>
@@ -24,8 +20,6 @@ function LoginForm({ setCheck, isLogged, setisLogged, setisadmin, isadmin }) {
 
             <button className='signup' onClick={
                 (e) => {
-                    //setisLogged(true)//DELETE LATER
-                    //setisadmin(true)//DELETE LATER
                     e.preventDefault()
                     axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users").then(res => {
                         console.log(res.data)
