@@ -1,29 +1,22 @@
 import React, { useState } from 'react';
 
 import {
-    Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
-    TableContainer,
+    Button, ButtonGroup,
+    Card,
+    CardBody, CardFooter,
+    Heading,
+    Image,
     Stack,
-    Image
+    Text
 } from '@chakra-ui/react';
-import { Button, ButtonGroup } from '@chakra-ui/react';
-import axios from 'axios';
-import { Card, CardHeader, CardBody, CardFooter, SimpleGrid, Heading, Text } from '@chakra-ui/react'
-import { useEffect } from 'react';
-import style from "../style/Layout.module.css"
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFontAwesome, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import EditProd from './editProd';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+import { useEffect } from 'react';
+import style from "../style/Layout.module.css";
 library.add(fas, faTwitter, faFontAwesome, faHeart)
 
 
