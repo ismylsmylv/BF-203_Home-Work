@@ -1,5 +1,8 @@
 .welcome {
-  /* background-image: url(); */
+  background-image: url("../assets/img/welcome.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #eab81b;
   height: 100vh;
   display: flex;

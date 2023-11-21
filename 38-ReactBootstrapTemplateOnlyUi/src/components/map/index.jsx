@@ -18,7 +18,7 @@ function Map() {
 
     const initMap = () => {
         const map = new window.google.maps.Map(document.getElementById('map'), {
-            position: { lat: 37.7765, lng: -122.4162 },
+            center: { lat: 37.7765, lng: -122.4162 },
             zoom: 8,
         });
 
@@ -28,6 +28,7 @@ function Map() {
             title: 'Hello World!',
         });
     };
+
     return <div id="map" style={{ height: '600px' }}></div>;
 }
 

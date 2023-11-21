@@ -14,3 +14,41 @@
   font-size: 48px;
   margin-bottom: 30px;
 }
+.prodRow {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 100px;
+}
+.prod {
+  flex: 50%;
+  /* border: 1px solid black; */
+  width: 550px;
+  height: 350px;
+  background-image: url("../assets/img/welcome.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding: 40px;
+  transition: transform 500ms ease;
+}
+.prodHead {
+  margin-top: 180px;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+}
+.prodText {
+  font-size: 19px;
+  font-weight: 300;
+  color: white;
+  text-align: left;
+}
+.prod:hover {
+  transform: scale(0.9);
+  /* background-image: none; */
+  background-: #1d819f8e !important;
+}

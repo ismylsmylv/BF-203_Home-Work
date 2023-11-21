@@ -11,4 +11,11 @@
 button {
   border: none;
   cursor: pointer;
+  transition: 500ms;
+}
+button:hover {
+  filter: brightness(60%);
+}
+.container {
+  margin: 0 auto;
 }
