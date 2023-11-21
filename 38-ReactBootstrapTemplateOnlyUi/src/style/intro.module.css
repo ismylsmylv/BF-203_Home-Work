@@ -1,0 +1,29 @@
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 120px 0;
+  background-color: white;
+}
+
+.head {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.text {
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+.btn {
+  padding: 20px 40px;
+  background-color: #212529;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+}
+a {
+  color: #1d809f;
+}

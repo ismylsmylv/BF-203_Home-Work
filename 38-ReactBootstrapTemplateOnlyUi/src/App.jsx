@@ -1,4 +1,3 @@
-import './App.css'
 import ButtonWrapper from './components/buttonwrapper'
 import Footer from './components/footer'
 import Hero from './components/hero'
@@ -7,7 +6,7 @@ import Map from './components/map'
 import Offers from './components/offers'
 import Welcome from './components/welcome'
 import Projects from './components/recent'
-
+import "./style/reset.css"
 function App() {
   return (
     <>

@@ -1,0 +1,28 @@
+.hero {
+  /* background-image: url(); */
+  background-color: #eab81b;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.head {
+  font-size: 88px;
+  color: #212529;
+  margin-bottom: 15px;
+}
+
+.text {
+  color: #212529;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+.btn {
+  padding: 20px 40px;
+  background-color: #1d809f;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+}
