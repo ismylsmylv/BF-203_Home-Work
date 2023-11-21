@@ -1,9 +1,13 @@
 import React from 'react'
+import style from "../../style/recent.module.css"
 
-function Projects() {
+function Recent() {
     return (
-        <div>Projects</div>
+        <div className={style.recent}>
+            <p className={style.header}>PORTFOLIO</p>
+            <h2 className={style.head}>Recent Projects</h2>
+        </div>
     )
 }
 
-export default Projects
+export default Recent

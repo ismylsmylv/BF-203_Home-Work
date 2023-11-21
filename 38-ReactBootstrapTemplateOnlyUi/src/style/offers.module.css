@@ -9,7 +9,7 @@
 .header {
   color: #ecb807;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
 }
 .head {
   font-size: 48px;
@@ -33,9 +33,13 @@
   height: 100px;
   width: 100px;
   box-shadow: rgba(107, 107, 107, 0.075) 0px 3px 8px;
-  object-fit: contain;
-  object-position: center;
+  /* object-fit: contain;
+  object-position: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10px;
+  fill: #1d809f;
 }
 .cardHead {
   font-size: 24px;
@@ -45,4 +49,9 @@
 .cardText {
   color: rgba(255, 255, 255, 0.7);
   font-size: 16px;
+}
+.cardImgs {
+  width: 35px;
+  height: 35px;
+  filter: invert(0.5);
 }

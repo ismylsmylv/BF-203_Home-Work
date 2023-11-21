@@ -5,7 +5,7 @@ import Intro from './components/intro'
 import Map from './components/map'
 import Offers from './components/offers'
 import Welcome from './components/welcome'
-import Projects from './components/recent'
+import Recent from './components/recent'
 import "./style/reset.css"
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Intro />
       <Offers />
       <Welcome />
-      <Projects />
+      <Recent />
       <ButtonWrapper />
       <Map />
       <Footer />

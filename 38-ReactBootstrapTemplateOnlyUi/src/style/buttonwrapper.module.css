@@ -1,0 +1,31 @@
+.buttonwrapper {
+  padding: 120px 0;
+  background-color: #1d809f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.head {
+  color: white;
+  margin-bottom: 15px;
+}
+.btns {
+  display: flex;
+  justify-content: space-around;
+}
+button {
+  padding: 20px 40px;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+}
+
+.btn1 {
+  margin-right: 25px;
+  background-color: #f7f8f9;
+  color: #22262a;
+}
+.btn2 {
+  background-color: #22262a;
+}
