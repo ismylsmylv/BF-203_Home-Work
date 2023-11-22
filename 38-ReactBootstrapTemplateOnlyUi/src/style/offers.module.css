@@ -19,13 +19,14 @@
 .cards {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 24px;
+  padding: 10px 20px;
 }
 .cardImg {
   border-radius: 50%;

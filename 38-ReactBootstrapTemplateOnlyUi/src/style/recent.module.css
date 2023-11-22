@@ -17,12 +17,14 @@
 .prodRow {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 100px;
+  width: 80%;
+  /* padding: 0 100px; */
 }
 .prod {
   flex: 50%;
   /* border: 1px solid black; */
   width: 550px;
+  min-width: 250px;
   height: 350px;
   background-image: url("../assets/img/welcome.png");
   background-position: right;
@@ -46,9 +48,19 @@
   font-weight: 300;
   color: white;
   text-align: left;
+  margin-bottom: 20px;
 }
 .prod:hover {
   transform: scale(0.9);
   /* background-image: none; */
-  background-: #1d819f8e !important;
+  background-color: #1d819f8e !important;
+}
+@media screen and (max-width: 700px) {
+  .prod {
+    height: 200px;
+    padding: 10px;
+  }
+  .prodHead {
+    margin-top: 20px;
+  }
 }

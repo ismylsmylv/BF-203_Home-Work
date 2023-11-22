@@ -6,10 +6,12 @@ import Map from './components/map'
 import Offers from './components/offers'
 import Welcome from './components/welcome'
 import Recent from './components/recent'
+import Hamburger from './components/hamburger'
 import "./style/reset.css"
 function App() {
   return (
     <>
+      <Hamburger />
       <Hero />
       <Intro />
       <Offers />

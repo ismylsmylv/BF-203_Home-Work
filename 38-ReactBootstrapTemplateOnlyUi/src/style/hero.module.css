@@ -4,11 +4,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   /* background-color: #eab81b; */
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 200px 0;
 }
 .head {
   font-size: 88px;
@@ -28,4 +29,27 @@
   border-radius: 8px;
   color: white;
   font-size: 16px;
+}
+
+/* @media screen and (max-width: 500px) {
+  .head {
+    font-size: 60px;
+  }
+  .text {
+    font-size: 23px;
+  }
+  .hero {
+    background-position: left;
+  }
+} */
+@media screen and (max-width: 700px) {
+  .head {
+    font-size: 60px;
+  }
+  .text {
+    font-size: 23px;
+  }
+  .hero {
+    background-position: left;
+  }
 }
