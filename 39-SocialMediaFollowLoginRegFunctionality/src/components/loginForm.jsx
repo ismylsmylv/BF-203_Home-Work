@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-// import '../../src/App.css'
+import '../../src/App.css'
 import axios from 'axios'
 import { Outlet, Link, useNavigate } from "react-router-dom"
 function LoginForm({ setCheck, isLogged, setisLogged, setisadmin, isadmin }) {

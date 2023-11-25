@@ -41,7 +41,7 @@ function CardRow({ elem }) {
     }, []);
 
     const blockUser = (elem) => {
-        if (!loginData.blocked.some((item) => item.id === elem.id)) {
+        if (!loginData.blocked?.some((item) => item.id === elem.id)) {
             let updatedBlocked = [...loginData.blocked, elem];
             axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
                 ...loginData,

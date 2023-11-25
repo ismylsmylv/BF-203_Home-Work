@@ -27,7 +27,7 @@ function Layout({ setusers }) {
                 setreqLength(res.data?.requests?.length)
                 setfriendLength(res.data?.friends?.length)
             });
-    }, [loginId]);
+    }, []);
 
 
     return (

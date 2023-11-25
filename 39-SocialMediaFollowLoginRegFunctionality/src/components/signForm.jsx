@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import '../../src/App.css'
+
 function SignForm({ setCheck }) {
     const [signName, setsignName] = useState("");
     const [signPass, setsignPass] = useState("");
