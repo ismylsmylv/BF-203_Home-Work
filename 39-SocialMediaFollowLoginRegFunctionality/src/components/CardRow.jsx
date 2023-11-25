@@ -27,20 +27,23 @@ library.add(fas, faTwitter, faFontAwesome, faHeart)
 
 
 
-function CardRow({ elem, prods, editId, seteditId, setprods, isadmin, editProd, seteditProd }) {
+function CardRow({ elem }) {
     const [loginData, setloginData] = useState([]);
-    const [cartCount, setcartCount] = useState(0);
-    const [isFavorite, setIsFavorite] = useState(false);
-    let cartLength
+    const [blockCount, setBlockCount] = useState(0);
+    const [friendCount, setfriendCount] = useState(0);
+    const [isFriend, setIsFriend] = useState(false);
+    let blockedLength
     let loginId = JSON.parse(localStorage.getItem("loginId"))
     useEffect(() => {
         axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
             setloginData(res.data)
-            cartLength = res.data.cart ? res.data.cart.length : 0;
-            setcartCount(cartLength);
-            setIsFavorite(res.data.favorites?.some((item) => item.id === elem.id) || false);
+            setIsFriend(res.data.friends?.some((item) => item.id == elem.id) || false);
+            console.log(loginData)
         })
+        setBlockCount((loginData.blocked ? loginData.blocked.length : 0));
+        setfriendCount((loginData.friends ? loginData.friends.length : 0));
     }, []);
+
 
 
     return (
@@ -58,35 +61,61 @@ function CardRow({ elem, prods, editId, seteditId, setprods, isadmin, editProd, 
                 </CardBody>
                 <CardFooter>
                     <ButtonGroup spacing='2' className={style.cardCart} >
+                        {/* add friend */}
                         <Button className={style.cardCartBtn} variant='solid' colorScheme='blue'
+                            data-id={elem.id}
+
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (!loginData.requests?.some((item) => item.id === elem.id)) {
+                                    let req = elem.requests?.push(loginId)
+                                    axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + elem.id, {
+                                        "username": elem.username,
+                                        "password": elem.password,
+                                        "friends": elem.friends,
+                                        "requests": req,
+                                        "blocked": elem.blocked,
+                                        "id": elem.id
+                                    })
+
+                                    console.log("added request")
+                                    // setBlockCount(cartCount + 1)
+                                } else {
+                                    console.log("request sent");
+                                }
+                            }}
+                        >
+                            Add friend
+                        </Button>
+                        <Button variant='solid' colorScheme='red'
                             data-id={elem.id}
                             onClick={(e) => {
                                 e.preventDefault();
-                                if (!loginData.cart.some((item) => item.id === elem.id)) {
+                                if (!loginData.blocked.some((item) => item.id === elem.id)) {
                                     let elemObj = {
-                                        "name": elem.name,
-                                        "price": elem.id,
-                                        "discountPercent": elem.discountPercent,
-                                        "stock": elem.stock,
-                                        "sold": elem.sold,
+                                        "username": elem.name,
+                                        "password": elem.password,
+                                        "friends": elem.friends,
+                                        "requests": elem.requests,
+                                        "blocked": elem.blocked,
                                         "id": elem.id
                                     }
                                     loginData.cart.push(elemObj);
                                     axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId, {
                                         "username": loginData.username,
                                         "password": loginData.password,
-                                        "isadmin": loginData.isadmin,
-                                        "favorites": loginData.favorites,
-                                        "cart": loginData.cart,
+                                        "friends": loginData.friends,
+                                        "requests": loginData.requests,
+                                        "blocked": loginData.blocked,
                                         "id": loginData.id
                                     })
-                                    setcartCount(cartCount + 1)
+                                    setblockedCount(blockedCount + 1)
                                 } else {
                                     console.log("in cart");
                                 }
                             }}
                         >
-                            Add friend
+                            <FontAwesomeIcon icon="fa-solid fa-ban" />
                         </Button>
 
 

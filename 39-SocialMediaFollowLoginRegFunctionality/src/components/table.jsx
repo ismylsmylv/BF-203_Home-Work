@@ -7,24 +7,24 @@ import style from "../style/Layout.module.css"
 import CardRow from './CardRow'
 
 function TableMain() {
-    const [prods, setprods] = useState([]);
+    const [users, setusers] = useState([]);
     useEffect(() => {
         axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users").then(res => {
-            setprods(res.data)
+            setusers(res.data)
         })
     }, []);
     return (
         <>
-            <Layout setprods={setprods} />
+            <Layout setusers={setusers} />
 
             <div className='main container'>
 
                 {/* table */}
                 <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))' className={style.grid}>
                     {
-                        prods.map(elem => {
+                        users.map(elem => {
                             return (
-                                <CardRow key={uuidv4()} elem={elem} prods={prods} />)
+                                <CardRow key={uuidv4()} elem={elem} users={users} />)
                         })
                     }
                 </SimpleGrid>
