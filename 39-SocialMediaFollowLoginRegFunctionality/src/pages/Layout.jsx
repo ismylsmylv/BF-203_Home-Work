@@ -18,13 +18,14 @@ function Layout({ setprods }) {
     useEffect(() => {
         setisLogged(loginId)
     }, []);
-    const [favCount, setfavCount] = useState(0);
+    const [reqLength, setreqLength] = useState(0);
+    const [friendLength, setfriendLength] = useState(0);
 
     useEffect(() => {
         axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId)
             .then(res => {
-                const favLength = res.data.cart ? res.data.favorites.length : 0;
-                setfavCount(favLength)
+                setreqLength(res.data?.requests?.length)
+                setfriendLength(res.data?.friends?.length)
             });
     }, [loginId]);
 
@@ -38,10 +39,10 @@ function Layout({ setprods }) {
                     </li>
                     <div className={style.rightNav}>
                         <li className={style.reqNav}>
-                            <Link to="/Friends"><div className={style.countContainer}><FontAwesomeIcon icon="fa-solid fa-user" /> <div className={style.count}>{favCount}</div></div> </Link>
+                            <Link to="/Friends"><div className={style.countContainer}><FontAwesomeIcon icon="fa-solid fa-user" /> <div className={style.count}>{friendLength}</div></div> </Link>
                         </li>
                         <li className={style.reqNav}>
-                            <Link to="/Requests"><div className={style.countContainer}><FontAwesomeIcon icon="fa-solid fa-envelope" /> <div className={style.count}>{favCount}</div></div> </Link>
+                            <Link to="/Requests"><div className={style.countContainer}><FontAwesomeIcon icon="fa-solid fa-envelope" /> <div className={style.count}>{reqLength}</div></div> </Link>
                         </li>
                         <li>
                             <button>

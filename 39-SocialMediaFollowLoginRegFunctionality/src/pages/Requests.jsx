@@ -54,7 +54,7 @@ function Requests() {
                         if (sender.data) {
                             const updatedfriendsSender = [
                                 ...sender.data.friends,
-                                { id: loginId, username: user?.username },
+                                { id: loginId, username: sender.data?.username },
                             ];
                             const updatedSenderRequests = user.requests.filter((request) => request.id !== itemId);
                             axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${itemId}`, {
