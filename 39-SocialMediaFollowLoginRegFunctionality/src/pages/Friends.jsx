@@ -19,7 +19,36 @@ function Friends() {
             });
     }, []);
 
+    // remove friend
+    const removeFriend = (friendId) => {
+        const updatedFriends = user.friends.filter((friend) => friend.id !== friendId);
 
+        axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
+            ...user,
+            friends: updatedFriends,
+        })
+            .then(() => {
+                setReqItems(updatedFriends);
+                setReqDeny(true);
+            })
+
+        axios.get(`https://654bcb115b38a59f28efb8ab.mockapi.io/users`)
+            .then((res) => {
+                const otherUser = res.data.find((userData) => userData.friends?.some((friend) => friend.id === loginId));
+
+                if (otherUser) {
+                    const updatedOtherFriends = otherUser.friends.filter((friend) => friend.id !== loginId);
+
+                    axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${otherUser.id}`, {
+                        ...otherUser,
+                        friends: updatedOtherFriends,
+                    })
+                        .then(() => {
+                            console.log('friend removed');
+                        })
+                }
+            })
+    };
 
 
     return (
@@ -46,24 +75,13 @@ function Friends() {
                                     <Button
                                         className={style.cardCartBtn}
                                         variant='solid'
-                                        colorScheme='green'
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            accRequest(elem.id);
-                                        }}
-                                    >
-                                        Accept
-                                    </Button>
-                                    <Button
-                                        className={style.cardCartBtn}
-                                        variant='solid'
                                         colorScheme='red'
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            removeRequest(elem.id);
+                                            removeFriend(elem.id);
                                         }}
                                     >
-                                        Deny
+                                        Remove friend
                                     </Button>
 
                                 </ButtonGroup>

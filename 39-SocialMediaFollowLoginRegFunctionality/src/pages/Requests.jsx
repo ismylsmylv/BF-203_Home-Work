@@ -36,37 +36,50 @@ function Requests() {
     // accept request
     const accRequest = (itemId, senderUsername) => {
         const updatedRequests = reqItems.filter((element) => element.id !== itemId);
-        const updatedFriends = [...user.friends, { id: itemId, username: senderUsername }];
+
+        const updatedFriendsUser = [...user.friends, { id: itemId, username: senderUsername }];
 
         axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
             ...user,
             requests: updatedRequests,
-            friends: updatedFriends,
+            friends: updatedFriendsUser,
         })
             .then(() => {
                 setReqItems(updatedRequests);
                 setReqDeny(true);
-            })
 
+                axios(`https://654bcb115b38a59f28efb8ab.mockapi.io/users`)
+                    .then((res) => {
+                        const sender = res.data.find((userData) => userData.requests?.some((request) => request.id === itemId));
 
-        axios.get(`https://654bcb115b38a59f28efb8ab.mockapi.io/users`)
-            .then((res) => {
-                const sender = res.data.find((userData) => userData.requests?.some((request) => request.id === itemId));
+                        if (sender) {
+                            const updatedFriendsSender = [...sender.friends, { id: loginId, username: user.username }];
 
-                if (sender) {
-                    const updatedSenderFriends = [...sender.friends, { id: loginId, username: user.username }];
+                            const updatedSenderRequests = sender.requests.filter((request) => request.id !== loginId);
 
-                    axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${sender.id}`, {
-                        ...sender,
-                        friends: updatedSenderFriends,
+                            axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${sender.id}`, {
+                                ...sender,
+                                requests: updatedSenderRequests,
+                                friends: updatedFriendsSender,
+                            })
+                                .then(() => {
+                                    console.log('friend added');
+                                })
+
+                        }
                     })
-                        .then(() => {
-                            console.log('added friend');
-                        })
 
-                }
             })
     };
+
+
+
+
+
+
+
+
+
 
 
 
@@ -97,7 +110,7 @@ function Requests() {
                                         colorScheme='green'
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            accRequest(elem.id);
+                                            accRequest(elem.id, elem.username);
                                         }}
                                     >
                                         Accept
