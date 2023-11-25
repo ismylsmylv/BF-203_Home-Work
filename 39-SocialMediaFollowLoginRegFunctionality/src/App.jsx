@@ -5,6 +5,7 @@ import SignForm from './components/signForm';
 import TableMain from './components/table';
 import Layout from './pages/Layout';
 import Requests from './pages/Requests';
+import Friends from "./pages/Friends"
 import axios from 'axios'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route index element={<TableMain isadmin={isadmin} />} />
           <Route element={<Layout />} />
           <Route path="/Requests" element={<Requests />} />
+          <Route path="/Friends" element={<Friends />} />
           <Route
             path="/login"
             element={<LoginForm setisLogged={setisLogged} setisadmin={setisadmin} />}

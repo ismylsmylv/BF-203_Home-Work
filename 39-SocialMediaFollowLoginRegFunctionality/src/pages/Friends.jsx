@@ -5,7 +5,7 @@ import axios from 'axios';
 import style from '../style/Layout.module.css';
 import { v4 as uuidv4 } from 'uuid';
 
-function Requests() {
+function Friends() {
     let loginId = localStorage.getItem('loginId');
     const [user, setUser] = useState([]);
     const [reqItems, setReqItems] = useState([]);
@@ -20,63 +20,15 @@ function Requests() {
     }, []);
 
 
-    // remove request
-    const removeRequest = (itemId) => {
-        const updatedRequests = reqItems.filter((element) => element.id !== itemId);
-
-        axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
-            ...user,
-            requests: updatedRequests,
-        })
-            .then(() => {
-                setReqItems(updatedRequests);
-                setReqDeny(true);
-            })
-    };
-    // accept request
-    const accRequest = (itemId, senderUsername) => {
-        const updatedRequests = reqItems.filter((element) => element.id !== itemId);
-        const updatedFriends = [...user.friends, { id: itemId, username: senderUsername }];
-
-        axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
-            ...user,
-            requests: updatedRequests,
-            friends: updatedFriends,
-        })
-            .then(() => {
-                setReqItems(updatedRequests);
-                setReqDeny(true);
-            })
-
-
-        axios.get(`https://654bcb115b38a59f28efb8ab.mockapi.io/users`)
-            .then((res) => {
-                const sender = res.data.find((userData) => userData.requests?.some((request) => request.id === itemId));
-
-                if (sender) {
-                    const updatedSenderFriends = [...sender.friends, { id: loginId, username: user.username }];
-
-                    axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${sender.id}`, {
-                        ...sender,
-                        friends: updatedSenderFriends,
-                    })
-                        .then(() => {
-                            console.log('added friend');
-                        })
-
-                }
-            })
-    };
-
 
 
     return (
         <>
             <Layout />
             <div className='main container'>
-                <h2 className={`'thead' ${style.thead}`}>Requests</h2>
+                <h2 className={`'thead' ${style.thead}`}>Friends</h2>
                 <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))' className={style.grid}>
-                    {reqItems.map((elem) => (
+                    {user.friends?.map((elem) => (
                         <Card key={uuidv4()} maxW='sm' isadmin={elem.isadmin}>
                             <CardBody>
                                 <Image
@@ -124,4 +76,4 @@ function Requests() {
     );
 }
 
-export default Requests;
+export default Friends;

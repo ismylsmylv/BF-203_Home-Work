@@ -38,7 +38,10 @@ function Layout({ setprods }) {
                     </li>
                     <div className={style.rightNav}>
                         <li className={style.reqNav}>
-                            <Link to="/Requests"><div className={style.countContainer}><FontAwesomeIcon icon="fa-solid fa-user" /> <div className={style.count}>{favCount}</div></div> </Link>
+                            <Link to="/Friends"><div className={style.countContainer}><FontAwesomeIcon icon="fa-solid fa-user" /> <div className={style.count}>{favCount}</div></div> </Link>
+                        </li>
+                        <li className={style.reqNav}>
+                            <Link to="/Requests"><div className={style.countContainer}><FontAwesomeIcon icon="fa-solid fa-envelope" /> <div className={style.count}>{favCount}</div></div> </Link>
                         </li>
                         <li>
                             <button>
