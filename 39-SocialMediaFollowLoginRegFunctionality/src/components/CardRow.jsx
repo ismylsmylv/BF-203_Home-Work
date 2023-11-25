@@ -68,21 +68,26 @@ function CardRow({ elem }) {
                     </Stack>
                 </CardBody>
                 <CardFooter>
-                    <ButtonGroup spacing='2' className={style.cardCart} >
-                        {/* add friend */}
-                        {
-                            sentBefore ? <Button className={style.cardCartBtn} variant='solid' colorScheme='green'>Request sent</Button> : <Button className={style.cardCartBtn} variant='solid' colorScheme='blue'
+                    <ButtonGroup spacing='2' className={style.cardCart}>
+                        {/* friend or add  */}
+                        {isFriend ? (
+                            <Button className={style.cardCartBtn} variant='solid' colorScheme='green'>
+                                Friend
+                            </Button>
+                        ) : (
+                            <Button
+                                className={style.cardCartBtn}
+                                variant='solid'
+                                colorScheme='blue'
                                 data-id={elem.id}
-
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    // if (!loginData.requests?.some((item) => item.id === elem.id)) {
                                     let req = elem.requests || [];
                                     let obj = {
                                         "username": loginData.username,
                                         "id": loginData.id
-                                    }
-                                    req.push(obj)
+                                    };
+                                    req.push(obj);
                                     axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + elem.id, {
                                         "username": elem.username,
                                         "password": elem.password,
@@ -90,23 +95,19 @@ function CardRow({ elem }) {
                                         "requests": req,
                                         "blocked": elem.blocked,
                                         "id": elem.id
-                                    })
-
-                                    console.log("added request")
-                                    setsentBefore(true)
-                                    // setBlockCount(cartCount + 1)
-                                    // } else {
-                                    //     console.log("request sent before");
-                                    // }
+                                    });
+                                    console.log("added request");
+                                    setsentBefore(true);
                                 }}
                             >
                                 Add friend
                             </Button>
-                        }
+                        )}
 
-
-                        {/* block */}
-                        <Button variant='solid' colorScheme='red'
+                        {/* Block Button */}
+                        <Button
+                            variant='solid'
+                            colorScheme='red'
                             data-id={elem.id}
                             onClick={() => {
                                 blockUser(elem);
@@ -114,10 +115,7 @@ function CardRow({ elem }) {
                         >
                             <FontAwesomeIcon icon="fa-solid fa-ban" />
                         </Button>
-
-
                     </ButtonGroup>
-
                 </CardFooter>
             </Card >
         </>

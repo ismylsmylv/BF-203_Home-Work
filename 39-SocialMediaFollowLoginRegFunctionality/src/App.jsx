@@ -13,19 +13,20 @@ function App() {
   const [isadmin, setisadmin] = useState(false);//"false" gives admin to everyone
   const [isLogged, setisLogged] = useState(false);
   const [check, setCheck] = useState(false);
+  const [User, setUser] = useState([]);
   // const [user, setuser] = useState([]);
   useEffect(() => {
     let loginId = localStorage.getItem("loginId")
-    //   loginId && axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
-    // setUser(res.data)  
-    // })
+    loginId && axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
+      setUser(res.data)
+    })
     setisLogged(loginId)
   }, []);
   if (isLogged) {
     return (
       <Router>
         <Routes>
-          <Route index element={<TableMain isadmin={isadmin} />} />
+          <Route index element={<TableMain isadmin={isadmin} User={User} />} />
           <Route element={<Layout />} />
           <Route path="/Requests" element={<Requests />} />
           <Route path="/Friends" element={<Friends />} />
