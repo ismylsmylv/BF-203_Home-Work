@@ -37,30 +37,41 @@ function Requests() {
     const accRequest = (itemId, senderUsername) => {
         const updatedRequests = reqItems.filter((element) => element.id !== itemId);
 
-        const updatedFriendsUser = [...user.friends, { id: itemId, username: senderUsername }];
+        const updatedfriendsUser = [...user.friends, { id: itemId, username: senderUsername }];
 
         axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
-            ...user,
+            ...user.data,
             requests: updatedRequests,
-            friends: updatedFriendsUser,
+            friends: updatedfriendsUser,
         })
             .then(() => {
                 setReqItems(updatedRequests);
                 setReqDeny(true);
 
-                axios(`https://654bcb115b38a59f28efb8ab.mockapi.io/users`)
-                    .then((res) => {
-                        const sender = res.data.find((userData) => userData.requests?.some((request) => request.id === itemId));
-
-                        if (sender) {
-                            const updatedFriendsSender = [...sender.friends, { id: loginId, username: user.username }];
-
-                            const updatedSenderRequests = sender.requests.filter((request) => request.id !== loginId);
-
-                            axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${sender.id}`, {
-                                ...sender,
+                axios.get(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${itemId}`)
+                    .then((sender) => {
+                        console.log(sender)
+                        if (sender.data) {
+                            const updatedfriendsSender = [
+                                ...sender.data.friends,
+                                { id: loginId, username: user?.username },
+                            ];
+                            const updatedSenderRequests = user.requests.filter((request) => request.id !== itemId);
+                            axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${itemId}`, {
+                                ...user.data,
                                 requests: updatedSenderRequests,
-                                friends: updatedFriendsSender,
+                                friends: updatedfriendsSender,
+                            })
+                                .then(() => {
+                                    console.log('friend added both');
+                                })
+
+
+                            const updatedfriendsUser = [...user.friends, { id: itemId, username: senderUsername }];
+
+                            axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
+                                ...sender.data,
+                                friends: updatedfriendsUser,
                             })
                                 .then(() => {
                                     console.log('friend added');
@@ -70,19 +81,8 @@ function Requests() {
                     })
 
             })
+
     };
-
-
-
-
-
-
-
-
-
-
-
-
     return (
         <>
             <Layout />
