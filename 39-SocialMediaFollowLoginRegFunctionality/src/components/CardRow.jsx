@@ -68,7 +68,16 @@ function CardRow({ elem }) {
                             onClick={(e) => {
                                 e.preventDefault();
                                 if (!loginData.requests?.some((item) => item.id === elem.id)) {
-                                    let req = elem.requests?.push(loginId)
+                                    let req = elem.requests || [];
+                                    let obj = {
+                                        "username": loginData.username,
+                                        "password": loginData.password,
+                                        "friends": loginData.friends,
+                                        "requests": loginData.requests,
+                                        "blocked": loginData.blocked,
+                                        "id": loginData.id
+                                    }
+                                    req.push(obj)
                                     axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + elem.id, {
                                         "username": elem.username,
                                         "password": elem.password,

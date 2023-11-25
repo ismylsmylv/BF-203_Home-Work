@@ -13,7 +13,7 @@ function App() {
   const [check, setCheck] = useState(false);
   useEffect(() => {
     let loginId = localStorage.getItem("loginId")
-    axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
+    loginId && axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
       if (res.data.isadmin == "true") {
         setisadmin(true)
       }
