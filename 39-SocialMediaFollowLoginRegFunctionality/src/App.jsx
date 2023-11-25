@@ -14,9 +14,6 @@ function App() {
   useEffect(() => {
     let loginId = localStorage.getItem("loginId")
     loginId && axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
-      if (res.data.isadmin == "true") {
-        setisadmin(true)
-      }
     })
     setisLogged(loginId)
   }, []);

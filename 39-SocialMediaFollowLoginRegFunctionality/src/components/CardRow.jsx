@@ -32,6 +32,7 @@ function CardRow({ elem }) {
     const [blockCount, setBlockCount] = useState(0);
     const [friendCount, setfriendCount] = useState(0);
     const [isFriend, setIsFriend] = useState(false);
+    const [sentBefore, setsentBefore] = useState(false);
     let blockedLength
     let loginId = JSON.parse(localStorage.getItem("loginId"))
     useEffect(() => {
@@ -62,19 +63,16 @@ function CardRow({ elem }) {
                 <CardFooter>
                     <ButtonGroup spacing='2' className={style.cardCart} >
                         {/* add friend */}
-                        <Button className={style.cardCartBtn} variant='solid' colorScheme='blue'
-                            data-id={elem.id}
+                        {
+                            sentBefore ? <Button className={style.cardCartBtn} variant='solid' colorScheme='green'>Request sent</Button> : <Button className={style.cardCartBtn} variant='solid' colorScheme='blue'
+                                data-id={elem.id}
 
-                            onClick={(e) => {
-                                e.preventDefault();
-                                if (!loginData.requests?.some((item) => item.id === elem.id)) {
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    // if (!loginData.requests?.some((item) => item.id === elem.id)) {
                                     let req = elem.requests || [];
                                     let obj = {
                                         "username": loginData.username,
-                                        "password": loginData.password,
-                                        "friends": loginData.friends,
-                                        "requests": loginData.requests,
-                                        "blocked": loginData.blocked,
                                         "id": loginData.id
                                     }
                                     req.push(obj)
@@ -88,14 +86,16 @@ function CardRow({ elem }) {
                                     })
 
                                     console.log("added request")
+                                    setsentBefore(true)
                                     // setBlockCount(cartCount + 1)
-                                } else {
-                                    console.log("request sent");
-                                }
-                            }}
-                        >
-                            Add friend
-                        </Button>
+                                    // } else {
+                                    //     console.log("request sent before");
+                                    // }
+                                }}
+                            >
+                                Add friend
+                            </Button>
+                        }
                         <Button variant='solid' colorScheme='red'
                             data-id={elem.id}
                             onClick={(e) => {

@@ -15,6 +15,7 @@ ul {
   align-items: center;
   list-style: none;
   margin-bottom: 0 !important;
+  padding: 0 !important;
 }
 
 .logo {
@@ -106,4 +107,7 @@ input {
 }
 .reqNav {
   margin-right: 30px;
+}
+.thead {
+  padding: 20px 0;
 }
