@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 library.add(fas, faTwitter, faFontAwesome)
 
 
-function Layout({ setprods }) {
+function Layout({ setusers }) {
     let loginId = localStorage.getItem("loginId")
     const [isLogged, setisLogged] = useState(false);
     useEffect(() => {
@@ -37,12 +37,16 @@ function Layout({ setprods }) {
                     <li className={style.logo}>
                         <Link to="/">Friender</Link>
                     </li>
+                    {/* <li><Search setusers={setusers} /></li> */}
                     <div className={style.rightNav}>
                         <li className={style.reqNav}>
                             <Link to="/Friends"><div className={style.countContainer}><FontAwesomeIcon icon="fa-solid fa-user" /> <div className={style.count}>{friendLength}</div></div> </Link>
                         </li>
                         <li className={style.reqNav}>
                             <Link to="/Requests"><div className={style.countContainer}><FontAwesomeIcon icon="fa-solid fa-envelope" /> <div className={style.count}>{reqLength}</div></div> </Link>
+                        </li>
+                        <li className={style.reqNav}>
+                            <Link to="/Block"><div className={style.countContainer}><FontAwesomeIcon icon="fa-solid fa-ban" /></div> </Link>
                         </li>
                         <li>
                             <button>

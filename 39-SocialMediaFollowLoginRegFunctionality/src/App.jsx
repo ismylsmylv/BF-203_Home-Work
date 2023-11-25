@@ -6,16 +6,19 @@ import TableMain from './components/table';
 import Layout from './pages/Layout';
 import Requests from './pages/Requests';
 import Friends from "./pages/Friends"
+import Block from "./pages/Block"
 import axios from 'axios'
 
 function App() {
   const [isadmin, setisadmin] = useState(false);//"false" gives admin to everyone
   const [isLogged, setisLogged] = useState(false);
   const [check, setCheck] = useState(false);
+  // const [user, setuser] = useState([]);
   useEffect(() => {
     let loginId = localStorage.getItem("loginId")
-    loginId && axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
-    })
+    //   loginId && axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
+    // setUser(res.data)  
+    // })
     setisLogged(loginId)
   }, []);
   if (isLogged) {
@@ -26,6 +29,7 @@ function App() {
           <Route element={<Layout />} />
           <Route path="/Requests" element={<Requests />} />
           <Route path="/Friends" element={<Friends />} />
+          <Route path="/Block" element={<Block />} />
           <Route
             path="/login"
             element={<LoginForm setisLogged={setisLogged} setisadmin={setisadmin} />}

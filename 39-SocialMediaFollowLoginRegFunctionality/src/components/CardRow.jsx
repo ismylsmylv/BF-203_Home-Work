@@ -1,29 +1,25 @@
 import React, { useState } from 'react';
 
 import {
-    Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
-    TableContainer,
-    Stack,
-    Image
+    Button, ButtonGroup,
+    Card,
+    CardBody, CardFooter,
+    Heading,
+    Image,
+    Stack
 } from '@chakra-ui/react';
-import { Button, ButtonGroup } from '@chakra-ui/react';
-import axios from 'axios';
-import { Card, CardHeader, CardBody, CardFooter, SimpleGrid, Heading, Text } from '@chakra-ui/react'
-import { useEffect } from 'react';
-import style from "../style/Layout.module.css"
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFontAwesome, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+import { useEffect } from 'react';
+import style from "../style/Layout.module.css";
 library.add(fas, faTwitter, faFontAwesome, faHeart)
+
+
+
 
 
 
@@ -33,7 +29,7 @@ function CardRow({ elem }) {
     const [friendCount, setfriendCount] = useState(0);
     const [isFriend, setIsFriend] = useState(false);
     const [sentBefore, setsentBefore] = useState(false);
-    let blockedLength
+    const [block, setBlock] = useState([]);
     let loginId = JSON.parse(localStorage.getItem("loginId"))
     useEffect(() => {
         axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
@@ -41,11 +37,22 @@ function CardRow({ elem }) {
             setIsFriend(res.data.friends?.some((item) => item.id == elem.id) || false);
             console.log(loginData)
         })
-        setBlockCount((loginData.blocked ? loginData.blocked.length : 0));
         setfriendCount((loginData.friends ? loginData.friends.length : 0));
     }, []);
 
-
+    const blockUser = (elem) => {
+        if (!loginData.blocked.some((item) => item.id === elem.id)) {
+            let updatedBlocked = [...loginData.blocked, elem];
+            axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
+                ...loginData,
+                blocked: updatedBlocked,
+            }).then(() => {
+                setBlock(updatedBlocked);
+            })
+        } else {
+            console.log("already blocked");
+        }
+    };
 
     return (
         <>
@@ -96,32 +103,13 @@ function CardRow({ elem }) {
                                 Add friend
                             </Button>
                         }
+
+
+                        {/* block */}
                         <Button variant='solid' colorScheme='red'
                             data-id={elem.id}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                if (!loginData.blocked.some((item) => item.id === elem.id)) {
-                                    let elemObj = {
-                                        "username": elem.name,
-                                        "password": elem.password,
-                                        "friends": elem.friends,
-                                        "requests": elem.requests,
-                                        "blocked": elem.blocked,
-                                        "id": elem.id
-                                    }
-                                    loginData.cart.push(elemObj);
-                                    axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId, {
-                                        "username": loginData.username,
-                                        "password": loginData.password,
-                                        "friends": loginData.friends,
-                                        "requests": loginData.requests,
-                                        "blocked": loginData.blocked,
-                                        "id": loginData.id
-                                    })
-                                    setblockedCount(blockedCount + 1)
-                                } else {
-                                    console.log("in cart");
-                                }
+                            onClick={() => {
+                                blockUser(elem);
                             }}
                         >
                             <FontAwesomeIcon icon="fa-solid fa-ban" />
