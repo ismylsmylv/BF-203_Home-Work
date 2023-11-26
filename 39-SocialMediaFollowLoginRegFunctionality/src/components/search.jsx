@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import style from '../style/Layout.module.css';
 import { v4 as uuidv4 } from 'uuid';
-function Search({ setusers }) {
+function Search({ setusers, users }) {
     const [datas, setdatas] = useState([]);
     const [results, setresults] = useState([]);
     const [listResults, setlistResults] = useState(false);

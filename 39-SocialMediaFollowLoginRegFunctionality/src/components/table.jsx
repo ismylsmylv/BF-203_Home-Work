@@ -17,7 +17,7 @@ function TableMain({ User }) {
     }, []);
     return (
         <>
-            <Layout setusers={setusers} />
+            <Layout setusers={setusers} users={users} />
             <div className='main container'>
 
                 {/* table */}
