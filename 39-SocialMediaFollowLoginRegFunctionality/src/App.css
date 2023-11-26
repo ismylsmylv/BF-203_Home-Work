@@ -78,3 +78,6 @@ p {
 Button {
   margin-right: 5px;
 }
+Image {
+  padding-top: 20px !important;
+}

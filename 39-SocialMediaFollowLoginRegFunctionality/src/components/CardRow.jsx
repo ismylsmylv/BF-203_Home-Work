@@ -60,7 +60,7 @@ function CardRow({ elem }) {
             <Card maxW='sm' >
                 <CardBody className={style.cardBody}>
                     <Image className={style.cardImg}
-                        src='https://cdn.worldvectorlogo.com/logos/ligam.svg'
+                        src='https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg'
                         alt='Green double couch with wooden legs'
                         borderRadius='lg'
                     />

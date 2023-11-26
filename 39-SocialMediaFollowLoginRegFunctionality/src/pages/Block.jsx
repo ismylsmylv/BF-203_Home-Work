@@ -23,9 +23,7 @@ function Block() {
             blocked: block.filter((user) => user.username !== username),
         }).then(() => {
             setBlock((prevBlock) => prevBlock.filter((user) => user.username !== username));
-        }).catch((error) => {
-            console.error('Error unblocking user:', error);
-        });
+        })
     };
 
     return (
@@ -39,7 +37,7 @@ function Block() {
                             <CardBody>
                                 <Image
                                     className={style.cardImg}
-                                    src='https://cdn.worldvectorlogo.com/logos/ligam.svg'
+                                    src='https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg'
                                     alt='Green double couch with wooden legs'
                                     borderRadius='lg'
                                 />

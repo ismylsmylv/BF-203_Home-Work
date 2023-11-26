@@ -21,7 +21,7 @@ function Friends() {
 
     // remove friend
     const removeFriend = (friendId) => {
-        const updatedFriends = user.friends.filter((friend) => friend.id !== friendId);
+        const updatedFriends = user.friends?.filter((friend) => friend.id !== friendId);
 
         axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
             ...user,
@@ -37,7 +37,7 @@ function Friends() {
                 const otherUser = res.data.find((userData) => userData.friends?.some((friend) => friend.id === loginId));
 
                 if (otherUser) {
-                    const updatedOtherFriends = otherUser.friends.filter((friend) => friend.id !== loginId);
+                    const updatedOtherFriends = otherUser.friends?.filter((friend) => friend.id !== loginId);
 
                     axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${otherUser.id}`, {
                         ...otherUser,
