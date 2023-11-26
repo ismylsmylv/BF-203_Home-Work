@@ -111,3 +111,7 @@ input {
 .thead {
   padding: 20px 0;
 }
+.error {
+  padding: 10px 0;
+  color: red;
+}
