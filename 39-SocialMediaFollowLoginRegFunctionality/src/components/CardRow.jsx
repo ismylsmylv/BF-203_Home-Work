@@ -29,6 +29,7 @@ function CardRow({ elem }) {
     const [friendCount, setfriendCount] = useState(0);
     const [isFriend, setIsFriend] = useState(false);
     const [sentBefore, setsentBefore] = useState(false);
+    const [reqSent, setreqSent] = useState(false);
     const [block, setBlock] = useState([]);
     let loginId = JSON.parse(localStorage.getItem("loginId"))
     useEffect(() => {
@@ -75,33 +76,48 @@ function CardRow({ elem }) {
                                 Friend
                             </Button>
                         ) : (
-                            <Button
-                                className={style.cardCartBtn}
-                                variant='solid'
-                                colorScheme='blue'
-                                data-id={elem.id}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    let req = elem.requests || [];
-                                    let obj = {
-                                        "username": loginData.username,
-                                        "id": loginData.id
-                                    };
-                                    req.push(obj);
-                                    axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + elem.id, {
-                                        "username": elem.username,
-                                        "password": elem.password,
-                                        "friends": elem.friends,
-                                        "requests": req,
-                                        "blocked": elem.blocked,
-                                        "id": elem.id
-                                    });
-                                    console.log("added request");
-                                    setsentBefore(true);
-                                }}
-                            >
-                                Add friend
-                            </Button>
+                            reqSent ? (
+                                <Button
+                                    className={style.cardCartBtn}
+                                    variant='solid'
+                                    colorScheme='cyan'
+                                    data-id={elem.id}
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                    }}
+                                >
+                                    Request sent
+                                </Button>) : (
+                                <Button
+                                    className={style.cardCartBtn}
+                                    variant='solid'
+                                    colorScheme='blue'
+                                    data-id={elem.id}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        let req = elem.requests || [];
+                                        let obj = {
+                                            "username": loginData.username,
+                                            "id": loginData.id
+                                        };
+                                        req.push(obj);
+                                        axios.put("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + elem.id, {
+                                            "username": elem.username,
+                                            "password": elem.password,
+                                            "friends": elem.friends,
+                                            "requests": req,
+                                            "blocked": elem.blocked,
+                                            "id": elem.id
+                                        });
+                                        console.log("added request");
+                                        setsentBefore(true);
+                                        setreqSent(true)
+                                    }}
+                                >
+                                    Add friend
+                                </Button>
+                            )
+
                         )}
 
                         {/* Block Button */}
