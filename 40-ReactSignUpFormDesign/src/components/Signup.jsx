@@ -58,10 +58,14 @@ function Signup() {
 
                     <div className="options">
                         <div className="optL">
-                            <input type="checkbox" name="" id="" />
-                            <span>Remember me</span>
-                            <input type="checkbox" name="" id="" />
-                            <span>I agree to all the <a href="#">Terms</a> and <a href="#">Privacy policy</a> </span>
+                            <div className="optInput">
+                                <input type="checkbox" name="" id="" />
+                                <span>Remember me</span>
+                            </div>
+                            <div className="optInput">
+                                <input type="checkbox" name="" id="" />
+                                <span>I agree to all the <a href="#">Terms</a> and <a href="#">Privacy policy</a> </span>
+                            </div>
                         </div>
                         <div className="optR"><a href="#">Forgot password?</a></div>
                     </div>
