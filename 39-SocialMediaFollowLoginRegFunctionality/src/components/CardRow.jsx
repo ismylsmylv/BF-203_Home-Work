@@ -34,16 +34,18 @@ function CardRow({ elem }) {
     let loginId = JSON.parse(localStorage.getItem("loginId"))
     useEffect(() => {
         axios("https://654bcb115b38a59f28efb8ab.mockapi.io/users/" + loginId).then(res => {
-            setloginData(res.data)
+            setloginData(res)
             setIsFriend(res.data.friends?.some((item) => item.id == elem.id) || false);
+            setreqSent(res.data.requests?.some((item) => item.id == elem.id) || false);
             console.log(loginData)
         })
         setfriendCount((loginData.friends ? loginData.friends.length : 0));
-    }, []);
+    }, [loginId]);
 
     const blockUser = (elem) => {
+        let updatedBlocked = loginData.blocked || []
         if (!loginData.blocked?.some((item) => item.id === elem.id)) {
-            let updatedBlocked = [...loginData.blocked, elem];
+            updatedBlocked.push({ "username": elem.username, "id": elem.id });
             axios.put(`https://654bcb115b38a59f28efb8ab.mockapi.io/users/${loginId}`, {
                 ...loginData,
                 blocked: updatedBlocked,
@@ -54,6 +56,15 @@ function CardRow({ elem }) {
             console.log("already blocked");
         }
     };
+    // const reqSentBefore = (elem) => {
+    //     if (!loginData.requests?.some((item) => item.id === elem.id)) {
+    //         setreqSent(true)
+    //     }
+    // };
+    // useEffect(() => {
+    //     reqSentBefore()
+    // }, []);
+
 
     return (
         <>
@@ -76,6 +87,7 @@ function CardRow({ elem }) {
                                 Friend
                             </Button>
                         ) : (
+
                             reqSent ? (
                                 <Button
                                     className={style.cardCartBtn}
@@ -110,7 +122,7 @@ function CardRow({ elem }) {
                                             "id": elem.id
                                         });
                                         console.log("added request");
-                                        setsentBefore(true);
+                                        // setsentBefore(true);
                                         setreqSent(true)
                                     }}
                                 >
