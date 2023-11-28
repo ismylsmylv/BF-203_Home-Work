@@ -36,7 +36,9 @@ function Signup() {
                     </div>
                     <div className="formHead">Create account</div>
                     <div className="formSub">For business, band or celebrity.</div>
-                    <SignForm />
+                    <div className="form">
+                        <SignForm />
+                    </div>
 
                     <div className="options">
                         <div className="optL">

@@ -198,7 +198,7 @@ input {
   width: 100%;
   margin-bottom: 22px;
 }
-.btns button {
+button {
   border-radius: 3.5px;
   padding: 13.5px;
   width: 50%;
@@ -210,13 +210,13 @@ input {
   line-height: normal;
   letter-spacing: -0.198px;
 }
-.btns .btnLeft {
+.btnLeft {
   background-color: #007aff;
   margin-right: 25px;
   width: 100%;
 }
 
-.btns .btnRight {
+.btnRight {
   background-color: #2d3748;
   width: 100%;
 }
