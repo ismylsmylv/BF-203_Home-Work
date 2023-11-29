@@ -37,19 +37,19 @@ function Signup() {
                     </div>
 
 
+                    <div className="opt">
 
-                </div>
-                <div className="opt">
+                        Don’t have an account? <a style={{ cursor: "pointer" }} onClick={() => {
+                            navigate('/LogIn')
+                        }}> Log In</a>
 
-                    Don’t have an account? <a style={{ cursor: "pointer" }} onClick={() => {
-                        navigate('/LogIn')
-                    }}> Log In</a>
+                    </div>
+                    <div className="apps">
+                        <div className="imgL"><img src={playstore} alt="" /></div>
+                        <div className="imgR"><img src={appstore} alt="" /></div>
+                    </div>
+                </div>
 
-                </div>
-                <div className="apps">
-                    <div className="imgL"><img src={playstore} alt="" /></div>
-                    <div className="imgR"><img src={appstore} alt="" /></div>
-                </div>
             </div>
 
 

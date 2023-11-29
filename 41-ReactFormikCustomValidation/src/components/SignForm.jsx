@@ -184,11 +184,11 @@ function SignForm() {
                         <div className="options">
                             <div className="optL">
                                 <div className="optInput">
-                                    <input type="checkbox" onChange={() => setremember(!remember)} />
+                                    <input type="checkbox" onChange={() => setremember(!remember)} className='inpCheckBox' />
                                     <span>Remember me</span>
                                 </div>
                                 <div className="optInput">
-                                    <input type="checkbox"
+                                    <input type="checkbox" className='inpCheckBox'
                                         onChange={() => setIsCheckboxChecked(!isCheckboxChecked)} />
                                     <span>I agree to all the <a href="#">Terms</a> and <a href="#">Privacy policy</a> </span>
                                 </div>
