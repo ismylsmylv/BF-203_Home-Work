@@ -15,59 +15,59 @@ function SignForm() {
                     const errors = {};
                     // email check
                     if (!values.email) {
-                        errors.email = 'Required';
+                        errors.email = <div className='errors'>Required</div>;
                     } else if (
                         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
                     ) {
-                        errors.email = 'Invalid email address';
+                        errors.email = <div className='errors'>Invalid email address</div>;
                     }
                     // name check
                     if (values.Fname.trim() == "") {
-                        errors.Fname = "Name can not be empty"
+                        errors.Fname = <div className='errors'>Name can not be empty</div>
                     }
                     else if (
                         !/^[a-zA-Z]+$/.test(values.Fname)
                     ) {
-                        errors.Fname = 'Only alphabetical symbols';
+                        errors.Fname = <div className='errors'>Only alphabetical symbols</div>;
                     }
                     else if (values.Fname.length < 4 || values.Fname.length > 10) {
-                        errors.Fname = "Name should contain more than 3 and less than 10 characters"
+                        errors.Fname = <div className='errors'>Name should contain more than 3 and less than 10 characters</div>
                     }
                     // surname check
                     if (values.Lname.trim() == "") {
-                        errors.Lname = "Name can not be empty"
+                        errors.Lname = <div className='errors'>Name can not be empty</div>
                     }
                     else if (
                         !/^[a-zA-Z]+$/.test(values.Lname)
                     ) {
-                        errors.Lname = 'Only alphabetical symbols';
+                        errors.Lname = <div className='errors'>Only alphabetical symbols</div>;
                     }
                     else if (values.Lname.length < 4 || values.Lname.length > 10) {
-                        errors.Lname = "Name should contain more than 3 and less than 10 characters"
+                        errors.Lname = <div className='errors'>Name should contain more than 3 and less than 10 characters</div>
                     }
 
                     // phone check
                     if (!values.tel) {
-                        errors.tel = "Enter phone number";
+                        errors.tel = <div className='errors'>Enter phone number</div>;
                     } else if (!/^(050|051|055|070|077|010)\d{7}$/.test(values.tel)) {
-                        errors.tel = "Invalid phone number";
+                        errors.tel = <div className='errors'>Invalid phone number</div>;
+
                     }
 
                     // password check
                     if (!values.password) {
-                        errors.password = "Password is required";
+                        errors.password = <div className='errors'>Password is required</div>;
                     } else if (
                         !/(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}/.test(values.password)
                     ) {
-                        errors.password =
-                            "Password must have at least 1 uppercase letter, 1 lowercase letter, 1 digit, and be at least 6 characters long";
+                        errors.password = <div className='errors'>Password must have at least 1 uppercase letter, 1 lowercase letter, 1 digit, and be at least 6 characters long</div>;
                     }
 
                     // confirm password check
                     if (!values.confirmPassword) {
-                        errors.confirmPassword = "Confirm Password is required";
+                        errors.confirmPassword = <div className='errors'>Confirm Password is required</div>;
                     } else if (values.confirmPassword !== values.password) {
-                        errors.confirmPassword = "Passwords do not match";
+                        errors.confirmPassword = <div className='errors'>Passwords do not match</div>;
                     }
 
 
