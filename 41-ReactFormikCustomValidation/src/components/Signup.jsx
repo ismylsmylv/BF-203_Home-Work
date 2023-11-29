@@ -11,7 +11,9 @@ import SignUpGoogle from '../pages/SignUpGoogle'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import SignBtns from "./SignBtns";
 import SignForm from "./SignForm";
+import { useNavigate } from "react-router-dom";
 function Signup() {
+    const navigate = useNavigate();
     return (
         <>
 
@@ -40,24 +42,14 @@ function Signup() {
                         <SignForm />
                     </div>
 
-                    <div className="options">
-                        <div className="optL">
-                            <div className="optInput">
-                                <input type="checkbox" name="" id="" />
-                                <span>Remember me</span>
-                            </div>
-                            <div className="optInput">
-                                <input type="checkbox" name="" id="" />
-                                <span>I agree to all the <a href="#">Terms</a> and <a href="#">Privacy policy</a> </span>
-                            </div>
-                        </div>
-                        <div className="optR"><a href="#">Forgot password?</a></div>
-                    </div>
+
 
                 </div>
                 <div className="opt">
 
-                    Don’t have an account? <a href="#"> Log In</a>
+                    Don’t have an account? <a style={{ cursor: "pointer" }} onClick={() => {
+                        navigate('/LogIn')
+                    }}> Log In</a>
 
                 </div>
                 <div className="apps">

@@ -7,7 +7,9 @@ import SignUpGoogle from '../pages/SignUpGoogle'
 import SignBtns from './SignBtns'
 import '../style/signup.css'
 import { Formik } from 'formik';
+import { useNavigate } from "react-router-dom";
 function SignForm() {
+    const navigate = useNavigate();
     return (
         <>
             <Formik
@@ -157,27 +159,42 @@ function SignForm() {
                             </div>
                         </div>
                         <div className="btns">
-                            <button className="btnLeft" type="submit" disabled={isSubmitting}>Create account</button>
-                            <button className="btnRight"><img src={google} alt="" /> Sign-in with google</button>
+                            <button
+                                className="btnLeft"
+                                type="button"
+                                disabled={isSubmitting}
+                                onClick={() => {
+                                    navigate("/SignUp");
+                                }}
+                            >
+                                Create account
+                            </button>
+                            <button className="btnRight" onClick={() => {
+                                navigate("/SignUpGoogle");
+                            }}>
+                                <img src={google} alt="" /> Sign-in with google
+                            </button>
+                        </div>
+                        <div className="options">
+                            <div className="optL">
+                                <div className="optInput">
+                                    <input type="checkbox" name="" id="" />
+                                    <span>Remember me</span>
+                                </div>
+                                <div className="optInput">
+                                    <input type="checkbox" name="" id="" />
+                                    <span>I agree to all the <a href="#">Terms</a> and <a href="#">Privacy policy</a> </span>
+                                </div>
+                            </div>
+                            <div className="optR" style={{ cursor: "pointer" }}><a onClick={() => {
+                                navigate('/Forgot')
+                            }}>Forgot password?</a></div>
                         </div>
                     </form>
                     // <Link to="/SignUp">Create account</Link>
                     // <Link to="/SignUpGoogle"></Link>
                 )}
             </Formik>
-
-            <div className="btns">
-                <BrowserRouter>
-                    <Routes>
-                        <Route path="/" element={<SignBtns />}>
-                            <Route path="/SignUp" element={<SignUp />} />
-                            <Route path="/SignUpGoogle" element={<SignUpGoogle />} />
-                            {/* </Route> */}
-                        </Route>
-                    </Routes>
-                </BrowserRouter>
-                <Outlet />
-            </div>
         </>
     )
 }
