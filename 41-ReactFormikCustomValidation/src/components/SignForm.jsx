@@ -1,15 +1,12 @@
-import { Link, Outlet } from "react-router-dom";
-import google from "../assets/img/iconfinder_Google_1298745 1.png"
-import React from 'react'
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import SignUp from '../pages/SignUp'
-import SignUpGoogle from '../pages/SignUpGoogle'
-import SignBtns from './SignBtns'
-import '../style/signup.css'
 import { Formik } from 'formik';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import google from "../assets/img/iconfinder_Google_1298745 1.png";
+import '../style/signup.css';
 function SignForm() {
     const navigate = useNavigate();
+    const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+    const [remember, setremember] = useState(false);
     return (
         <>
             <Formik
@@ -79,6 +76,7 @@ function SignForm() {
                     return errors;
                 }}
                 onSubmit={(values, { setSubmitting }) => {
+                    setSubmitting(true);
                     setTimeout(() => {
                         alert(JSON.stringify(values, null, 2));
                         setSubmitting(false);
@@ -161,10 +159,18 @@ function SignForm() {
                         <div className="btns">
                             <button
                                 className="btnLeft"
-                                type="button"
-                                disabled={isSubmitting}
-                                onClick={() => {
-                                    navigate("/SignUp");
+                                type="submit"
+                                disabled={!isCheckboxChecked} onClick={(e) => {
+                                    e.preventDefault()
+                                    // navigate("/SignUp");
+                                    // resetForm()
+                                    console.log("create account")
+                                    // console.log(isSubmitting)
+                                    console.log(values)
+                                    if (remember) {
+                                        localStorage.setItem("credentials", JSON.stringify(values));
+
+                                    }
                                 }}
                             >
                                 Create account
@@ -178,11 +184,12 @@ function SignForm() {
                         <div className="options">
                             <div className="optL">
                                 <div className="optInput">
-                                    <input type="checkbox" name="" id="" />
+                                    <input type="checkbox" onChange={() => setremember(!remember)} />
                                     <span>Remember me</span>
                                 </div>
                                 <div className="optInput">
-                                    <input type="checkbox" name="" id="" />
+                                    <input type="checkbox"
+                                        onChange={() => setIsCheckboxChecked(!isCheckboxChecked)} />
                                     <span>I agree to all the <a href="#">Terms</a> and <a href="#">Privacy policy</a> </span>
                                 </div>
                             </div>
